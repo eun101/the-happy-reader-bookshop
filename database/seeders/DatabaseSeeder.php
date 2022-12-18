@@ -16,14 +16,27 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Super Admin',
+            'email' => 'superadmin@thr.com',
+        ]);
 
 
 
         \App\Models\OrderList::factory(100)->create();	 
         \App\Models\Order::factory(100)->create();
+        \App\Models\Cart::factory(100)->create();
+        \App\Models\Customer::factory(100)->create();
+        \App\Models\Inventory::factory(100)->create();
+        \App\Models\Product::factory(100)->create();
+        \App\Models\Sale::factory(100)->create();
+
+
+        \App\Models\Category::factory()->create(['categ_category_name'=> 'Cookbooks',]);
+        \App\Models\Category::factory()->create(['categ_category_name'=> 'Inspirational',]);
+        \App\Models\Category::factory()->create(['categ_category_name'=> 'Family Life',]);
+        \App\Models\Category::factory()->create(['categ_category_name'=> 'Youth',]);
+        \App\Models\Category::factory()->create(['categ_category_name'=> 'Spirituality',]);
+
     }
 }

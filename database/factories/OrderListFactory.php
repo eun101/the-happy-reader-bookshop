@@ -18,11 +18,11 @@ class OrderListFactory extends Factory
     public function definition()
     {
         return [
-            'ordlist_ord_id' => Str::random(10),
-            'ordlist_prod_id' => Str::random(10),
+            'ordlist_ord_id' =>fake()-> numberBetween(1,100),
+            'ordlist_prod_id' => fake() -> numberBetween(1,20),
             'ordlist_quantity' => fake()-> numberBetween(10,20),
-            'ordlist_price' =>  fake() -> randomDigit(299),
-            'ordlist_total' =>  fake() ->  randomDigit(299),
+            'ordlist_price' =>  fake()->randomNumber(3, true),
+            'ordlist_total' =>  fake() ->randomNumber(3, true),
             'created_by' => 1,
             'created_at'=>fake()->dateTime(),
             'updated_at'=>fake()->dateTime(),

@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->increments('ord_id');
-            $table -> integer ('ord_cust_id');
-            $table->string('ord_delivery_address', 300) -> nullable();
-            $table->string('ord_payment_method');
-            $table->float('ord_amount');
-            $table->integer('ord_status');
-            $table->integer('ord_paid');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('categ_id');
+            $table->string('categ_category_name', 200);
+            $table->string('categ_description', 300) -> nullable();
+            $table->integer('categ_status');
             $table->integer('created_by');
             $table->dateTime('created_at');
             $table->integer('modified_by')->nullable()->default(0);
@@ -36,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('categories');
     }
 };
