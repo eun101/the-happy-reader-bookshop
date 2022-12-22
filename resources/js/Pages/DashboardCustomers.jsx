@@ -1,13 +1,13 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head } from '@inertiajs/inertia-react';
 import Button from 'react-bootstrap/Button'
 
-export default function Dashboard(props) {
+export default function DashboardCustomers(props) {
     return (
-        <AuthenticatedLayout
+        <AuthenticatedLayoutCustomers
             auth={props.auth}
             errors={props.errors}
-            header={<h2>Dashboard Admin</h2>}
+            header={<h2>Dashboard Customers</h2>}
         >
             <Head title="Dashboard" />
 
@@ -27,6 +27,6 @@ export default function Dashboard(props) {
 
 
             </div>
-        </AuthenticatedLayout>
+        </AuthenticatedLayoutCustomers>
     );
 }

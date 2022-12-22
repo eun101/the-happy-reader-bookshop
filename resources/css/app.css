@@ -9,3 +9,16 @@ h2 {
     font-weight: 500;
     font-size: 20px;
 }
+
+
+.container {
+    max-width: 100%;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+
+.shop-now{
+    background-color: white !important;
+    color: black !important;
+}

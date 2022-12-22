@@ -1,9 +1,12 @@
 import React from 'react'
 
-function index() {
+
+export default function Orer() {
+
   return (
+    <GuestLayout>
     <div>index</div>
+    </GuestLayout>
   )
 }
 
-export default index
