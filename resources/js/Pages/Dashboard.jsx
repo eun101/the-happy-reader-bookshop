@@ -1,6 +1,8 @@
+
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+
 
 export default function Dashboard(props) {
     return (

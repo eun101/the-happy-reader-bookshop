@@ -8,6 +8,12 @@ use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
+
+    protected $modelService = null;
+    
+    public function __construct(IModelService $modelService){
+        $this->modelService = $modelService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Books/Index',[
+            'products'=>Book::get(),
+        ]);
     }
 
     /**
@@ -25,7 +33,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Books/Create');
     }
 
     /**
