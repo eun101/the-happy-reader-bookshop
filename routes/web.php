@@ -1,15 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-<<<<<<< HEAD
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerProfileController;
-=======
->>>>>>> db3fcebcce2a59996c9d5e34193d56a31d2c5147
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\OrderController;
 
 
 /*
@@ -36,7 +32,6 @@ Route::get('/', function () {
 });
 
 
-<<<<<<< HEAD
 Route::get('/admin', function () {
     return Inertia::render('LoginAdmin', [
         'canLogin' => Route::has('login'),
@@ -48,10 +43,6 @@ Route::get('/admin', function () {
 
 Route::get('/admin', function(){
     return Inertia::render ('Dashboard');
-=======
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
->>>>>>> db3fcebcce2a59996c9d5e34193d56a31d2c5147
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('customer/account', function () {
@@ -71,7 +62,6 @@ Route::get('/order', function () {
 
 
 Route::middleware('auth')->group(function () {
-<<<<<<< HEAD
     Route::prefix('customer')->group(function(){
     Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
@@ -88,13 +78,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
 });
-=======
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::resource('orders', OrderController::class);
->>>>>>> db3fcebcce2a59996c9d5e34193d56a31d2c5147
 });
 
 
