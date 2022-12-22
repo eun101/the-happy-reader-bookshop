@@ -24,7 +24,9 @@ class StoreSaleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+                'sales_order_id' => 'required|unique:orders|max:15',
+                'sales_total_amount'=> 'required|max:500',
+               
         ];
     }
 }
