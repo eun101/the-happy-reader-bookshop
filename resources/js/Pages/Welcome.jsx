@@ -16,17 +16,23 @@ export default function Welcome(props) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <NavLink href={route('order.index')} active={route().current('order.index')}> Shop </NavLink>
-                    <NavLink href={route('order.index')} active={route().current('order.index')}> Blog </NavLink>
-                    <NavLink href={route('order.index')} active={route().current('order.index')}>Contact Us </NavLink>
-                    <NavLink href={route('order.index')} active={route().current('order.index')}>About Us </NavLink>
+                    <NavLink href={route('orders.index')} active={route().current('orders.index')}> Shop </NavLink>
+                    <NavLink href={route('orders.index')} active={route().current('orders.index')}> Blog </NavLink>
+                    <NavLink href={route('orders.index')} active={route().current('orders.index')}>Contact Us </NavLink>
+                    <NavLink href={route('orders.index')} active={route().current('orders.index')}>About Us </NavLink>
                 </Nav>
                 <Nav>
                     <div className="fixed top-0 right-0 p-4 px-5">
                         {props.auth.user ? (
-                            <Navlink href={route('customeraccount')} active={route().current('customeraccount')}>
+                            
+                            <Navlink href={route('dashboard')} active={route().current('dashboard')}>
                                 Dashboard
                             </Navlink>
+
+
+
+
+
                         ) : (
                             <>
                                 <Link href={route('login')} className="text-sm text-gray-700 dark:text-gray-500 underline">

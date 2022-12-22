@@ -8,17 +8,6 @@ import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
 
-<<<<<<< HEAD
-export default function Orer() {
-
-  return (
-    <GuestLayout>
-    <div>index</div>
-    </GuestLayout>
-  )
-}
-
-=======
 export default function Orders(props) {
 
     const [filters, setFilters] = useState();
@@ -124,4 +113,3 @@ export default function Orders(props) {
         </AuthenticatedLayout>
     );
 }
->>>>>>> db3fcebcce2a59996c9d5e34193d56a31d2c5147

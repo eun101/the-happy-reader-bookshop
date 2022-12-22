@@ -41,6 +41,8 @@ Route::get('/admin', function () {
     ]);
 });
 
+
+
 Route::get('/admin', function(){
     return Inertia::render ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -50,15 +52,15 @@ Route::get('customer/account', function () {
 })->middleware(['auth', 'verified'])->name('customeraccount');
 
 
-// Route::get('/about-us', function () {
-//     return Inertia::render('AboutUs');
-// });
+Route::get('/about-us', function () {
+    return Inertia::render('AboutUs');
+});
 
 
 
-Route::get('/order', function () {
-    return Inertia::render('Order.Index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/order', function () {
+//     return Inertia::render('Order.Index');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
@@ -67,9 +69,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [CustomerProfileController::class, 'destroy'])->name('profile.destroy');
 
-});
-});
+ 
 
+});
+});
 
 
 Route::middleware('auth')->group(function () {
@@ -77,8 +80,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('adminprofile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
+
+    Route::resource('orders', OrderController::class);
 });
 });
+
 
 
 
