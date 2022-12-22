@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -8,6 +10,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ProductController;
+
 
 
 
@@ -35,14 +38,29 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+Route::get('/admin', function () {
+    return Inertia::render('LoginAdmin', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+
+
+Route::get('/admin', function(){
+    return Inertia::render ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('customer/account', function () {
+    return Inertia::render('DashboardCustomers');
+})->middleware(['auth', 'verified'])->name('customeraccount');
 
-// Route::get('/about-us', function () {
-//     return Inertia::render('AboutUs');
-// });
+
+Route::get('/about-us', function () {
+    return Inertia::render('AboutUs');
+});
 
 
 
@@ -50,10 +68,24 @@ Route::get('/dashboard', function () {
 //     return Inertia::render('Order.Index');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::prefix('customer')->group(function(){
+    Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [CustomerProfileController::class, 'destroy'])->name('profile.destroy');
+
+ 
+
+});
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->group(function(){
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('adminprofile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
 
     Route::resource('customers', CustomerController::class);
     Route::resource('orders', OrderController::class);
@@ -63,6 +95,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('blogs', SaleController::class);
  
 });
+});
+
+
+
 
 
 require __DIR__.'/auth.php';
