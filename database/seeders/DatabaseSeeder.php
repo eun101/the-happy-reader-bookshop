@@ -21,6 +21,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'superadmin@thr.com',
         ]);
 
+        
+        \App\Models\Customer::factory()->create([
+            'cust_firstname' => 'Customer',
+            'cust_lastname' => '1',
+            'cust_email' => 'customer11@gmail.com',
+            'cust_password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        ]);
+
 
 
         \App\Models\OrderList::factory(100)->create();	 
