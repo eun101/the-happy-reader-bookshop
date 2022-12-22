@@ -3,11 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\User;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Services\OrderService as IModelService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
+
+    protected $modelService = null;
+    
+    public function __construct(IModelService $modelService){
+        $this->modelService = $modelService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Customers/Index',[
+            'customers'=>Customer::get(),
+        ]);
     }
 
     /**
@@ -25,7 +39,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Customers/Create');
     }
 
     /**
@@ -36,7 +50,7 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        //
+       
     }
 
     /**

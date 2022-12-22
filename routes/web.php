@@ -4,7 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\ProductController;
+
 
 
 /*
@@ -51,7 +55,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('customers', CustomerController::class);
     Route::resource('orders', OrderController::class);
+    Route::resource('sales', SaleController::class);
+    Route::resource('books', ProductController::class);
+    Route::resource('inventories',InventoryController::class);
+    Route::resource('blogs', SaleController::class);
+ 
 });
 
 
