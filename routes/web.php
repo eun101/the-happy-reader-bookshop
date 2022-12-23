@@ -26,8 +26,6 @@ use App\Http\Controllers\InventoryController;
 */
 
 
-
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -38,16 +36,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin', function () {
-    return Inertia::render('LoginAdmin', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-
+// Route::get('/admin', function () {
+//     return Inertia::render('LoginAdmin', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 Route::get('/admin', function(){
     return Inertia::render ('Dashboard');
@@ -58,10 +54,9 @@ Route::get('customer/account', function () {
 })->middleware(['auth', 'verified'])->name('customeraccount');
 
 
-Route::get('/about-us', function () {
-    return Inertia::render('AboutUs');
-});
-
+// Route::get('/about-us', function () {
+//     return Inertia::render('AboutUs');
+// });
 
 
 // Route::get('/order', function () {
@@ -74,9 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [CustomerProfileController::class, 'destroy'])->name('profile.destroy');
-
- 
-
 });
 });
 
