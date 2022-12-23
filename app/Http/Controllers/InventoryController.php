@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\User;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Services\OrderService as IModelService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class InventoryController extends Controller
 {
+    protected $modelService = null;
+    
+    public function __construct(IModelService $modelService){
+        $this->modelService = $modelService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +26,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Inventory/Index',[
+            'inventories'=>Inventory::get(),
+        ]);
     }
 
     /**
@@ -25,7 +38,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Inventory/Create');
     }
 
     /**

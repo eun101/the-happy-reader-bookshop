@@ -20,8 +20,7 @@ export default function Welcome(props) {
                     <NavLink href={route('orders.index')} active={route().current('orders.index')}> Blog </NavLink>
                     <NavLink href={route('orders.index')} active={route().current('orders.index')}>Contact Us </NavLink>
                     <NavLink href={route('orders.index')} active={route().current('orders.index')}>About Us </NavLink>
-                </Nav>
-                <Nav>
+                
                     <div className="fixed top-0 right-0 p-4 px-5">
                         {props.auth.user ? (
                             

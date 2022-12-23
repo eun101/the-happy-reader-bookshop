@@ -1,6 +1,8 @@
+
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+
 
 export default function Dashboard(props) {
     return (
@@ -18,8 +20,10 @@ export default function Dashboard(props) {
                         <div className="p-12 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
+                                    
                                 <tr>
                                     <th className="pb-4 pt-6 px-6">To Be Packed</th>
+                                    <hr/>
                                     <th className="pb-4 pt-6 px-6">To be Shipped</th>
                                     <th className="pb-4 pt-6 px-6">Shipped</th>
                                 </tr>

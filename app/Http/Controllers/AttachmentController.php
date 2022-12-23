@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Models\Attachment;
+use App\Http\Requests\StoreAttachmentRequest;
+use App\Http\Requests\UpdateAttachmentRequest;
 
-class ProductController extends Controller
+class AttachmentController extends Controller
 {
-
-    protected $modelService = null;
-    
-    public function __construct(IModelService $modelService){
-        $this->modelService = $modelService;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Books/Index',[
-            'products'=>Book::get(),
-        ]);
+        //
     }
 
     /**
@@ -33,16 +25,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Books/Create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
+     * @param  \App\Http\Requests\StoreAttachmentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreAttachmentRequest $request)
     {
         //
     }
@@ -50,10 +42,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Attachment  $attachment
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Attachment $attachment)
     {
         //
     }
@@ -61,10 +53,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Attachment  $attachment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Attachment $attachment)
     {
         //
     }
@@ -72,11 +64,11 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Http\Requests\UpdateAttachmentRequest  $request
+     * @param  \App\Models\Attachment  $attachment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateAttachmentRequest $request, Attachment $attachment)
     {
         //
     }
@@ -84,10 +76,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Attachment  $attachment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Attachment $attachment)
     {
         //
     }
