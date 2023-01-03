@@ -1,4 +1,3 @@
-
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/inertia-react';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +8,7 @@ export default function Dashboard(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2>Dashboard Admin</h2>}
+            header={<h5>Dashboard Admin</h5>}
         >
             <Head title="Dashboard" />
 
@@ -87,6 +86,8 @@ export default function Dashboard(props) {
                 </div>
             </div>
             
+          
+
             
         </AuthenticatedLayout>
     );

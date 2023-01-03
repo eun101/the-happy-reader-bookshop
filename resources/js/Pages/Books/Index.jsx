@@ -12,7 +12,7 @@ export default function Books(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2>Books</h2>}
+            header={<h5>Books</h5>}
         >
             <Head title="Books" />
 
