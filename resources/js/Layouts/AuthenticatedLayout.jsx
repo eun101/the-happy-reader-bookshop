@@ -15,9 +15,11 @@ export default function Authenticated({ auth, header, children }) {
                 
                 
                 <div className='shrink-0 flex items-right mx-auto'>
+                    <NavLink href="/">
                         <p className="pt-3 text-gray-100 hover:text-yellow-300 transition duration-150 ease-in-out">
-                            the HAPPY READER
+                            the HAPPYREADER
                         </p>
+                    </NavLink>
                     <button
                                 onClick={() => setOpen((previousState) => !previousState)}
                                 className= {` ${(open ? 'hidden' : 'inline-flex') + ' lg:block'} mx-6 inline-flex items-left p-2 rounded-sm text-gray-400 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out`}
@@ -34,7 +36,6 @@ export default function Authenticated({ auth, header, children }) {
                                 </svg>
                             </button>
                 </div>
-
                 <div>
                     <hr className="mt-2 w-38 h-px bg-gray-300 border-0 dark:bg-gray-700" />
                 </div>
@@ -53,7 +54,7 @@ export default function Authenticated({ auth, header, children }) {
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6 text-white"
                                     />
                                 </svg>
                                 <span className="text-white">Dashboard</span>

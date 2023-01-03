@@ -16,10 +16,10 @@ export default function Welcome(props) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <NavLink href={route('orders.index')} active={route().current('orders.index')}> Shop </NavLink>
-                    <NavLink href={route('orders.index')} active={route().current('orders.index')}> Blog </NavLink>
-                    <NavLink href={route('orders.index')} active={route().current('orders.index')}>Contact Us </NavLink>
-                    <NavLink href={route('orders.index')} active={route().current('orders.index')}>About Us </NavLink>
+                    <NavLink href={route('login')} active={route().current('login')}> Shop </NavLink>
+                    <NavLink href={route('login')} active={route().current('login')}> Blog </NavLink>
+                    <NavLink href={route('login')} active={route().current('login')}>Contact Us </NavLink>
+                    <NavLink href={route('login')} active={route().current('login')}>About Us </NavLink>
                 
                     <div className="fixed top-0 right-0 p-4 px-5">
                         {props.auth.user ? (

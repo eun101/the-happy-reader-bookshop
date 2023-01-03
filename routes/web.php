@@ -37,15 +37,6 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/admin', function () {
-//     return Inertia::render('LoginAdmin', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
 Route::get('/admin', function(){
     return Inertia::render ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -53,16 +44,6 @@ Route::get('/admin', function(){
 Route::get('customer/account', function () {
     return Inertia::render('DashboardCustomers');
 })->middleware(['auth', 'verified'])->name('customeraccount');
-
-
-// Route::get('/about-us', function () {
-//     return Inertia::render('AboutUs');
-// });
-
-
-// Route::get('/order', function () {
-//     return Inertia::render('Order.Index');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {

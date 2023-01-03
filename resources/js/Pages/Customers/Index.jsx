@@ -54,7 +54,6 @@ export default function Customers(props) {
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
