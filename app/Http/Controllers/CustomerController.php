@@ -30,7 +30,6 @@ class CustomerController extends Controller
         return Inertia::render('Customers/Index',[
             'customers'=>Customer::get(),
         ]);
-
     }
 
     /**
