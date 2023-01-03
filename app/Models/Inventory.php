@@ -11,6 +11,6 @@ class Inventory extends Model
 
     protected $fillable = "invent_id";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at','invent_price'];
+    protected $dates = ['created_at', 'updated_at','deleted_at',];
 
 }

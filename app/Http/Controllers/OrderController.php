@@ -25,12 +25,30 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       
-        return Inertia::render('Order/Index',[
-            'orders'=>Order::get(),
-        ]);
+   
+
+    return Inertia::render('Order/Index',[
+        'orders'=>Order::get(),
+    
+    ]);
+
+    
+
+//     $users = User::select(
+//         "users.id", 
+//         "users.name",
+//         "users.email", 
+//         "countries.name as country_name"
+//     )
+//     ->join("countries", "countries.id", "=", "users.country_id")
+//     ->get()
+//     ->toArray();
+
+// ($users);
+
     
     }
 

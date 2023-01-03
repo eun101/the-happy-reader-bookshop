@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
 
+
+
 export default function Orders(props) {
     return (
         <AuthenticatedLayout
@@ -16,6 +18,26 @@ export default function Orders(props) {
             header={<h2>Orders</h2>}
         >
             <Head title="Orders" />
+
+            <div className="py-12">
+                <div className="">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-12 text-gray-900">
+                            <table className="w-full whitespace-nowrap">
+                                <thead>
+                                <tr>
+                                    <th className="pb-4 pt-6 px-6">Total Order Today</th>
+                                    <th className="pb-4 pt-6 px-6">Total Order This Week</th>
+                                    <th className="pb-4 pt-6 px-6">Total Order This Month</th>
+                                    <th className="pb-4 pt-6 px-6">Total Order This Year</th>
+                                    <th className="pb-4 pt-6 px-6">Total Order</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div className="py-12">
                 <div className="">
@@ -39,16 +61,19 @@ export default function Orders(props) {
                                     {props.orders.map((item)=>{
                                         return (
 
-                                            <tr className="text-left font-bold">
+                                            <tr className="text-left font-bold border px-4 py-2">
                                                 <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500" href={`/orders/${item.ord_id}/edit`}>
-                                                        {}
+                                                    <Link className="flex items-center" href={`/orders/${item.ord_id}/edit`}>
+                                                        {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <th className="pb-4 pt-6 px-6">{}</th>
-                                                <th className="pb-4 pt-6 px-6">{}</th>
-                                                <th className="pb-4 pt-6 px-6">{}</th>
-                                                <th className="pb-4 pt-6 px-6">{item.ord_delivery_address}</th>
+                                                
+                                                <td className="border px-4 py-2">{item.cust_firstname}</td>
+                                                <td className="border px-4 py-2">{}</td>
+                                                <td className="border px-4 py-2">{}</td>
+                                                <td className="border px-4 py-2">{item.ord_delivery_address}</td>
+                                                <td className="border px-4 py-2">{}</td>
+                                                <td className="border px-4 py-2">{item.ord_amount}</td>
 
                                             </tr>
                                         );
