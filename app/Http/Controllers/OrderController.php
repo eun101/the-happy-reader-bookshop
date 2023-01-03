@@ -28,11 +28,10 @@ class OrderController extends Controller
     public function index(Request $request)
     {
       
-   
+  
 
     return Inertia::render('Order/Index',[
         'orders'=>Order::get(),
-    
     ]);
 
     
