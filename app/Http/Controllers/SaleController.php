@@ -39,7 +39,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Sales/Create');
+        return Inertia::render('Sale/Create');
     }
 
     /**

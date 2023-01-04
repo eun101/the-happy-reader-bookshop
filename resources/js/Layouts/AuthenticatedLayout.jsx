@@ -113,7 +113,7 @@ export default function Authenticated({ auth, header, children }) {
                             </NavLink>
                         </div>
                         <div>
-                            <NavLink href={route('books.index')} active={route().current('books.index')}>
+                            <NavLink href={route('products.index')} active={route().current('products.index')}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="w-6 h-6"
@@ -206,7 +206,7 @@ export default function Authenticated({ auth, header, children }) {
                     </Dropdown.Trigger>
 
                     <Dropdown.Content>
-                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                        <Dropdown.Link href={route('adminprofile.edit')}>Profile</Dropdown.Link>
                         <Dropdown.Link href={route('logout')} method="post" as="button">
                             Log Out
                         </Dropdown.Link>

@@ -92,7 +92,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('orders', OrderController::class);
     Route::resource('sales', SaleController::class);
-    Route::resource('books', ProductController::class);
+    Route::resource('products', ProductController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
  
