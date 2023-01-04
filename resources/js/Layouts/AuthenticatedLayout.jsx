@@ -9,17 +9,9 @@ export default function Authenticated({ auth, header, children }) {
     const [open, setOpen] = useState(false);
 
     return (
-
-
         <div className="min-h-screen bg-gray-100 flex">
-
-        <div className="min-h-screen bg-emerald-50 flex">
-
-        <div className="min-h-screen bg-gray-100 flex">
-
             <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } text-medium border-neutral-800 left-0 top-0 bottom-0 h-100 fixed flex-col-6 h-screen p-2 bg-neutral-800 shadow duration-300`}>
                
-                
                 
                 <div className='shrink-0 flex items-right mx-auto'>
                     <NavLink href="/">
@@ -120,11 +112,7 @@ export default function Authenticated({ auth, header, children }) {
                             </NavLink>
                         </div>
                         <div>
-
-                            <NavLink href={route('books.index')} active={route().current('books.index')}>
-
                             <NavLink href={route('products.index')} active={route().current('products.index')}>
-
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="w-6 h-6"
@@ -141,7 +129,7 @@ export default function Authenticated({ auth, header, children }) {
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                                 </svg>
                                 <span className="">
-                                    Books
+                                    Products
                                 </span>
                             </NavLink>
                         </div>
@@ -217,7 +205,7 @@ export default function Authenticated({ auth, header, children }) {
                     </Dropdown.Trigger>
 
                     <Dropdown.Content>
-                        <Dropdown.Link href={route('adminprofile.edit')}>Profile</Dropdown.Link>
+                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
                         <Dropdown.Link href={route('logout')} method="post" as="button">
                             Log Out
                         </Dropdown.Link>

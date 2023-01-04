@@ -29,17 +29,17 @@ class OrderController extends Controller
     {
 
 
-    return Inertia::render('Order/Index',[
+  return Inertia::render('Order/Index',[
         'orders'=>Order::get(),
 
-    $status = $this->getStatusSession($request);
+    // $status = $this->getStatusSession($request);
 
-    $resultList = $this->modelService->getList($request->all(), true);
+    // $resultList = $this->modelService->getList($request->all(), true);
 
-    return Inertia::render('Order/Index', [
-        'orders'=> $resultList,
-        'status'=>$status,
-    ]);
+    // return Inertia::render('Order/Index', [
+    //     'orders'=> $resultList,
+    //     'status'=>$status,
+    // ]);
 
 
 

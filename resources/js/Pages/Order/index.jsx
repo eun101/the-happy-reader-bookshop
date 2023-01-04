@@ -63,9 +63,6 @@ export default function Orders(props) {
                                         return (
 
                                             <tr className="text-left font-bold border px-4 py-2">
-
-                                                <td className="">
-
                                                 <td className="pb-4 pt-6 px-6">
 
                                                     <Link className="flex items-center" href={`/orders/${item.ord_id}/edit`}>

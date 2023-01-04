@@ -22,15 +22,8 @@ class OrderService extends AbstractModelService implements IModelService{
         }
 
      
-
         if($paginate){
             return $resultList->paginate(config('constants.PAGINATION_COUNT'));
-
-
-        
-        if($paginate){
-            return $resultList->paginate(config('5'));
-
         }else{
             return $resultList->get();
         }

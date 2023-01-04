@@ -11,7 +11,10 @@ class Sale extends Model
 
     protected $fillable = "sales_id";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at','sales_total_amount'];
+    protected $dates = ['created_at', 'updated_at','deleted_at',];
+    
+
+
 
     
 }
