@@ -39,10 +39,6 @@ export default function Orders(props) {
                 </div>
             </div>
 
-        
-
-
-
 
             <div className="py-12">
                 <div className="">
@@ -67,18 +63,31 @@ export default function Orders(props) {
                                         return (
 
                                             <tr className="text-left font-bold border px-4 py-2">
+
                                                 <td className="">
+
+                                                <td className="pb-4 pt-6 px-6">
+
                                                     <Link className="flex items-center" href={`/orders/${item.ord_id}/edit`}>
                                                         {item.created_at}
                                                     </Link>
                                                 </td>
                                                 
+
                                                 <td className="border px-2 pl-2">{item.cust_firstname}</td>
                                                 <td className="border px-4 pl-2">{}</td>
                                                 <td className="border px-4 pl-2">{}</td>
                                                 <td className="border px-4 pl-2">{item.ord_delivery_address}</td>
                                                 <td className="border px-4">{}</td>
                                                 <td className="border px-4 py-3">{item.ord_amount}</td>
+
+                                                <td className="border px-4 py-2">{item.cust_firstname}</td>
+                                                <td className="border px-4 py-2">{}</td>
+                                                <td className="border px-4 py-2">{}</td>
+                                                <td className="border px-4 py-2">{item.ord_delivery_address}</td>
+                                                <td className="border px-4 py-2">{}</td>
+                                                <td className="border px-4 py-2">{item.ord_amount}</td>
+
 
                                             </tr>
                                         );

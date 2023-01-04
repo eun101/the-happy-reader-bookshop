@@ -13,6 +13,7 @@ class Customer extends Model
 
     protected $dates = ['created_at', 'updated_at','deleted_at',];
 
+
     // public function orders(){
     //     return $this->belongsTo('App\Models\Order','cust_firstname')->withDefault();
     // }
@@ -28,5 +29,4 @@ class Customer extends Model
     // public function getCustomerNumberAttribute(){
     //     return $this->cust_firstname;
     // }
-
 }
