@@ -9,21 +9,19 @@ export default function Dashboard(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2>Dashboard Admin</h2>}
+            header={<h2 className=''>Dashboard Admin</h2>}
         >
-            <Head title="Dashboard" />
+            <Head title="Dashboard " />
 
-     
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-12 text-gray-900">
+                        <div className="p-14 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
-                                    
                                 <tr>
                                     <th className="pb-4 pt-6 px-6">To Be Packed</th>
-                                    <th className="pb-4 pt-6 px-6">To be Shipped</th>
+                                    <th className="pb-4 pt-6 px-6">To Be Shipped</th>
                                     <th className="pb-4 pt-6 px-6">Shipped</th>
                                 </tr>
                                 </thead>
@@ -32,10 +30,14 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
+
+    
+            
+            
             <div className="">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-10 text-gray-900">
+                        <div className="p-14 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
@@ -50,10 +52,10 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
-            <div className="py-12">
+            <div className="py-5">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-10 text-gray-900">
+                        <div className="p-14 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
@@ -71,7 +73,7 @@ export default function Dashboard(props) {
             <div className="">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-10 text-gray-900">
+                        <div className="p-12 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>

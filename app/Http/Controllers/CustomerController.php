@@ -25,11 +25,25 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
+    
     {
         return Inertia::render('Customers/Index',[
             'customers'=>Customer::get(),
+            
         ]);
+<<<<<<< HEAD
+=======
+        
+        // $status = $this->getStatusSession($request);
+
+        // $resultList = $this->modelService->getList($request->all(), true);
+
+        // return Inertia::render('Customers/Index', [
+        //     'customers'=> $resultList,
+        //     'status'=>$status,
+        // ]);
+>>>>>>> d4062e4 (pages and controll)
     }
 
     /**

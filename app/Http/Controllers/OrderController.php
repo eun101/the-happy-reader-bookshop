@@ -28,26 +28,35 @@ class OrderController extends Controller
     public function index(Request $request)
     {
       
+<<<<<<< HEAD
   
 
     return Inertia::render('Order/Index',[
         'orders'=>Order::get(),
+=======
+    $status = $this->getStatusSession($request);
+
+    $resultList = $this->modelService->getList($request->all(), true);
+
+    return Inertia::render('Order/Index', [
+        'orders'=> $resultList,
+        'status'=>$status,
+>>>>>>> d4062e4 (pages and controll)
     ]);
 
+
+
+
+
+    // return Inertia::render('Order/Index',[
+    //     'orders'=>Order::get(),
+        
+    // ]);
+
+    // $orders = Post::latest()->paginate(1);
+    //     return Inertia::render('Order/Index', [
+    //         'orders' => $orders]);
     
-
-//     $users = User::select(
-//         "users.id", 
-//         "users.name",
-//         "users.email", 
-//         "countries.name as country_name"
-//     )
-//     ->join("countries", "countries.id", "=", "users.country_id")
-//     ->get()
-//     ->toArray();
-
-// ($users);
-
     
     }
 
