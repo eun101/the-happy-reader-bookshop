@@ -12,6 +12,18 @@ class Order extends Model
 
     protected $dates = ['created_at', 'updated_at','deleted_at',];
 
+
+    public function delivery(){
+        return $this->hasMany('App\Models\Customer','ord_delivery_address')->withDefault();
+    }
+
+    public function status(){
+        return $this->belongsTo('App\Models\Product','ord_status')->withDefault();
+    }
+
+    public function amount(){
+        return $this->belongsTo('App\Models\OrderList','ord_amount')->withDefault();
+
     public function customer(){
         return $this->hasMany('App\Models\Customer','cust_id')->withDefault();
     }
