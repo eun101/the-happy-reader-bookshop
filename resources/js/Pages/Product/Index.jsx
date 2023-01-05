@@ -97,9 +97,6 @@ export default function Product(props) {
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
-
-                                                <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.created_at}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
 
                                              
