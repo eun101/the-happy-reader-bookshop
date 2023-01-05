@@ -9,14 +9,9 @@ export default function Authenticated({ auth, header, children }) {
     const [open, setOpen] = useState(false);
 
     return (
-<<<<<<< HEAD
         <div className="min-h-screen bg-gray-100 flex">
-=======
-        <div className="min-h-screen bg-emerald-50 flex">
->>>>>>> d4062e4 (pages and controll)
             <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } text-medium border-neutral-800 left-0 top-0 bottom-0 h-100 fixed flex-col-6 h-screen p-2 bg-neutral-800 shadow duration-300`}>
                
-                
                 
                 <div className='shrink-0 flex items-right mx-auto'>
                     <NavLink href="/">
@@ -89,15 +84,9 @@ export default function Authenticated({ auth, header, children }) {
                                     stroke="currentColor"
                                     strokeWidth={1}
                                 >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                                    />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                                 </svg>
-                                <span className="">
-                                    Orders
-                                </span>
+                                <span className="">Orders</span>
                             </NavLink>
                         </div>
                         <div>
@@ -117,7 +106,7 @@ export default function Authenticated({ auth, header, children }) {
                             </NavLink>
                         </div>
                         <div>
-                            <NavLink href={route('books.index')} active={route().current('books.index')}>
+                            <NavLink href={route('products.index')} active={route().current('products.index')}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="w-6 h-6"
@@ -134,7 +123,7 @@ export default function Authenticated({ auth, header, children }) {
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                                 </svg>
                                 <span className="">
-                                    Books
+                                    Products
                                 </span>
                             </NavLink>
                         </div>
@@ -210,7 +199,7 @@ export default function Authenticated({ auth, header, children }) {
                     </Dropdown.Trigger>
 
                     <Dropdown.Content>
-                        <Dropdown.Link href={route('adminprofile.edit')}>Profile</Dropdown.Link>
+                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
                         <Dropdown.Link href={route('logout')} method="post" as="button">
                             Log Out
                         </Dropdown.Link>

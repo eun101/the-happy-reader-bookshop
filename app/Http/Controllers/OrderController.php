@@ -28,20 +28,15 @@ class OrderController extends Controller
     public function index(Request $request)
     {
       
-<<<<<<< HEAD
-  
-
-    return Inertia::render('Order/Index',[
-        'orders'=>Order::get(),
-=======
     $status = $this->getStatusSession($request);
 
     $resultList = $this->modelService->getList($request->all(), true);
 
+    // \Log::info($resultList);
+
     return Inertia::render('Order/Index', [
         'orders'=> $resultList,
         'status'=>$status,
->>>>>>> d4062e4 (pages and controll)
     ]);
 
 

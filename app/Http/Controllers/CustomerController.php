@@ -28,12 +28,10 @@ class CustomerController extends Controller
     public function index(Request $request)
     
     {
-        return Inertia::render('Customers/Index',[
+        return Inertia::render('Customer/Index',[
             'customers'=>Customer::get(),
             
         ]);
-<<<<<<< HEAD
-=======
         
         // $status = $this->getStatusSession($request);
 
@@ -43,7 +41,7 @@ class CustomerController extends Controller
         //     'customers'=> $resultList,
         //     'status'=>$status,
         // ]);
->>>>>>> d4062e4 (pages and controll)
+
     }
 
     /**

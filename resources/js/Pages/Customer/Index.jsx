@@ -1,7 +1,7 @@
 import MutedButton from '@/Components/MutedButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-react';
+import { createInertiaApp, Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';

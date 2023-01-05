@@ -90,12 +90,15 @@ export default function Product(props) {
                                                         {item.prod_title}
                                                     </Link>
                                                 </td>
+
                                                 <td className="border px-2 pl-2">{item.prod_author}</td>
                                                 <td className="border px-2 pl-2">{item.created_at}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
+
                                              
                                             </tr>
                                         );
