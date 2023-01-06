@@ -39,7 +39,15 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Product/Create');
+        {
+            $product = new Product();
+
+            \Log::info($product);
+    
+            return Inertia::render('Invoice/Edit', [
+                'products'=> $product,
+            ]);
+        }
     }
 
     /**
@@ -67,9 +75,9 @@ class ProductController extends Controller
             $recordData->attachment()->save($attachment);
         }
 
-        $this->setStatusSession('Books record '.$recordData->prod_id.' has been added.');
+        $this->setStatusSession('Product record '.$recordData->prod_id.' has been added.');
 
-        return redirect('/orders');
+        return redirect('/products');
     }
 
     /**
@@ -91,8 +99,26 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
-    }
+        // $product->invoiceDate = $product->invoiceDate;
+        // $product->attachmentFile = $product->attachmentFile;
+
+        // \Log::info($product);
+
+        //  $product->invoiceDate = $product->invoiceDate;
+
+
+
+        return Inertia::render('Product/Edit', [
+            'products'=> $product,
+            
+ 
+
+        ]);
+
+
+     
+      
+        }
 
     /**
      * Update the specified resource in storage.

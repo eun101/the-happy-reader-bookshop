@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sale extends Model
+class Sale extends BaseModel
 {
-    use HasFactory;
 
-    protected $fillable = "sales_id";
+    protected $primaryKey = "sales_id";
 
     protected $dates = ['created_at', 'updated_at','deleted_at',];
     

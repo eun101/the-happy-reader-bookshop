@@ -8,12 +8,11 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
+export default function Product(props) {
 
 const onAddHandler = ()=>{
-    Inertia.get(route('orders.create'));
+    Inertia.get(route('products.create'));
 }
-
-export default function Product(props) {
 
     const [filters, setFilters] = useState();
 
@@ -42,6 +41,8 @@ export default function Product(props) {
             header={<h2>Product</h2>}
         >
             <Head title="Product" />
+
+            <div className="max-w-7xl  sm:px-6 lg:px-8">
 
             <div className="flex flex-row-reverse rounded-full px-3 py-12">
                 <PrimaryButton type='button'
@@ -86,8 +87,9 @@ export default function Product(props) {
 
                                             <tr className="text-left font-bold">
                                                 <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center" href={`/customers/${item.prod_author}/edit`}>
+                                                    <Link className="flex items-center" href={`/products/${item.prod_id}/edit`}>
                                                         {item.prod_title}
+                                                        
                                                     </Link>
                                                 </td>
 
@@ -97,9 +99,6 @@ export default function Product(props) {
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
-
-                                                <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.created_at}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
 
                                              
@@ -112,6 +111,7 @@ export default function Product(props) {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
 
            
