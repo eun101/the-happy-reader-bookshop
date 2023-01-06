@@ -29,12 +29,24 @@ class OrderController extends Controller
     {
 
 
+    $status = $this->getStatusSession($request);
+
+
   return Inertia::render('Order/Index',[
         'orders'=>Order::get(),
 
     // $status = $this->getStatusSession($request);
 
+
     // $resultList = $this->modelService->getList($request->all(), true);
+
+
+    // \Log::info($resultList);
+
+    return Inertia::render('Order/Index', [
+        'orders'=> $resultList,
+        'status'=>$status,
+    ]);
 
     // return Inertia::render('Order/Index', [
     //     'orders'=> $resultList,
@@ -43,31 +55,6 @@ class OrderController extends Controller
 
 
 
-
-
-    // return Inertia::render('Order/Index',[
-    //     'orders'=>Order::get(),
-        
-    // ]);
-
-    // $orders = Post::latest()->paginate(1);
-    //     return Inertia::render('Order/Index', [
-    //         'orders' => $orders]);
-    
-
-    ]);
-
-    
-
-//     $users = User::select(
-//         "users.id", 
-//         "users.name",
-//         "users.email", 
-//         "countries.name as country_name"
-//     )
-//     ->join("countries", "countries.id", "=", "users.country_id")
-//     ->get()
-//     ->toArray();
 
 // ($users);
 
