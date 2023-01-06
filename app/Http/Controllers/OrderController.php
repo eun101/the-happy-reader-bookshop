@@ -29,11 +29,12 @@ class OrderController extends Controller
     {
 
 
-    $status = $this->getStatusSession($request);
 
 
   return Inertia::render('Order/Index',[
         'orders'=>Order::get(),
+
+  ]);
 
     // $status = $this->getStatusSession($request);
 
@@ -43,10 +44,10 @@ class OrderController extends Controller
 
     // \Log::info($resultList);
 
-    return Inertia::render('Order/Index', [
-        'orders'=> $resultList,
-        'status'=>$status,
-    ]);
+    // return Inertia::render('Order/Index', [
+    //     'orders'=> $resultList,
+    //     'status'=>$status,
+    // ]);     
 
     // return Inertia::render('Order/Index', [
     //     'orders'=> $resultList,
@@ -57,6 +58,7 @@ class OrderController extends Controller
 
 
 // ($users);
+
 
     
     }

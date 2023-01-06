@@ -15,7 +15,6 @@ import Select from '@/Components/Select';
 export default function Product(props) {
 
     const { data, setData, post, processing, errors, transform } = useForm(props.product);
-    const [confirmDelete, setConfirmDelete] = useState(false);
 
     const handleChange = (event) => {
         const fieldName = event.target.name;
@@ -42,17 +41,8 @@ export default function Product(props) {
         Inertia.get(route('products.index'));
     }
 
-    const doConfirmDelete = () => {
-        setConfirmDelete(true);
-    }
 
-    const doDeleteHandler = () => {
-        Inertia.delete('/products/' + props.product.prod_id);
-    }
 
-    const closeModal = () => {
-        setConfirmDelete(false);
-    };
 
 
 
@@ -60,7 +50,7 @@ export default function Product(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Book Information</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Add New Book</h2>}
         >
             <Head title="Products" />
             <div className="pt-10 ">
@@ -137,23 +127,10 @@ export default function Product(props) {
                             </div>
 
                             <div className="flex items-center gap-4 py-4">
-                                <DangerButton type='button' onClick={doConfirmDelete}>Delete</DangerButton>
                                 <SecondaryButton type='button' onClick={onCancelHandler}>Cancel</SecondaryButton>
                                 <PrimaryButton type='submit' disabled={processing} className="text-gray-600">Save</PrimaryButton>
                             </div>
-                            <Modal show={confirmDelete} onClose={closeModal}>
-                                <div className="p-6 text-gray-900">
-                                    <h2 className="text-lg font-medium text-gray-900 text-center">
-                                        Are you sure you want to delete this record?
-                                    </h2>
-                                    <div className="mt-6 flex justify-center">
-                                        <SecondaryButton onClick={closeModal}>No</SecondaryButton>
-                                        <DangerButton className="ml-3" processing={processing} onClick={doDeleteHandler}>
-                                            Yes
-                                        </DangerButton>
-                                    </div>
-                                </div>
-                            </Modal>
+                      
 
 
                         </form>
@@ -161,42 +138,7 @@ export default function Product(props) {
                 </div>
             </div>
 
-            <div className="pt-12 pb-5">
-                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div className="p-6 text-gray-900">
-
-                        <h7> Stats</h7>
-                        <p>Information about this product</p>
-
-
-
-                        <table className="">
-                            <thead>
-                                <tr className="text-left">
-                                    <th className="pb-4 pt-6 px-6">Sales</th>
-                                    <th className="pb-4 pt-6 px-6">No. of Orders</th>
-                                    <th className="pb-4 pt-6 px-6">Stocks</th>
-                                </tr>
-                            </thead>
-
-                            {/* <tbody>
-                                    {props.products.map((item)=>{
-                                        return (
-                                            <tr className="text-left font-bold">
-                                                <td className="border px-2 pl-2">{item.sales_total_amount</td>
-                                                <td className="border px-2 pl-2">{item.ord_total_amount}</td>
-                                                <td className="border px-2 pl-2">{item.created_at}</td> 
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody> */}
-
-                        </table>
-
-
-                    </div>
-                </div>
-            </div>
+           
         </AuthenticatedLayout>
     );
 }

@@ -27,10 +27,13 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+
+
         return Inertia::render('Product/Index',[
             'products'=>Product::get(),
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -42,10 +45,12 @@ class ProductController extends Controller
         {
             $product = new Product();
 
-            \Log::info($product);
+            \Log::info('ProductController::create()');
     
-            return Inertia::render('Invoice/Edit', [
-                'products'=> $product,
+            return Inertia::render('Product/Create', [
+                'product'=> $product,
+                'categoryList'=> $product ->getCategoryList(),
+
             ]);
         }
     }
@@ -58,6 +63,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+
+
         $validatedData = $request->validated();
         $recordData = new Product();
         $recordData->created_by = Auth::user()->id;
@@ -106,10 +113,21 @@ class ProductController extends Controller
 
         //  $product->invoiceDate = $product->invoiceDate;
 
-
+        {
+            // $invoice->invoiceDate = $invoice->invoiceDate;
+            // $invoice->attachmentFile = $invoice->attachmentFile;
+    
+        //     return Inertia::render('Invoice/Edit', [
+        //         'invoice'=> $invoice,
+        //         'currencyList' => $invoice->getCurrencyList(),
+        //         'statusList' => $invoice->getInvoiceStatusList(),
+        //         'paymentMethodList' => $invoice->getInvoicePaymentMethodList(),
+        //     ]);
+        // }
 
         return Inertia::render('Product/Edit', [
-            'products'=> $product,
+            'product'=> $product,
+            'categoryList'=> $product ->getCategoryList(),
             
  
 
@@ -117,7 +135,7 @@ class ProductController extends Controller
 
 
      
-      
+    }
         }
 
     /**

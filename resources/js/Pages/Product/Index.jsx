@@ -87,7 +87,7 @@ const onAddHandler = ()=>{
 
                                             <tr className="text-left font-bold">
                                                 <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center" href={`/products/${item.prod_id}/edit`}>
+                                                    <Link className="flex items-center" href={`/admin/products/${item.prod_id}/edit`}>
                                                         {item.prod_title}
                                                         
                                                     </Link>

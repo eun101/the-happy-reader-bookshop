@@ -11,6 +11,7 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CategoryController;
 
 
 
@@ -50,11 +51,11 @@ Route::get('/admin', function(){
     return Inertia::render ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('admin/dashboard', function(){
-//     return Inertia::render ('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('admin/dashboard', function(){
+    return Inertia::render ('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::redirect('/admin', 'admin/dashboard');
+Route::redirect('/admin', 'admin/dashboard');
 
 
 
@@ -99,6 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
+    Route::resource('categories', CategoryController::class);
  
 });
 });
