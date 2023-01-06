@@ -7,7 +7,7 @@ use App\Traits\DropDownListOptions;
 
 class OrderService extends AbstractModelService implements IModelService{
 
-    // use DropDownListOptions;
+    use DropDownListOptions;
 
     public function getList($filters, $paginate=false){
 
@@ -21,14 +21,12 @@ class OrderService extends AbstractModelService implements IModelService{
             });
         }
 
-
-        
-        
-        // if($paginate){
-        //     return $resultList->paginate(config('constants.PAGINATION_COUNT'));
-        // }else{
-        //     return $resultList->get();
-        // }
+     
+        if($paginate){
+            return $resultList->paginate(config('constants.PAGINATION_COUNT'));
+        }else{
+            return $resultList->get();
+        }
 
     }
 

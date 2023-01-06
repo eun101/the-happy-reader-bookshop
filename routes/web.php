@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\OrderController;
+
 use App\Http\Controllers\CustomerProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +10,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -36,27 +37,37 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/admin', function () {
-//     return Inertia::render('LoginAdmin', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+Route::get('/admin', function () {
+    return Inertia::render('LoginAdmin', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
-Route::get('/admin', function(){
+// Route::get('/admin', function(){
+//     return Inertia::render ('LoginAdmin');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('admin/dashboard', function(){
     return Inertia::render ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+Route::redirect('/admin', 'admin/dashboard');
+
+
 
 Route::get('customer/account', function () {
     return Inertia::render('DashboardCustomers');
 })->middleware(['auth', 'verified'])->name('customeraccount');
 
 
-// Route::get('/about-us', function () {
-//     return Inertia::render('AboutUs');
-// });
+Route::get('/about-us', function () {
+    return Inertia::render('AboutUs')->name('about-us');
+});
 
 
 // Route::get('/order', function () {
@@ -82,12 +93,14 @@ Route::middleware('auth')->group(function () {
     Route::resource('customers', CustomerController::class);
     Route::resource('orders', OrderController::class);
     Route::resource('sales', SaleController::class);
-    Route::resource('books', ProductController::class);
+    Route::resource('products', ProductController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
  
 });
 });
+
+
 
 
 

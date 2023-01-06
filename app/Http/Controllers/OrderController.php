@@ -25,12 +25,24 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      
-        return Inertia::render('Order/Index',[
-            'orders'=>Order::get(),
-        ]);
+
+    $status = $this->getStatusSession($request);
+
+    $resultList = $this->modelService->getList($request->all(), true);
+
+    // \Log::info($resultList);
+
+    return Inertia::render('Order/Index', [
+        'orders'=> $resultList,
+        'status'=>$status,
+    ]);
+
+
+
+// ($users);
+
     
     }
 

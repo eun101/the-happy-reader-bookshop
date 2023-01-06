@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Services\OrderService as IModelService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -19,10 +25,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Books/Index',[
-            'products'=>Book::get(),
+        return Inertia::render('Product/Index',[
+            'products'=>Product::get(),
         ]);
     }
 
@@ -33,7 +39,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Books/Create');
+        return Inertia::render('Product/Create');
     }
 
     /**
@@ -44,7 +50,26 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $recordData = new Product();
+        $recordData->created_by = Auth::user()->id;
+        $recordData->prod_id = $validatedData['prod_id'];
+        $recordData->prod_categ_id = $validatedData['prod_categ_id'];
+        $recordData->prod_title = $validatedData['prod_title'];
+        $recordData->prod_author = $validatedData['prod_author'];
+        $recordData->prod_description = $validatedData['prod_description'];
+        $recordData->prod_status = $validatedData['prod_status'];
+        $recordData->save();
+
+        $attachment = $this->saveAttachmentFile($request);
+        if($attachment){
+            $attachment->att_description = 'Books attachment file';
+            $recordData->attachment()->save($attachment);
+        }
+
+        $this->setStatusSession('Books record '.$recordData->prod_id.' has been added.');
+
+        return redirect('/orders');
     }
 
     /**
