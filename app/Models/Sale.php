@@ -9,12 +9,15 @@ class Sale extends Model
 {
     use HasFactory;
 
-    protected $fillable = "sales_id";
+    protected $primaryKey = "sales_id";
 
     protected $dates = ['created_at', 'updated_at','deleted_at',];
     
 
 
+
+    protected $dates = ['created_at', 'updated_at','deleted_at',];
+    
 
     
 }
