@@ -1,5 +1,4 @@
 import PrimaryButton from '@/Components/PrimaryButton';
-import DangerButton from '@/Components/DangerButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-react';
@@ -45,43 +44,46 @@ export default function Orders(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="font-bold">
-                                    <th className="pb-4 pt-6 pl-4">DATE</th>
-                                    <th className="pb-4 pt-6 pl-4">CUSTOMER</th>
-                                    <th className="pb-4 pt-6 pl-4">EMAIL</th>
-                                    <th className="pb-4 pt-6 pl-4">MOBILE #</th>
-                                    <th className="pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
-                                    <th className="pb-4 pt-6 pl-4">BOOK ORDERS</th>
-                                    <th className="pb-4 pt-6 pl-4">ORDER TOTAL</th>
-                                    <th className="pb-4 pt-6 pl-4">STATUS</th>
-                                    <th className="pb-4 pt-6 pl-4">ACTIONS</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">DATE</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">CUSTOMER</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">EMAIL</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">MOBILE #</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">ORDER TOTAL</th>
+                                    <th className="text-center pb-4 pt-6 pl-4">STATUS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {props.orders.map((item)=>{
+                                    {props.orders.data.map((item)=>{
                                         return (
 
                                             <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center" href={`/orders/${item.ord_id}/edit`}>
+                                                <td className="pb-4 pt-6 px-11">
+                                                    <Link className="flex items-center">
                                                         {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <td className="border px-2 pl-2">{item.cust_firstname}</td>
-                                                <td className="border px-4 pl-2">{}</td>
-                                                <td className="border px-4 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{item.customer.cust_firstname}</td>
+                                                <td className="border px-4 pl-2">{item.customer.cust_email}</td>
+                                                <td className="border px-4 pl-2">{item.customer.cust_contact}</td>
                                                 <td className="border px-4 pl-2">{item.ord_delivery_address}</td>
                                                 <td className="border px-4">{}</td>
                                                 <td className="border px-4 py-3">{item.ord_amount}</td>
+
                                             </tr>
                                         );
                                     })}
                                 </tbody>
                             </table>
-                            {/* <Pagination resultList={props.orders}/> */}
+                            <Pagination resultList={props.orders}/>
                         </div>
                     </div>
                 </div>
             </div>
+           
+           
+
         </AuthenticatedLayout>
     );
 }

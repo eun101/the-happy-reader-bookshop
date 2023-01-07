@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sale extends Model
+class Sale extends BaseModel
 {
     use HasFactory;
 
     protected $primaryKey = "sales_id";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at',];
+    public function customers(){
+        return $this->belongsTo('App\Models\Customer','sales_order_id')->withDefault();
+    }
     
-
+    public function orders(){
+        return $this->belongsTo('App\Models\Order','ord_cust_id')->withDefault();
+    }
 
 
     

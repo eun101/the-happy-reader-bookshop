@@ -24,12 +24,19 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
-        return Inertia::render('Sale/Index',[
-            'sales'=>Sale::get(),
+
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+
+ 
+        return Inertia::render('Sale/Index', [
+            'sales'=> $resultList,
+            'status'=>$status,
         ]);
+        
     }
 
     /**
@@ -50,26 +57,22 @@ class SaleController extends Controller
      */
     public function store(StoreSaleRequest $request)
     {
-        // $validatedData = $request->validated();
-        // $recordData = new Sale();
-        // $recordData->created_by = Auth::user()->id;
-        // $recordData->ord_cust_id = $validatedData['ord_cust_id'];
-        // $recordData->ord_delivery_address = $validatedData['ord_delivery_address'];
-        // $recordData->ord_payment_method = $validatedData['ord_payment_method'];
-        // $recordData->ord_amount = $validatedData['ord_amount'];
-        // $recordData->ord_status = $validatedData['ord_status'];
-        // $recordData->ord_paid = $validatedData['ord_paid'];
-        // $recordData->save();
+        $validatedData = $request->validated();
+        $recordData = new Sale();
+        $recordData->created_by = Auth::user()->id;
+        $recordData->sales_order_id = $validatedData['sales_order_id'];
+        $recordData->sales_total_amount = $validatedData['sales_total_amount'];
+        $recordData->save();
 
-        // $attachment = $this->saveAttachmentFile($request);
-        // if($attachment){
-        //     $attachment->att_description = 'Order attachment file';
-        //     $recordData->attachment()->save($attachment);
-        // }
+        $attachment = $this->saveAttachmentFile($request);
+        if($attachment){
+            $attachment->att_description = 'Sale attachment file';
+            $recordData->attachment()->save($attachment);
+        }
 
-        // $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
+        $this->setStatusSession('Sale record '.$recordData->sales_order_id.' has been added.');
 
-        // return redirect('/sales');
+        return redirect('/sales');
     }
 
     /**
@@ -103,7 +106,16 @@ class SaleController extends Controller
      */
     public function update(UpdateSaleRequest $request, Sale $sale)
     {
-        //
+        $validatedData = $request->validated();
+
+        $sale->modified_by = Auth::user()->id;
+        $recordData->sales_order_id = $validatedData['sales_order_id'];
+        $recordData->sales_total_amount = $validatedData['sales_total_amount'];
+        $recordData->save();
+
+        $this->setStatusSession('Sale record '.$recordData->sales_order_id.' has been added.');
+
+        return redirect('/sales');
     }
 
     /**
