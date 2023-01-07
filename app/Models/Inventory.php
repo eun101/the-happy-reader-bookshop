@@ -11,6 +11,9 @@ class Inventory extends Model
 
     protected $primaryKey = "invent_id";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at',];
+    public function title(){
+        return $this->belongsTo('App\Models\Category','invent_prod_id')->withDefault();
+    }
+
 
 }

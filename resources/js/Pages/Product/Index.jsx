@@ -67,45 +67,38 @@ export default function Product(props) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-
-                            <table className="">
+                            <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    <th className="pb-4 pt-6 px-6">BOOK TITLE</th>
-                                    <th className="pb-4 pt-6 px-6">AUTHOR</th>
-                                    <th className="pb-4 pt-6 px-6">ADDED DATE</th>
-                                    <th className="pb-4 pt-6 px-6">SALES</th>
-                                    <th className="pb-4 pt-6 px-6"># OF ORDERS</th>
-                                    <th className="pb-4 pt-6 px-6">STOCKS</th>
-                                    <th className="pb-4 pt-6 px-6">ACTIONS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
+                                    <th className="text-center pb-4 pt-6 px-6">AUTHOR</th>
+                                    <th className="text-center pb-4 pt-6 px-6">ADDED DATE</th>
+                                    <th className="text-center pb-4 pt-6 px-6">SALES</th>
+                                    <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">STOCKS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {props.products.map((item)=>{
+                                    {props.products.data.map((item)=>{
                                         return (
 
-                                            <tr className="text-left font-bold">
-                                                <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center" href={`/customers/${item.prod_author}/edit`}>
-                                                        {item.prod_title}
+                                            <tr className="text-left font-bold border px-4 py-2">
+                                                <td className="pb-4 pt-6 px-11">
+                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500">
+                                                        {item.created_at}
                                                     </Link>
                                                 </td>
-
                                                 <td className="border px-2 pl-2">{item.prod_author}</td>
                                                 <td className="border px-2 pl-2">{item.created_at}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
                                                 <td className="border px-2 pl-2">{}</td>
-                                                <td className="border px-2 pl-2">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-
-                                             
                                             </tr>
                                         );
                                     })}
                                 </tbody>
-                            
                             </table>
+                            <Pagination resultList={props.products}/>
                         </div>
                     </div>
                 </div>
