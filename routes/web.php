@@ -11,7 +11,6 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\CategoryController;
 
 
 
@@ -38,22 +37,24 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/admin', function () {
-//     return Inertia::render('LoginAdmin', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
+Route::get('/admin', function () {
+    return Inertia::render('LoginAdmin', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
-Route::get('/admin', function(){
-    return Inertia::render ('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/admin', function(){
+//     return Inertia::render ('LoginAdmin');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('admin/dashboard', function(){
     return Inertia::render ('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::redirect('/admin', 'admin/dashboard');
 
@@ -73,17 +74,12 @@ Route::get('/about-us', function () {
 //     return Inertia::render('Order.Index');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Welcome');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::prefix('customer')->group(function(){
     Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [CustomerProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('account', CustomerController::class);
 });
 });
 
@@ -100,8 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
-    Route::resource('categories', CategoryController::class);
-
+ 
 });
 });
 

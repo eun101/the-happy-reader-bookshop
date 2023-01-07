@@ -2,6 +2,7 @@ import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import Pagination from '@/Components/Pagination';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import DangerButton from '@/Components/DangerButton';
@@ -20,10 +21,10 @@ export default function Product(props) {
         const fieldName = event.target.name;
         const fieldValue = event.target.value;
 
-        if (fieldName == 'attachment') {
-            setData(data => ({ ...data, [fieldName]: event.target.files[0] }));
-        } else {
-            setData(data => ({ ...data, [fieldName]: fieldValue }));
+        if(fieldName == 'attachment'){
+            setData(data=>({...data, [fieldName]: event.target.files[0]}));
+        }else{
+            setData(data=>({...data, [fieldName]: fieldValue}));
         }
     }
 
@@ -31,7 +32,7 @@ export default function Product(props) {
         event.preventDefault();
 
         if (props.product.prod_id > 0) {
-            Inertia.put('products' + props.product.prod_id, data, { forceFormData: true });
+            Inertia.put('/products/' + props.product.prod_id, data, { forceFormData: true });
         } else {
             Inertia.post(route('products.store'), data, { forceFormData: true });
         }
@@ -68,19 +69,19 @@ export default function Product(props) {
                         <form className="mt-6 space-y-6" onSubmit={onSaveHandler}>
                             <div>
                                 <div className="mt-6">
-                                    <div>
-                                        <InputLabel for="category" value="Category" />
+                                <div>
+                                        <InputLabel for="category" value="Category"/>
 
                                         <Select id="category" className="mt-1 block w-full"
-                                            name="categ_category_name"
+                                            name="categ_category_name"                                            
                                             value={data.categ_category_name}
-                                            handleChange={handleChange}
+                                            handleChange={handleChange} 
                                             options={props.categoryList}
                                             placeholder="-- Select Category --"
                                             optionLabel="categ_category_name"
                                             optionValue="categ_id"
-                                            required />
-
+                                            required/>
+                                        
                                     </div>
                                     <div className="text-red-500">{props.errors.prod_category}</div>
                                 </div>
@@ -118,25 +119,15 @@ export default function Product(props) {
                                     </div>
                                 </div>
 
-                                <div>
-
-                                    <div className="mt-6">
-                                        <InputLabel for="invent_quantity" value="Stocks" />
-                                        <TextInput type ="number" id="stocks" name="stocks" className="mt-1 block w-full" onChange={handleChange}>
-                                            {data.invent_quantity}
-                                        </TextInput>
-                                    </div>
-                                </div>
-
                                 <div className="grid pt-6">
-                                    <InputLabel for="delivery_address" value="Attachment" />
+                                    <InputLabel for="delivery_address" value="Attachment"/>
 
                                     <TextInput id="invoice_date" className="mt-1 block w-full"
-                                        type="file"
-                                        name="attachment"
-                                        handleChange={handleChange}
-                                    />
-
+                                            type="file"
+                                            name="attachment"
+                                            handleChange={handleChange}
+                                        />
+                                    
                                     <div>{data.attachmentFile}</div>
 
 

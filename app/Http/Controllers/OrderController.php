@@ -19,10 +19,6 @@ class OrderController extends Controller
     
     public function __construct(IModelService $modelService){
         $this->modelService = $modelService;
-        // $this->middleware('permission:order-list|order-create|order-edit|order-delete', ['only' => ['index','store']]);
-        // $this->middleware('permission:order-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:order-edit', ['only' => ['edit','update']]);
-        // $this->middleware('permission:order-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -31,47 +27,19 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-
       
-    $status = $this->getStatusSession($request);
+        $status = $this->getStatusSession($request);
 
-    $resultList = $this->modelService->getList($request->all(), true);
-
-
-
-
-  return Inertia::render('Order/Index',[
-        'orders'=>Order::get(),
-
-  ]);
-
-    // $status = $this->getStatusSession($request);
-
-
-    // $resultList = $this->modelService->getList($request->all(), true);
-
-
-    // \Log::info($resultList);
-
-    // return Inertia::render('Order/Index', [
-    //     'orders'=> $resultList,
-    //     'status'=>$status,
-    // ]);     
-
-
-    // return Inertia::render('Order/Index', [
-    //     'orders'=> $resultList,
-    //     'status'=>$status,
-    // ]);
-
-
-
-
-// ($users);
-
-
-
-    }
+        $resultList = $this->modelService->getList($request->all(), true);
+    
+        // \Log::info($resultList);
+    
+        return Inertia::render('Order/Index', [
+            'orders'=> $resultList,
+            'status'=>$status,
+        ]);
+    
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -150,20 +118,10 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
+        
         $validatedData = $request->validated();
 
         $order->modified_by = Auth::user()->id;
-<<<<<<< HEAD
-        $order->inv_number = $validatedData['ord_cust_id'];
-        $order->inv_to = $validatedData['ord_delivery_address'];
-        $order->inv_contact_number = $validatedData['inv_contact_number'];
-        $order->inv_date = $validatedData['inv_date'];
-        $order->inv_currency = $validatedData['inv_currency'];
-        $order->inv_status = $validatedData['inv_status'];
-        $order->inv_payment_method = $validatedData['inv_payment_method'];
-        $order->inv_delivery_address = $validatedData['inv_delivery_address'];
-        $order->save();
-=======
         $recordData->ord_cust_id = $validatedData['ord_cust_id'];
         $recordData->ord_delivery_address = $validatedData['ord_delivery_address'];
         $recordData->ord_payment_method = $validatedData['ord_payment_method'];
@@ -171,9 +129,8 @@ class OrderController extends Controller
         $recordData->ord_status = $validatedData['ord_status'];
         $recordData->ord_paid = $validatedData['ord_paid'];
         $recordData->save();
->>>>>>> 26417eca9ee2cfb5a373f0a1b56c435c27d1e16c
 
-        $this->setStatusSession('Invoice record '.$order->inv_number.' has been updated.');
+        $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
 
         return redirect('/orders');
     }
@@ -189,7 +146,7 @@ class OrderController extends Controller
         $ordCustomer = $order->ord_cust_id;
         $order->delete();
 
-        $this->setStatusSession('Order record '.$ordCustomer.' has been deleted.');
+        $this->setStatusSession('Order record '.$ord_cust_id.' has been deleted.');
 
         return redirect('/orders');
     }

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 export default function Welcome(props) {
     return (
         <>
-            {/* <Navbar>
+            <Navbar>
                 <div className="col-5 px-5">
                     <Navbar.Brand href="#home">
                         <Link to="/"><img src="./img2.png" alt="logo"></img></Link>
@@ -47,22 +47,7 @@ export default function Welcome(props) {
                     </Nav>
                 </Navbar.Collapse>
 
-            </Navbar> */}
-
-            <>
-                                    <Link href={route('login')} className="text-sm text-gray-700 dark:text-gray-500 underline">
-                                        Log in
-                                    </Link>
-
-                                    <Link
-                                        href={route('register')}
-                                        className="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"
-                                    >
-                                        Register
-                                    </Link>
-                                </>
-
-            
+            </Navbar>
 
             <section className='hero-banner'>
                 <div className='container'>

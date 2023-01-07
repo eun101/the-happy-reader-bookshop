@@ -7,10 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderList extends BaseModel
 {
-
     protected $primaryKey = "ordlist_id";
-
-
-    protected $primaryKey = "ordlist_id";
-
 }

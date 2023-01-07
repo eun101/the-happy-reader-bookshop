@@ -18,10 +18,6 @@ class SaleController extends Controller
     
     public function __construct(IModelService $modelService){
         $this->modelService = $modelService;
-        // $this->middleware('permission:sale-list|sale-create|sale-edit|sale-delete', ['only' => ['index','store']]);
-        // $this->middleware('permission:sale-create', ['only' => ['create','store']]);
-        // $this->middleware('permission:sale-edit', ['only' => ['edit','update']]);
-        // $this->middleware('permission:sale-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

@@ -31,7 +31,7 @@ export default function Product(props) {
         event.preventDefault();
 
         if (props.product.prod_id > 0) {
-            Inertia.put('products' + props.product.prod_id, data, { forceFormData: true });
+            Inertia.put('/products/' + props.product.prod_id, data, { forceFormData: true });
         } else {
             Inertia.post(route('products.store'), data, { forceFormData: true });
         }
@@ -40,6 +40,10 @@ export default function Product(props) {
     const onCancelHandler = () => {
         Inertia.get(route('products.index'));
     }
+
+
+
+
 
 
     return (
