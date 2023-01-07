@@ -24,11 +24,18 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Inventory/Index',[
-            'inventories'=>Inventory::get(),
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+
+        return Inertia::render('Inventory/Index', [
+            'inventories'=> $resultList,
+            'status'=>$status,
         ]);
+
+   
     }
 
     /**
@@ -49,7 +56,24 @@ class InventoryController extends Controller
      */
     public function store(StoreInventoryRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $recordData = new Inventory();
+        $recordData->created_by = Auth::user()->id;
+        $recordData->invent_id = $validatedData['invent_id'];
+        $recordData->invent_prod_id = $validatedData['invent_prod_id'];
+        $recordData->invent_quantity = $validatedData['invent_quantity'];
+        $recordData->invent_price = $validatedData['invent_price'];
+        $recordData-save();
+
+        $attachment = $this->saveAttachmentFile($request);
+        if($attachment){
+            $attachment->att_description = 'Inventory attachment file';
+            $recordData->attachment()->save($attachment);
+        }
+
+        $this->setStatusSession('Inventory record '.$recordData->invent_id.' has been added.');
+
+        return redirect('/inventories');
     }
 
     /**
@@ -83,7 +107,19 @@ class InventoryController extends Controller
      */
     public function update(UpdateInventoryRequest $request, Inventory $inventory)
     {
-        //
+        $validatedData = $request->validated();
+
+        $inventory->modified_by = Auth::user()->id;
+        $recordData->invent_id = $validatedData['invent_id'];
+        $recordData->invent_prod_id = $validatedData['invent_prod_id'];
+        $recordData->invent_quantity = $validatedData['invent_quantity'];
+        $recordData->invent_price = $validatedData['invent_price'];
+        $recordData-save();
+       
+
+        $this->setStatusSession('Inventory record '.$recordData->invent_id.' has been added.');
+
+        return redirect('/inventories');
     }
 
     /**

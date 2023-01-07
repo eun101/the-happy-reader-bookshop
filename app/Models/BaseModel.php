@@ -13,7 +13,7 @@ class BaseModel extends Model
 
     protected $primaryKey = "";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at','inv_date'];
+    protected $dates = ['created_at', 'updated_at','deleted_at'];
 
     public function createdBy(){
         return $this->belongsTo('App\Models\User','created_by');

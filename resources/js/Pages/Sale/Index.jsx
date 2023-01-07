@@ -22,7 +22,7 @@ export default function Sales(props) {
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
-                                <tr>
+                                <tr className="text-left font-bold">
                                     <th className="pb-4 pt-6 px-6">TOTAL SALES</th>
                                     <th className="pb-4 pt-6 px-6">SALES THIS WEEK</th>
                                     <th className="pb-4 pt-6 px-6">SALES THIS MONTH</th>
@@ -31,46 +31,46 @@ export default function Sales(props) {
                                 </tr>
                                 </thead>
                             </table>
-                            {/* <Pagination resultList={props.sales}/> */}
                         </div>
                     </div>
                 </div>
             </div>
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    <th className="pb-4 pt-6 px-6">DATE</th>
-                                    <th className="pb-4 pt-6 px-6">CUSTOMER</th>
-                                    <th className="pb-4 pt-6 px-6">EMAIL</th>
-                                    <th className="pb-4 pt-6 px-6">MOBILE NUMBER</th>
-                                    <th className="pb-4 pt-6 px-6">BOOK ORDERS</th>
-                                    <th className="pb-4 pt-6 px-6">TOTAL AMOUNT</th>
+                                    <th className="text-center pb-4 pt-6 px-6">DATE</th>
+                                    <th className="text-center pb-4 pt-6 px-6">CUSTOMER</th>
+                                    <th className="text-center pb-4 pt-6 px-6 ">EMAIL</th>
+                                    <th className="text-center pb-4 pt-6 px-6">MOBILE NUMBER</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT</th>
                                 </tr>
                                 </thead>
-                                {/* <tbody>
-                                    {props.sales.map((item)=>{
+                                <tbody>
+                                    {props.sales.data.map((item)=>{
                                         return (
 
-                                            <tr className="text-left font-bold">
-                                                <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500" href={`/sales/${item.sales_order_id}/edit`}>
-                                                        {}
+                                            <tr className="text-left font-bold border px-4 py-2">
+                                                <td className="pb-4 pt-3 px-11">
+                                                    <Link className="flex items-center" href={`/sales/${item.sales_order_id}/edit`}>
+                                                        {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                             
+                                                <td className="text-center border px-2 pl-2">{item.customer.cust_firstname}</td>
+                                                <td className="border px-2">{item.customer.cust_email}</td>
+                                                <td className="text-center border px-2 pl-2">{item.customer.cust_contact}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{}</td>
                                             </tr>
                                         );
                                     })}
-                                </tbody> */}
-                          
+                                </tbody>
                             </table>
+                            <Pagination resultList={props.sales}/>
                         </div>
                     </div>
                 </div>
@@ -90,29 +90,26 @@ export default function Sales(props) {
                                     <th className="pb-4 pt-6 px-6">TOTAL AMOUNT</th>
                                 </tr>
                                 </thead>
-                                {/* <tbody>
-                                    {sale.map(({ sales_id, sales_order_id, sales_total_amount }) => (
-                                        <tr>
-                                            <td className="border px-4 py-2">{ sales_id }</td>
-                                            <td className="border px-4 py-2">{ sales_order_id }</td>
-                                            <td className="border px-4 py-2">{ sales_total_amount }</td>
-                                            <td className="border px-4 py-2">
-                                            </td>
-                                        </tr>
-                                    ))}
-  
-                                    {sale.length === 0 && (
-                                        <tr>
-                                            <td
-                                                className="px-6 py-4 border-t"
-                                                colSpan="4"
-                                            >
-                                                No sale found.
-                                            </td>
-                                        </tr>
-                                    )}
-                                </tbody> */}
+                                <tbody>
+                                    {props.sales.data.map((item)=>{
+                                        return (
+
+                                            <tr className="text-left font-bold border px-4 py-2">
+                                                <td className="pb-4 pt-2">
+                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500" href={`/sales/${item.sales_order_id}/edit`}>
+                                                        {item.created_at}
+                                                    </Link>
+                                                </td>
+                                                <td className="text-center border px-2 pl-2">{item.customer.cust_firstname}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
                             </table>
+                            <Pagination resultList={props.sales}/>
                         </div>
                     </div>
                 </div>
@@ -132,29 +129,26 @@ export default function Sales(props) {
                                     <th className="pb-4 pt-6 px-6">TOTAL AMOUNT</th>
                                 </tr>
                                 </thead>
-                                {/* <tbody>
-                                    {sale.map(({ sales_id, sales_order_id, sales_total_amount }) => (
-                                        <tr>
-                                            <td className="border px-4 py-2">{ sales_id }</td>
-                                            <td className="border px-4 py-2">{ sales_order_id }</td>
-                                            <td className="border px-4 py-2">{ sales_total_amount }</td>
-                                            <td className="border px-4 py-2">
-                                            </td>
-                                        </tr>
-                                    ))}
-  
-                                    {sale.length === 0 && (
-                                        <tr>
-                                            <td
-                                                className="px-6 py-4 border-t"
-                                                colSpan="4"
-                                            >
-                                                No sale found.
-                                            </td>
-                                        </tr>
-                                    )}
-                                </tbody> */}
+                                <tbody>
+                                    {props.sales.data.map((item)=>{
+                                        return (
+
+                                            <tr className="text-left font-bold border px-4 py-2">
+                                                <td className="pb-4 pt-6 px-6">
+                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500 " href={`/sales/${item.sales_order_id}/edit`}>
+                                                        {item.created_at}
+                                                    </Link>
+                                                </td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-2 pl-2">{}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
                             </table>
+                            <Pagination resultList={props.sales}/>
                         </div>
                     </div>
                 </div>

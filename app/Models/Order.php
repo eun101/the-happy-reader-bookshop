@@ -10,12 +10,11 @@ class Order extends BaseModel
 
     protected $primaryKey = "ord_id";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at',];
 
-    // public function delivery(){
-    //     return $this->hasMany('App\Models\Customer','ord_delivery_address')->withDefault();
-    // }
-
+    public function customer(){
+        return $this->belongsTo('App\Models\Customer','ord_cust_id')->withDefault();
+    }
+    
     // public function status(){
     //     return $this->belongsTo('App\Models\Product','ord_status')->withDefault();
     // }

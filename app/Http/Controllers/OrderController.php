@@ -28,6 +28,11 @@ class OrderController extends Controller
     public function index(Request $request)
     {
 
+      
+    $status = $this->getStatusSession($request);
+
+    $resultList = $this->modelService->getList($request->all(), true);
+
 
 
 
@@ -49,6 +54,7 @@ class OrderController extends Controller
     //     'status'=>$status,
     // ]);     
 
+
     // return Inertia::render('Order/Index', [
     //     'orders'=> $resultList,
     //     'status'=>$status,
@@ -60,7 +66,7 @@ class OrderController extends Controller
 // ($users);
 
 
-    
+
     }
 
     /**
@@ -143,7 +149,7 @@ class OrderController extends Controller
         
         $validatedData = $request->validated();
 
-        $invoice->modified_by = Auth::user()->id;
+        $order->modified_by = Auth::user()->id;
         $recordData->ord_cust_id = $validatedData['ord_cust_id'];
         $recordData->ord_delivery_address = $validatedData['ord_delivery_address'];
         $recordData->ord_payment_method = $validatedData['ord_payment_method'];
