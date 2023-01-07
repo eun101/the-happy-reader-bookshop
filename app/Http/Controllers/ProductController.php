@@ -27,6 +27,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+
         $status = $this->getStatusSession($request);
 
         $resultList = $this->modelService->getList($request->all(), true);
@@ -36,10 +37,16 @@ class ProductController extends Controller
         return Inertia::render('Product/Index', [
             'products'=> $resultList,
             'status'=>$status,
+
+
+        return Inertia::render('Product/Index',[
+            'products'=>Product::get(),
+
         ]);
 
    
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +55,17 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Product/Create');
+        {
+            $product = new Product();
+
+            \Log::info('ProductController::create()');
+    
+            return Inertia::render('Product/Create', [
+                'product'=> $product,
+                'categoryList'=> $product ->getCategoryList(),
+
+            ]);
+        }
     }
 
     /**
@@ -59,6 +76,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+
+
         $validatedData = $request->validated();
         $recordData = new Product();
         $recordData->created_by = Auth::user()->id;
@@ -76,7 +95,11 @@ class ProductController extends Controller
             $recordData->attachment()->save($attachment);
         }
 
+
         $this->setStatusSession('Products record '.$recordData->prod_id.' has been added.');
+
+        $this->setStatusSession('Product record '.$recordData->prod_id.' has been added.');
+
 
         return redirect('/products');
     }
@@ -100,8 +123,37 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        // $product->invoiceDate = $product->invoiceDate;
+        // $product->attachmentFile = $product->attachmentFile;
+
+        // \Log::info($product);
+
+        //  $product->invoiceDate = $product->invoiceDate;
+
+        {
+            // $invoice->invoiceDate = $invoice->invoiceDate;
+            // $invoice->attachmentFile = $invoice->attachmentFile;
+    
+        //     return Inertia::render('Invoice/Edit', [
+        //         'invoice'=> $invoice,
+        //         'currencyList' => $invoice->getCurrencyList(),
+        //         'statusList' => $invoice->getInvoiceStatusList(),
+        //         'paymentMethodList' => $invoice->getInvoicePaymentMethodList(),
+        //     ]);
+        // }
+
+        return Inertia::render('Product/Edit', [
+            'product'=> $product,
+            'categoryList'=> $product ->getCategoryList(),
+            
+ 
+
+        ]);
+
+
+     
     }
+        }
 
     /**
      * Update the specified resource in storage.

@@ -8,12 +8,11 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
+export default function Product(props) {
 
 const onAddHandler = ()=>{
-    Inertia.get(route('orders.create'));
+    Inertia.get(route('products.create'));
 }
-
-export default function Product(props) {
 
     const [filters, setFilters] = useState();
 
@@ -42,6 +41,8 @@ export default function Product(props) {
             header={<h2>Product</h2>}
         >
             <Head title="Product" />
+
+            <div className="max-w-7xl  sm:px-6 lg:px-8">
 
             <div className="flex flex-row-reverse rounded-full px-3 py-12">
                 <PrimaryButton type='button'
@@ -82,10 +83,18 @@ export default function Product(props) {
                                     {props.products.data.map((item)=>{
                                         return (
 
+
                                             <tr className="text-left font-bold border px-4 py-2">
                                                 <td className="pb-4 pt-3 px-11">
                                                     <Link className="flex items-center px-6 py-2 focus:text-indigo-500">
                                                         {item.created_at}
+
+                                            <tr className="text-left font-bold">
+                                                <td className="pb-4 pt-6 px-6">
+                                                    <Link className="flex items-center" href={`/admin/products/${item.prod_id}/edit`}>
+                                                        {item.prod_title}
+                                                        
+
                                                     </Link>
                                                 </td>
                                                 <td className="border px-2 pl-2">{item.prod_author}</td>
@@ -102,6 +111,7 @@ export default function Product(props) {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
 
            
