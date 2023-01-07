@@ -37,19 +37,15 @@ class CustomerController extends Controller
     public function index(Request $request)
     
     {
-        return Inertia::render('Customer/Index',[
-            'customers'=>Customer::get(),
-            
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+        \Log::info($resultList);
+
+        return Inertia::render('Customer/Index', [
+            'customers'=> $resultList,
+            'status'=>$status,
         ]);
-        
-        // $status = $this->getStatusSession($request);
-
-        // $resultList = $this->modelService->getList($request->all(), true);
-
-        // return Inertia::render('Customers/Index', [
-        //     'customers'=> $resultList,
-        //     'status'=>$status,
-        // ]);
 
     }
 
@@ -60,7 +56,6 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Customers/Create');
     }
 
     /**
@@ -71,7 +66,27 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-       
+        $validatedData = $request->validated();
+        $recordData = new Customer();
+        $recordData->created_by = Auth::user()->id;
+        $recordData->cust_id = $validatedData['cust_id'];
+        $recordData->cust_firstname = $validatedData['cust_firstname'];
+        $recordData->cust_lastname = $validatedData['cust_lastname'];
+        $recordData->cust_contact = $validatedData['cust_contact'];
+        $recordData->cust_email = $validatedData['cust_email'];
+        $recordData->cust_password = $validatedData['cust_password'];
+        $recordData->cust_delivery_address = $validatedData['cust_delivery_address'];
+        $recordData->save();
+
+        $attachment = $this->saveAttachmentFile($request);
+        if($attachment){
+            $attachment->att_description = 'Customer attachment file';
+            $recordData->attachment()->save($attachment);
+        }
+
+        $this->setStatusSession('Customer record '.$recordData->cust_id.' has been added.');
+
+        return redirect('/customers');
     }
 
     /**
@@ -93,7 +108,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        
     }
 
     /**
@@ -105,7 +120,21 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $validatedData = $request->validated();
+
+        $customer->modified_by = Auth::user()->id;
+        $recordData->cust_id = $validatedData['cust_id'];
+        $recordData->cust_firstname = $validatedData['cust_firstname'];
+        $recordData->cust_lastname = $validatedData['cust_lastname'];
+        $recordData->cust_contact = $validatedData['cust_contact'];
+        $recordData->cust_email = $validatedData['cust_email'];
+        $recordData->cust_password = $validatedData['cust_password'];
+        $recordData->cust_delivery_address = $validatedData['cust_delivery_address'];
+        $recordData->save();
+
+        $this->setStatusSession('Customer record '.$recordData->cust_id.' has been added.');
+
+        return redirect('/customers');
     }
 
     /**
@@ -116,6 +145,6 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        
     }
 }

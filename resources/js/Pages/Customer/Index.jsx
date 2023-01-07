@@ -1,7 +1,7 @@
 import MutedButton from '@/Components/MutedButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
-import { createInertiaApp, Head, Link } from '@inertiajs/inertia-react';
+import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
@@ -65,25 +65,27 @@ export default function Customers(props) {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {props.customers.map((item)=>{
+                                    {props.customers.data.map((item)=>{
                                         return (
 
                                             <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center" href={`/customers/${item.cust_contact}/edit`}>
+                                                <td className="pb-4 pt-2 px-6">
+                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500">
                                                         {item.cust_firstname}
                                                     </Link>
                                                 </td>
-                                                <td className="border px-4 py-2">{item.cust_email}</td>
-                                                <td className="border px-4 py-2">{item.cust_delivery_address}</td>
-                                                <td className="border px-4 py-2">{}</td>
-                                             
+                                                <td className="border px-2 pl-2">{item.cust_email}</td>
+                                                <td className="border px-4 pl-2">{item.cust_delivery_address}</td>
+                                                <td className="border px-4 pl-2">{}</td>
+                                                <td className="border px-4 pl-2">{}</td>
+                                         
+
                                             </tr>
                                         );
                                     })}
                                 </tbody>
-                                {/* <Pagination resultList={props.customers}/> */}
                             </table>
+                            <Pagination resultList={props.customers}/>
                         </div>
                     </div>
                 </div>

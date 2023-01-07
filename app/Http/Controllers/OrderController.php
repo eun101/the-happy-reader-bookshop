@@ -32,6 +32,11 @@ class OrderController extends Controller
     public function index(Request $request)
     {
 
+      
+    $status = $this->getStatusSession($request);
+
+    $resultList = $this->modelService->getList($request->all(), true);
+
 
 
 
@@ -53,6 +58,7 @@ class OrderController extends Controller
     //     'status'=>$status,
     // ]);     
 
+
     // return Inertia::render('Order/Index', [
     //     'orders'=> $resultList,
     //     'status'=>$status,
@@ -64,7 +70,7 @@ class OrderController extends Controller
 // ($users);
 
 
-    
+
     }
 
     /**
@@ -147,6 +153,7 @@ class OrderController extends Controller
         $validatedData = $request->validated();
 
         $order->modified_by = Auth::user()->id;
+<<<<<<< HEAD
         $order->inv_number = $validatedData['ord_cust_id'];
         $order->inv_to = $validatedData['ord_delivery_address'];
         $order->inv_contact_number = $validatedData['inv_contact_number'];
@@ -156,6 +163,15 @@ class OrderController extends Controller
         $order->inv_payment_method = $validatedData['inv_payment_method'];
         $order->inv_delivery_address = $validatedData['inv_delivery_address'];
         $order->save();
+=======
+        $recordData->ord_cust_id = $validatedData['ord_cust_id'];
+        $recordData->ord_delivery_address = $validatedData['ord_delivery_address'];
+        $recordData->ord_payment_method = $validatedData['ord_payment_method'];
+        $recordData->ord_amount = $validatedData['ord_amount'];
+        $recordData->ord_status = $validatedData['ord_status'];
+        $recordData->ord_paid = $validatedData['ord_paid'];
+        $recordData->save();
+>>>>>>> 26417eca9ee2cfb5a373f0a1b56c435c27d1e16c
 
         $this->setStatusSession('Invoice record '.$order->inv_number.' has been updated.');
 

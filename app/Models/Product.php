@@ -10,6 +10,7 @@ class Product extends BaseModel
 
     protected $primaryKey = "prod_id";
 
+<<<<<<< HEAD
 
     public function attachment(){
         return $this->morphOne('App\Models\Attachment','att_reference')->withDefault();
@@ -20,16 +21,10 @@ class Product extends BaseModel
     }
 
 
+=======
+    public function categories(){
+        return $this->belongsTo('App\Models\Category','prod_categ_id')->withDefault();
+    }
+>>>>>>> 26417eca9ee2cfb5a373f0a1b56c435c27d1e16c
 
-    // public function customer(){
-    //     return $this->belongsTo('App\Models\Customer','ord_delivery_address')->withDefault();
-    // }
-
-    // public function status(){
-    //     return $this->belongsTo('App\Models\OrderList','ord_status')->withDefault();
-    // }
-
-    // public function paymentMethod(){
-    //     return $this->belongsTo('App\Models\OrderList','ord_payment_method')->withDefault();
-    // }
 }

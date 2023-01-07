@@ -50,45 +50,46 @@ export default function Inventory(props) {
             </div>
        
             <div className="py-12">
-                {/* <div className="max-w-7xl mx-auto sm:px-6 lg:px-8"> */}
+                <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    <th className="pb-4 pt-6 px-6">BOOK COVER</th>
-                                    <th className="pb-4 pt-6 px-6">BOOK TITLE</th>
-                                    <th className="pb-4 pt-6 px-6">CREATED DATE</th>
-                                    <th className="pb-4 pt-6 px-6">CATEGORY</th>
-                                    <th className="pb-4 pt-6 px-6">SALES</th>
-                                    <th className="pb-4 pt-6 px-6"># OF ORDERS</th>
-                                    <th className="pb-4 pt-6 px-6">STOCKS</th>
-                                    <th className="pb-4 pt-6 px-6">ACTION</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK COVER</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
+                                    <th className="text-center pb-4 pt-6 px-6">CREATED DATE</th>
+                                    <th className="text-center pb-4 pt-6 px-6">CATEGORY</th>
+                                    <th className="text-center pb-4 pt-6 px-6">SALES</th>
+                                    <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">STOCKS</th>
                                 </tr>
                                 </thead>
-                                {/* <tbody>
-                                    {props.customers.map((item)=>{
+                                <tbody>
+                                    {props.inventories.data.map((item)=>{
                                         return (
 
-                                            <tr className="text-left font-bold">
-                                                <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500" href={`/customers/${item.cust_contact}/edit`}>
+                                            <tr className="text-left font-bold border px-4 py-2">
+                                                <td className="pb-4 pt-6 px-11">
+                                                    <Link className="flex items-center px-6 py-3 focus:text-indigo-500">
                                                         {}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                             
+                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="border px-4 pl-2">{item.created_at}</td>
+                                                <td className="border px-4 pl-2">{}</td>
+                                                <td className="border px-4 pl-2">{}</td>
+                                                <td className="border px-4">{}</td>
+                                                <td className="border px-4 py-3">{}</td>
                                             </tr>
                                         );
                                     })}
-                                </tbody> */}
-                            
+                                </tbody>
                             </table>
+                            <Pagination resultList={props.inventories}/>
                         </div>
                     </div>
-                {/* </div> */}
+                </div>
             </div>
 
            

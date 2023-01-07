@@ -2,22 +2,23 @@
 
 namespace App\Services;
 
-use App\Models\Order;
+use App\Models\Sale;
 use App\Traits\DropDownListOptions;
 
-class OrderService extends AbstractModelService implements IModelService{
+class SaleService extends AbstractModelService implements IModelService{
 
     use DropDownListOptions;
 
     public function getList($filters, $paginate=false){
 
-        $resultList = Order::with('createdBy')->with('customer');
+        $resultList = Sale::with('createdBy')->with('customers')->with('orders');
+
 
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
             $resultList->where(function($query) use($filters){
-                $query->where('ord_cust_id','like', '%'.$filters['keyword'].'%');
-                $query->orWhere('ord_delivery_address','like', '%'.$filters['keyword'].'%');
-                $query->orWhere('ord_delivery_address','like', '%'.$filters['keyword'].'%');
+                $query->where('sales_order_id','like', '%'.$filters['keyword'].'%');
+                $query->orWhere('sales_total_amount','like', '%'.$filters['keyword'].'%');
+                $query->orWhere('sales_total_amount','like', '%'.$filters['keyword'].'%');
             });
         }
 
@@ -37,6 +38,6 @@ class OrderService extends AbstractModelService implements IModelService{
     public function destroy($recordId){
         
     }
-
+  
 
 }

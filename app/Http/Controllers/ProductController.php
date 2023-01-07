@@ -34,10 +34,23 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+
+        // \Log::info($resultList);
+
+        return Inertia::render('Product/Index', [
+            'products'=> $resultList,
+            'status'=>$status,
+
 
         return Inertia::render('Product/Index',[
             'products'=>Product::get(),
+
         ]);
+
+   
     }
 
 
@@ -85,11 +98,15 @@ class ProductController extends Controller
 
         $attachment = $this->saveAttachmentFile($request);
         if($attachment){
-            $attachment->att_description = 'Books attachment file';
+            $attachment->att_description = 'Products attachment file';
             $recordData->attachment()->save($attachment);
         }
 
+
+        $this->setStatusSession('Products record '.$recordData->prod_id.' has been added.');
+
         $this->setStatusSession('Product record '.$recordData->prod_id.' has been added.');
+
 
         return redirect('/products');
     }
@@ -154,7 +171,20 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $validatedData = $request->validated();
+
+        $product->modified_by = Auth::user()->id;
+        $recordData->prod_id = $validatedData['prod_id'];
+        $recordData->prod_categ_id = $validatedData['prod_categ_id'];
+        $recordData->prod_title = $validatedData['prod_title'];
+        $recordData->prod_author = $validatedData['prod_author'];
+        $recordData->prod_description = $validatedData['prod_description'];
+        $recordData->prod_status = $validatedData['prod_status'];
+        $recordData->save();
+
+        $this->setStatusSession('Product record '.$recordData->prod_id.' has been added.');
+
+        return redirect('/products');
     }
 
     /**
