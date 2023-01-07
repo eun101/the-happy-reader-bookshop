@@ -101,7 +101,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
     Route::resource('categories', CategoryController::class);
- 
+
 });
 });
 

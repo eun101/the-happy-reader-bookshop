@@ -10,7 +10,16 @@ class Product extends BaseModel
 
     protected $primaryKey = "prod_id";
 
-    protected $dates = ['created_at', 'updated_at','deleted_at',];
+
+    public function attachment(){
+        return $this->morphOne('App\Models\Attachment','att_reference')->withDefault();
+    }
+
+    public function category(){
+        return $this->belongsTo('App\Models\Category','categ_category_name')->withDefault();
+    }
+
+
 
     // public function customer(){
     //     return $this->belongsTo('App\Models\Customer','ord_delivery_address')->withDefault();

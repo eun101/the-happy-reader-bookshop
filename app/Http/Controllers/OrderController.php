@@ -19,6 +19,10 @@ class OrderController extends Controller
     
     public function __construct(IModelService $modelService){
         $this->modelService = $modelService;
+        // $this->middleware('permission:order-list|order-create|order-edit|order-delete', ['only' => ['index','store']]);
+        // $this->middleware('permission:order-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:order-edit', ['only' => ['edit','update']]);
+        // $this->middleware('permission:order-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -140,19 +144,20 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        
         $validatedData = $request->validated();
 
-        $invoice->modified_by = Auth::user()->id;
-        $recordData->ord_cust_id = $validatedData['ord_cust_id'];
-        $recordData->ord_delivery_address = $validatedData['ord_delivery_address'];
-        $recordData->ord_payment_method = $validatedData['ord_payment_method'];
-        $recordData->ord_amount = $validatedData['ord_amount'];
-        $recordData->ord_status = $validatedData['ord_status'];
-        $recordData->ord_paid = $validatedData['ord_paid'];
-        $recordData->save();
+        $order->modified_by = Auth::user()->id;
+        $order->inv_number = $validatedData['ord_cust_id'];
+        $order->inv_to = $validatedData['ord_delivery_address'];
+        $order->inv_contact_number = $validatedData['inv_contact_number'];
+        $order->inv_date = $validatedData['inv_date'];
+        $order->inv_currency = $validatedData['inv_currency'];
+        $order->inv_status = $validatedData['inv_status'];
+        $order->inv_payment_method = $validatedData['inv_payment_method'];
+        $order->inv_delivery_address = $validatedData['inv_delivery_address'];
+        $order->save();
 
-        $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
+        $this->setStatusSession('Invoice record '.$order->inv_number.' has been updated.');
 
         return redirect('/orders');
     }
@@ -168,7 +173,7 @@ class OrderController extends Controller
         $ordCustomer = $order->ord_cust_id;
         $order->delete();
 
-        $this->setStatusSession('Order record '.$ord_cust_id.' has been deleted.');
+        $this->setStatusSession('Order record '.$ordCustomer.' has been deleted.');
 
         return redirect('/orders');
     }

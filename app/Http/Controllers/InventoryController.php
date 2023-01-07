@@ -18,6 +18,10 @@ class InventoryController extends Controller
     
     public function __construct(IModelService $modelService){
         $this->modelService = $modelService;
+        // $this->middleware('permission:inventory-list|inventory-create|inventory-edit|inventory-delete', ['only' => ['index','store']]);
+        // $this->middleware('permission:inventory-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:inventory-edit', ['only' => ['edit','update']]);
+        // $this->middleware('permission:inventory-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.

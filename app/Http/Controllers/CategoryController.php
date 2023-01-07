@@ -18,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        \Log::info($this->getCategoryList());
+        // \Log::info($this->getCategoryList());
 
     
         

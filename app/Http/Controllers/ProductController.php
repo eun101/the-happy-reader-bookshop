@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Inertia\Inertia;
@@ -12,6 +13,7 @@ use App\Services\OrderService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
+
 class ProductController extends Controller
 {
 
@@ -19,6 +21,10 @@ class ProductController extends Controller
     
     public function __construct(IModelService $modelService){
         $this->modelService = $modelService;
+        // $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','store']]);
+        // $this->middleware('permission:product-create', ['only' => ['create','store']]);
+        // $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
+        // $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -42,17 +48,14 @@ class ProductController extends Controller
      */
     public function create()
     {
-        {
-            $product = new Product();
 
-            \Log::info('ProductController::create()');
+            $product = new Product();
     
-            return Inertia::render('Product/Create', [
+            return Inertia::render('Product/Edit', [
                 'product'=> $product,
                 'categoryList'=> $product ->getCategoryList(),
 
             ]);
-        }
     }
 
     /**
@@ -65,16 +68,20 @@ class ProductController extends Controller
     {
 
 
+
         $validatedData = $request->validated();
+
+
         $recordData = new Product();
         $recordData->created_by = Auth::user()->id;
-        $recordData->prod_id = $validatedData['prod_id'];
         $recordData->prod_categ_id = $validatedData['prod_categ_id'];
         $recordData->prod_title = $validatedData['prod_title'];
         $recordData->prod_author = $validatedData['prod_author'];
         $recordData->prod_description = $validatedData['prod_description'];
         $recordData->prod_status = $validatedData['prod_status'];
         $recordData->save();
+
+
 
         $attachment = $this->saveAttachmentFile($request);
         if($attachment){
@@ -125,7 +132,7 @@ class ProductController extends Controller
         //     ]);
         // }
 
-        return Inertia::render('Product/Edit', [
+        return Inertia::render('Product/', [
             'product'=> $product,
             'categoryList'=> $product ->getCategoryList(),
             
