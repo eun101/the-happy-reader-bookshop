@@ -83,7 +83,7 @@ export default function Product(props) {
                                         return (
 
                                             <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-6 px-11">
+                                                <td className="pb-4 pt-3 px-11">
                                                     <Link className="flex items-center px-6 py-2 focus:text-indigo-500">
                                                         {item.created_at}
                                                     </Link>
