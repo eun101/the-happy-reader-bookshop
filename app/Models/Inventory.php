@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Inventory extends BaseModel
+class Inventory extends Model
 {
+    use HasFactory;
 
     protected $primaryKey = "invent_id";
 

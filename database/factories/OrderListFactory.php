@@ -17,17 +17,12 @@ class OrderListFactory extends Factory
      */
     public function definition()
     {
-
-        $quantity = fake()->numberBetween(10,20);
-        $price = fake()->randomNumber(3, true);
-        $total = $quantity * $price;
-
         return [
             'ordlist_ord_id' =>fake()-> numberBetween(1,100),
             'ordlist_prod_id' => fake() -> numberBetween(1,20),
-            'ordlist_quantity' => $quantity,
-            'ordlist_price' =>  $price,
-            'ordlist_total' =>   $total,
+            'ordlist_quantity' => fake()-> numberBetween(10,20),
+            'ordlist_price' =>  fake()->randomNumber(3, true),
+            'ordlist_total' =>  fake() ->randomNumber(3, true),
             'created_by' => 1,
             'created_at'=>fake()->dateTime(),
             'updated_at'=>fake()->dateTime(),

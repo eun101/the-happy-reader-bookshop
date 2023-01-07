@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
-use App\Traits\DropDownListOptions;
 
 class CategoryController extends Controller
 {
-
-    use DropDownListOptions;
     /**
      * Display a listing of the resource.
      *
@@ -18,13 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        \Log::info($this->getCategoryList());
-
-    
-        
-
-
-
+        //
     }
 
     /**

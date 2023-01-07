@@ -10,6 +10,7 @@ export default function Dashboard(props) {
             auth={props.auth}
             errors={props.errors}
 
+            header={<h2 className=''>Dashboard Admin</h2>}
 
             header={<h2>Dashboard Admin</h2>}
 
