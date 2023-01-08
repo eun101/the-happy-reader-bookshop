@@ -13,5 +13,4 @@ class Product extends BaseModel
     public function categories(){
         return $this->belongsTo('App\Models\Category','prod_categ_id')->withDefault();
     }
-
 }

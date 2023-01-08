@@ -10,7 +10,7 @@ import Pagination from '@/Components/Pagination';
 
 
 const onAddHandler = ()=>{
-    Inertia.get(route('orders.create'));
+    Inertia.get(route('products.create'));
 }
 
 export default function Product(props) {
