@@ -29,12 +29,7 @@ export default function Product(props) {
 
     const onSaveHandler = (event) => {
         event.preventDefault();
-
-        if (props.product.prod_id > 0) {
-            Inertia.put('/products/' + props.product.prod_id, data, { forceFormData: true });
-        } else {
-            Inertia.post(route('products.store'), data, { forceFormData: true });
-        }
+        Inertia.post(route('products.store'), data, { forceFormData: true });
     }
 
     const onCancelHandler = () => {
@@ -63,8 +58,8 @@ export default function Product(props) {
                                         <InputLabel for="category" value="Category"/>
 
                                         <Select id="category" className="mt-1 block w-full"
-                                            name="categ_category_name"                                            
-                                            value={data.categ_category_name}
+                                            name="prod_categ_id"                                            
+                                            value={data.prod_categ_id}
                                             handleChange={handleChange} 
                                             options={props.categoryList}
                                             placeholder="-- Select Category --"
@@ -79,7 +74,7 @@ export default function Product(props) {
                                     <InputLabel for="product_title" value="Book Title" />
 
                                     <TextInput id="product_title" className="mt-1 block w-full"
-                                        name="product_title"
+                                        name="prod_title"
                                         value={data.prod_title}
                                         handleChange={handleChange}
                                         required
@@ -92,7 +87,7 @@ export default function Product(props) {
                                     <InputLabel for="product_author" value="Book Author" />
 
                                     <TextInput id="product_author" className="mt-1 block w-full"
-                                        name="product_author"
+                                        name="prod_author"
                                         value={data.prod_author}
                                         handleChange={handleChange}
                                         required
@@ -103,13 +98,22 @@ export default function Product(props) {
 
                                     <div className="mt-6">
                                         <InputLabel for="product_description" value="Book Description" />
-                                        <textarea id="product_description" name="product_description" className="mt-1 block w-full" onChange={handleChange}>
+                                        <textarea id="prod_description" name="prod_description" className="mt-1 block w-full" onChange={handleChange}>
                                             {data.prod_description}
                                         </textarea>
                                     </div>
                                 </div>
+                                <div>
 
-                                <div className="grid pt-6">
+                            {/* <div className="mt-6">
+                                <InputLabel for="status" value="status" />
+                                <TextInput id="prod_status" max="1" type="number" name="prod_status" className="mt-1 block w-full" onChange={handleChange}>
+                                    {data.prod_status}
+                                </TextInput>
+                            </div> */}
+                            </div>
+
+                                {/* <div className="grid pt-6">
                                     <InputLabel for="delivery_address" value="Attachment"/>
 
                                     <TextInput id="invoice_date" className="mt-1 block w-full"
@@ -123,7 +127,7 @@ export default function Product(props) {
 
 
 
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="flex items-center gap-4 py-4">

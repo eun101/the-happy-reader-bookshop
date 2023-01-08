@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useRef } from 'react';
 
 export default forwardRef(function Select(
-    {id, name, handleChange, className, options, placeholder, required, value, isFocused, optionLabel='opt_name', optionValue='opt_id' },
+    {id, name, handleChange, className, options, placeholder, required, value, isFocused, optionLabel, optionValue},
     ref
 ) {
     const select = ref ? ref : useRef();

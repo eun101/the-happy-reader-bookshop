@@ -28,18 +28,17 @@ class OrderController extends Controller
     public function index(Request $request)
     {
       
-        $status = $this->getStatusSession($request);
+    $status = $this->getStatusSession($request);
+    $resultList = $this->modelService->getList($request->all(), true);
 
-        $resultList = $this->modelService->getList($request->all(), true);
-    
-        // \Log::info($resultList);
-    
-        return Inertia::render('Order/Index', [
-            'orders'=> $resultList,
-            'status'=>$status,
-        ]);
-    
-        }
+    // \Log::info($resultList);
+
+    return Inertia::render('Order/Index', [
+        'orders'=> $resultList,
+        'status'=>$status,
+    ]);
+
+    }
 
     /**
      * Show the form for creating a new resource.

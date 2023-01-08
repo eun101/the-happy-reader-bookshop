@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('prod_title');
             $table->string('prod_author');
             $table->string('prod_description',300);
-            $table->integer('prod_status');
+            $table->integer('prod_status')->nullable()->default(1);
             $table->integer('created_by');
             $table->dateTime('created_at');
             $table->integer('modified_by')->nullable()->default(0);
