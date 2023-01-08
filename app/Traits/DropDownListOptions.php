@@ -2,7 +2,8 @@
 
 namespace App\Traits;
 
-use App\Models\Category;
+use App\Models\Currency;
+use App\Models\Option;
 
 
 trait DropDownListOptions {
@@ -10,6 +11,7 @@ trait DropDownListOptions {
     public function getOrderLists(){
         return Currency::orderby('ordlist_price', 'ASC')->get();
     }
+
 
     public function getCategoryList(){
         return Category::orderby('categ_category_name', 'ASC')->get();
@@ -27,4 +29,5 @@ trait DropDownListOptions {
     // public function getInvoicePaymentMethodList(){
     //     return $this->getGroupOptionList(2);
     // }
+
 }

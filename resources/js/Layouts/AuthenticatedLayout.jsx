@@ -10,7 +10,7 @@ export default function Authenticated({ auth, header, children }) {
 
     return (
         <div className="min-h-screen bg-emerald-50 flex">
-            <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } text-medium border-neutral-800 left-0 top-0 bottom-0 h-100 fixed flex-col-6 h-screen p-2 bg-neutral-800 shadow duration-300`}>
+            <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } relative text-medium border-neutral-800 left-0 top-0 bottom-0 h-86 fixed flex-col-6 h-screen p-2 bg-neutral-800 shadow duration-300`}>
                
                 
                 <div className='shrink-0 flex items-right mx-auto'>
