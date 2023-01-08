@@ -8,7 +8,7 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\CustomerService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -31,7 +31,7 @@ class CustomerController extends Controller
         $status = $this->getStatusSession($request);
 
         $resultList = $this->modelService->getList($request->all(), true);
-        \Log::info($resultList);
+        
 
         return Inertia::render('Customer/Index', [
             'customers'=> $resultList,

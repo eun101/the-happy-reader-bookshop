@@ -50,8 +50,8 @@ export default function Customers(props) {
                 </div>
 
        
-            <div className="py-12">
-                <div className="">
+            <div className="py-1">
+                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
@@ -68,16 +68,16 @@ export default function Customers(props) {
                                     {props.customers.data.map((item)=>{
                                         return (
 
-                                            <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-2 px-6">
-                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500">
+                                            <tr className="text-left border px-4 py-2">
+                                                <td className="pb-4 px-11 font-mono">
+                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500 no-underline text-gray-900">
                                                         {item.cust_firstname}
                                                     </Link>
                                                 </td>
-                                                <td className="border px-2 pl-2">{item.cust_email}</td>
-                                                <td className="border px-4 pl-2">{item.cust_delivery_address}</td>
-                                                <td className="border px-4 pl-2">{}</td>
-                                                <td className="border px-4 pl-2">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_delivery_address}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
                                          
 
                                             </tr>

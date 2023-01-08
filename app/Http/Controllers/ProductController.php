@@ -33,7 +33,6 @@ class ProductController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
-        // \Log::info($resultList);
 
         return Inertia::render('Product/Index', [
             'products'=> $resultList,
@@ -50,17 +49,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        {
-            $product = new Product();
-
-            \Log::info('ProductController::create()');
-    
-            return Inertia::render('Product/Create', [
-                'product'=> $product,
-                'categoryList'=> $product ->getCategoryList(),
-
-            ]);
-        }
+        return Inertia::render('Product/Create');
     }
 
     /**
@@ -73,7 +62,6 @@ class ProductController extends Controller
     {
 
         $validatedData = $request->validated();
-
 
         $recordData = new Product();
         $recordData->created_by = Auth::user()->id;
@@ -114,13 +102,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+
         return Inertia::render('Product/Edit', [
             'product'=> $product,
             'categoryList'=> $product ->getCategoryList(),
             
- 
 
         ]);
+
     }
 
     /**
