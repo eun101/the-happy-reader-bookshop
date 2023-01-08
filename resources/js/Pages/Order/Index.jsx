@@ -43,6 +43,7 @@ export default function Orders(props) {
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
+
                                 <tr className="">
                                     <th className=" pb-4 pt-6 pl-4">DATE</th>
                                     <th className=" pb-4 pt-6 pl-4">CUSTOMER</th>
@@ -52,11 +53,13 @@ export default function Orders(props) {
                                     <th className=" pb-4 pt-6 pl-4">BOOK ORDERS</th>
                                     <th className=" pb-4 pt-6 pl-4">ORDER TOTAL</th>
                                     <th className=" pb-4 pt-6 pl-4">STATUS</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                     {props.orders.data.map((item)=>{
                                         return (
+
                                             
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-6 font-mono">
@@ -71,6 +74,7 @@ export default function Orders(props) {
                                                 <td className="pb-4 pt-6 px-6">{}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.ord_amount}</td>
 
+
                                             </tr>
                                         );
                                     })}
@@ -82,8 +86,6 @@ export default function Orders(props) {
                 </div>
             </div>
            
-           
-
         </AuthenticatedLayout>
     );
 }
