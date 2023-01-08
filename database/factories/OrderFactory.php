@@ -18,12 +18,12 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'ord_client_id' => Str::random(10),
+            'ord_cust_id' => fake()->randomNumber(2),
             'ord_delivery_address' => fake () -> address(),
-            'ord_payment_method' => fake() -> word (5),
-            'ord_amount' => fake () -> amount(),
-            'ord_status'  => Str::random(10),
-            'ord_paid'  => Str::random(10),
+            'ord_payment_method' => fake() -> creditCardType(),
+            'ord_amount' => fake()->randomNumber(3, true),
+            'ord_status'  => 1,
+            'ord_paid'  => fake()->randomDigit(10),
             'created_by' => 1,
             'created_at'=>fake()->dateTime(),
             'updated_at'=>fake()->dateTime(),

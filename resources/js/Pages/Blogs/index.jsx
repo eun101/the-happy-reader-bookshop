@@ -16,9 +16,9 @@ export default function Blogs(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Blogs</h2>}
+            header={<h2>Blog</h2>}
         >
-            <Head title="Blogs" />
+            <Head title="Blog" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -36,6 +36,7 @@ export default function Blogs(props) {
                                 {/* <tbody>
                                     {props.orders.data.map((item)=>{
                                         return (
+
                                             <tr className="text-left font-bold">
                                                 <td className="pb-4 pt-6 px-6">
                                                     <Link className="flex items-center px-6 py-4 focus:text-indigo-500" href={`/orders/${item.ord_id}/edit`}>

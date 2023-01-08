@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('ord_id');
-            $table -> integer ('ord_client_id');
+            $table -> integer ('ord_cust_id');
             $table->string('ord_delivery_address', 300) -> nullable();
             $table->string('ord_payment_method');
             $table->float('ord_amount');
-            $table->string('ord_status');
-            $table->string('ord_paid');
+            $table->integer('ord_status');
+            $table->integer('ord_paid');
             $table->integer('created_by');
             $table->dateTime('created_at');
             $table->integer('modified_by')->nullable()->default(0);

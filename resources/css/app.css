@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+
+    
+    
+}
+.container {
+    max-width: 100%;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+
+.shop-now{
+    background-color: white !important;
+    color: black !important;
+
+}

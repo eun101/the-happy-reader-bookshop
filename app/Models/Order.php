@@ -5,7 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Order extends BaseModel
 {
-    use HasFactory;
+
+    protected $primaryKey = "ord_id";
+
+
+    public function customer(){
+        return $this->belongsTo('App\Models\Customer','ord_cust_id')->withDefault();
+    }
+    
+    // public function status(){
+    //     return $this->belongsTo('App\Models\Product','ord_status')->withDefault();
+    // }
+
+    // public function amount(){
+    //     return $this->belongsTo('App\Models\OrderList','ord_amount')->withDefault();
+    // }
+
+
 }

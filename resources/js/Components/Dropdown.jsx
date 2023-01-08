@@ -35,17 +35,21 @@ const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-whit
 
     let alignmentClasses = 'origin-top';
 
-    if (align === 'left') {
+    if (align === 'right') {
         alignmentClasses = 'origin-top-left left-0';
-    } else if (align === 'right') {
+    } else if (align === 'left') {
         alignmentClasses = 'origin-top-right right-0';
     }
+
+
+
 
     let widthClasses = '';
 
     if (width === '48') {
         widthClasses = 'w-48';
     }
+
 
     return (
         <>
