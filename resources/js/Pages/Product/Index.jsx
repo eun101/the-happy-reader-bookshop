@@ -10,7 +10,7 @@ import Pagination from '@/Components/Pagination';
 
 
 const onAddHandler = ()=>{
-    Inertia.get(route('orders.create'));
+    Inertia.get(route('products.create'));
 }
 
 export default function Product(props) {
@@ -81,18 +81,18 @@ export default function Product(props) {
                                 <tbody>
                                     {props.products.data.map((item)=>{
                                         return (
+                                            <tr className="text-left border px-4 py-2">
+                                                <td className="pb-4 pt-3 px-11 font-mono">
+                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
 
-                                            <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-3 px-11">
-                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500">
                                                         {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <td className="border px-2 pl-2">{item.prod_author}</td>
-                                                <td className="border px-2 pl-2">{item.created_at}</td>
-                                                <td className="border px-2 pl-2">{}</td>
-                                                <td className="border px-2 pl-2">{}</td>
-                                                <td className="border px-2 pl-2">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.created_at}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
                                             </tr>
                                         );
                                     })}

@@ -43,33 +43,37 @@ export default function Orders(props) {
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
-                                <tr className="font-bold">
-                                    <th className="text-center pb-4 pt-6 pl-4">DATE</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">CUSTOMER</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">EMAIL</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">MOBILE #</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">BOOK ORDERS</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">ORDER TOTAL</th>
-                                    <th className="text-center pb-4 pt-6 pl-4">STATUS</th>
+
+                                <tr className="">
+                                    <th className=" pb-4 pt-6 pl-4">DATE</th>
+                                    <th className=" pb-4 pt-6 pl-4">CUSTOMER</th>
+                                    <th className=" pb-4 pt-6 pl-4">EMAIL</th>
+                                    <th className=" pb-4 pt-6 pl-4">MOBILE #</th>
+                                    <th className=" pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
+                                    <th className=" pb-4 pt-6 pl-4">BOOK ORDERS</th>
+                                    <th className=" pb-4 pt-6 pl-4">ORDER TOTAL</th>
+                                    <th className=" pb-4 pt-6 pl-4">STATUS</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
                                     {props.orders.data.map((item)=>{
                                         return (
 
-                                            <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-6 px-11">
-                                                    <Link className="flex items-center">
+                                            
+                                            <tr className="text-left border">
+                                                <td className="pb-4 pt-6 font-mono">
+                                                    <Link className="flex items-center no-underline  text-gray-900">
                                                         {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <td className="border px-2 pl-2">{item.customer.cust_firstname}</td>
-                                                <td className="border px-4 pl-2">{item.customer.cust_email}</td>
-                                                <td className="border px-4 pl-2">{item.customer.cust_contact}</td>
-                                                <td className="border px-4 pl-2">{item.ord_delivery_address}</td>
-                                                <td className="border px-4">{}</td>
-                                                <td className="border px-4 py-3">{item.ord_amount}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td>
+                                                <td className="pb-4 pt-6">{item.ord_delivery_address}</td>
+                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.ord_amount}</td>
+
 
                                             </tr>
                                         );
@@ -82,8 +86,6 @@ export default function Orders(props) {
                 </div>
             </div>
            
-           
-
         </AuthenticatedLayout>
     );
 }
