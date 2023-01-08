@@ -81,10 +81,10 @@ export default function Product(props) {
                                 <tbody>
                                     {props.products.data.map((item)=>{
                                         return (
-
                                             <tr className="text-left border px-4 py-2">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
+
                                                         {item.created_at}
                                                     </Link>
                                                 </td>

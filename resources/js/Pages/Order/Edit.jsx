@@ -1,84 +1,199 @@
-import PrimaryButton from '@/Components/PrimaryButton';
-import DangerButton from '@/Components/DangerButton';
+import React from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-react';
-import { filter, get } from 'lodash';
-import { useEffect, useState } from 'react';
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
+import InputLabel from '@/Components/InputLabel';
+import PrimaryButton from '@/Components/PrimaryButton';
+import DangerButton from '@/Components/DangerButton';
+import TextInput from '@/Components/TextInput';
+import Modal from '@/Components/Modal';
+import SecondaryButton from '@/Components/SecondaryButton';
+import { useState } from 'react';
+import Select from '@/Components/Select';
+
+export default function Product(props) {
+
+    const { data, setData, post, processing, errors, transform } = useForm(props.product);
+    const [confirmDelete, setConfirmDelete] = useState(false);
+
+    const handleChange = (event) => {
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
+
+        if(fieldName == 'attachment'){
+            setData(data=>({...data, [fieldName]: event.target.files[0]}));
+        }else{
+            setData(data=>({...data, [fieldName]: fieldValue}));
+        }
+    }
+
+    const onSaveHandler = (event) => {
+        event.preventDefault();
+
+        if (props.product.prod_id > 0) {
+            Inertia.put('/products/' + props.product.prod_id, data, { forceFormData: true });
+        } else {
+            Inertia.post(route('products.store'), data, { forceFormData: true });
+        }
+    }
+
+    const onCancelHandler = () => {
+        Inertia.get(route('products.index'));
+    }
+
+    const doConfirmDelete = () => {
+        setConfirmDelete(true);
+    }
+
+    const doDeleteHandler = () => {
+        Inertia.delete('/products/' + props.product.prod_id);
+    }
+
+    const closeModal = () => {
+        setConfirmDelete(false);
+    };
 
 
 
-
-export default function Orders(props) {
     return (
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className=''>Orders</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Book Information</h2>}
         >
-            <Head title="Orders" />
+            <Head title="Products" />
+            <div className="pt-10 ">
+                <div className="bg-white shadow-sm">
+                    <div className="p-14 text-gray-900">
+                        <form className="mt-6 space-y-6" onSubmit={onSaveHandler}>
+                            <div>
+                                <div className="mt-6">
+                                <div>
+                                        <InputLabel for="category" value="Category"/>
 
-            <div className="py-12">
-                <div className="">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-12 text-gray-900">
-                            <table className="w-full whitespace-nowrap">
-                                <thead>
-                                <tr>
-                                    <th className="pb-4 pt-6 px-6">Total Order Today</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Week</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Month</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Year</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order</th>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
+                                        <Select id="category" className="mt-1 block w-full"
+                                            name="categ_category_name"                                            
+                                            value={data.categ_category_name}
+                                            handleChange={handleChange} 
+                                            options={props.categoryList}
+                                            placeholder="-- Select Category --"
+                                            optionLabel="categ_category_name"
+                                            optionValue="categ_id"
+                                            required/>
+                                        
+                                    </div>
+                                    <div className="text-red-500">{props.errors.prod_category}</div>
+                                </div>
+                                <div className="mt-6">
+                                    <InputLabel for="product_title" value="Book Title" />
+
+                                    <TextInput id="product_title" className="mt-1 block w-full"
+                                        name="product_title"
+                                        value={data.prod_title}
+                                        handleChange={handleChange}
+                                        required
+                                    />
+                                    <div className="text-red-500">{props.errors.prod_title}</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="mt-6">
+                                    <InputLabel for="product_author" value="Book Author" />
+
+                                    <TextInput id="product_author" className="mt-1 block w-full"
+                                        name="product_author"
+                                        value={data.prod_author}
+                                        handleChange={handleChange}
+                                        required
+                                    />
+                                    <div className="text-red-500">{props.errors.prod_author}</div>
+                                </div>
+                                <div>
+
+                                    <div className="mt-6">
+                                        <InputLabel for="product_description" value="Book Description" />
+                                        <textarea id="product_description" name="product_description" className="mt-1 block w-full" onChange={handleChange}>
+                                            {data.prod_description}
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div className="grid pt-6">
+                                    <InputLabel for="delivery_address" value="Attachment"/>
+
+                                    <TextInput id="invoice_date" className="mt-1 block w-full"
+                                            type="file"
+                                            name="attachment"
+                                            handleChange={handleChange}
+                                        />
+                                    
+                                    <div>{data.attachmentFile}</div>
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-4 py-4">
+                                <DangerButton type='button' onClick={doConfirmDelete}>Delete</DangerButton>
+                                <SecondaryButton type='button' onClick={onCancelHandler}>Cancel</SecondaryButton>
+                                <PrimaryButton type='submit' disabled={processing} className="text-gray-600">Save</PrimaryButton>
+                            </div>
+                            <Modal show={confirmDelete} onClose={closeModal}>
+                                <div className="p-6 text-gray-900">
+                                    <h2 className="text-lg font-medium text-gray-900 text-center">
+                                        Are you sure you want to delete this record?
+                                    </h2>
+                                    <div className="mt-6 flex justify-center">
+                                        <SecondaryButton onClick={closeModal}>No</SecondaryButton>
+                                        <DangerButton className="ml-3" processing={processing} onClick={doDeleteHandler}>
+                                            Yes
+                                        </DangerButton>
+                                    </div>
+                                </div>
+                            </Modal>
+
+
+                        </form>
                     </div>
                 </div>
             </div>
-            <div className="py-12">
-                <div className="">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
-                            <table className="w-full whitespace-nowrap">
-                                <thead>
-                                <tr className="font-bold">
-                                    <th className="pb-4 pt-6 pl-4">DATE</th>
-                                    <th className="pb-4 pt-6 pl-4">CUSTOMER</th>
-                                    <th className="pb-4 pt-6 pl-4">EMAIL</th>
-                                    <th className="pb-4 pt-6 pl-4">MOBILE #</th>
-                                    <th className="pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
-                                    <th className="pb-4 pt-6 pl-4">BOOK ORDERS</th>
-                                    <th className="pb-4 pt-6 pl-4">ORDER TOTAL</th>
-                                    <th className="pb-4 pt-6 pl-4">STATUS</th>
-                                    <th className="pb-4 pt-6 pl-4">ACTIONS</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    {props.orders.map((item)=>{
-                                        return (
 
-                                            <tr className="text-left font-bold border px-4 py-2">
-                                                <td className="pb-4 pt-6 px-6">
-                                                    <Link className="flex items-center" href={`/orders/${item.ord_id}/edit`}>
-                                                        {item.created_at}
-                                                    </Link>
-                                                </td>
-                                                <td className="border px-2 pl-2">{item.cust_firstname}</td>
-                                                <td className="border px-4 pl-2">{}</td>
-                                                <td className="border px-4 pl-2">{}</td>
-                                                <td className="border px-4 pl-2">{item.ord_delivery_address}</td>
-                                                <td className="border px-4">{}</td>
-                                                <td className="border px-4 py-3">{item.ord_amount}</td>
+            <div className="pt-12 pb-5">
+                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div className="p-6 text-gray-900">
+
+                        <h7> Stats</h7>
+                        <p>Information about this product</p>
+
+
+
+                        <table className="">
+                            <thead>
+                                <tr className="text-left">
+                                    <th className="pb-4 pt-6 px-6">Sales</th>
+                                    <th className="pb-4 pt-6 px-6">No. of Orders</th>
+                                    <th className="pb-4 pt-6 px-6">Stocks</th>
+                                </tr>
+                            </thead>
+
+                            {/* <tbody>
+                                    {props.products.map((item)=>{
+                                        return (
+                                            <tr className="text-left font-bold">
+                                                <td className="border px-2 pl-2">{item.sales_total_amount</td>
+                                                <td className="border px-2 pl-2">{item.ord_total_amount}</td>
+                                                <td className="border px-2 pl-2">{item.created_at}</td> 
                                             </tr>
                                         );
                                     })}
-                                </tbody>
-                            </table>
-                            {/* <Pagination resultList={props.orders}/> */}
-                        </div>
+                                </tbody> */}
+
+                        </table>
+
+
                     </div>
                 </div>
             </div>
