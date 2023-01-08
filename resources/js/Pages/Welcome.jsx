@@ -15,11 +15,8 @@ export default function Welcome(props) {
                 </div>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <NavLink href={route('login')} active={route().current('login')}> Shop </NavLink>
-                        <NavLink href={route('login')} active={route().current('login')}> Blog </NavLink>
-                        <NavLink href={route('login')} active={route().current('login')}>Contact Us </NavLink>
-                        <NavLink href={route('login')} active={route().current('login')}>About Us </NavLink>
+                    {/* <Nav className="me-auto">
+                   
 
                         <div className="fixed top-0 right-0 p-4 px-5">
                             {props.auth.user ? (
@@ -44,7 +41,7 @@ export default function Welcome(props) {
                             )}
                         </div>
 
-                    </Nav>
+                    </Nav> */}
                 </Navbar.Collapse>
 
             </Navbar>

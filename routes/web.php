@@ -65,8 +65,10 @@ Route::get('customer/account', function () {
 })->middleware(['auth', 'verified'])->name('customeraccount');
 
 
+
+
 Route::get('/about-us', function () {
-    return Inertia::render('AboutUs')->name('about-us');
+    return Inertia::render('AboutUs');
 });
 
 
