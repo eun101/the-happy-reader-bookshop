@@ -2,8 +2,9 @@
 
 namespace App\Traits;
 
-use App\Models\Currency;
-use App\Models\Option;
+
+use App\Models\Category;
+
 
 
 trait DropDownListOptions {

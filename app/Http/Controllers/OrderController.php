@@ -45,9 +45,12 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Order $order)
     {
-        return Inertia::render('Orders/Create');
+        return Inertia::render('Order/Create', [
+            'order'=> $order,
+            'categoryList'=> $order ->getCategoryList(),
+        ]);
     }
 
     /**

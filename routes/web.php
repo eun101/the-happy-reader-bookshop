@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 
+
 use App\Http\Controllers\CustomerProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,14 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MyOrderController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AccountInformationController;
+use App\Http\Controllers\AccountDashboardController;
+use App\Http\Controllers\BillingDetailController;
+use App\Http\Controllers\MyProductReviewController;
+
 
 
 
@@ -78,16 +87,28 @@ Route::get('/about-us', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::prefix('customer')->group(function(){
+    Route::prefix('customer/account')->group(function(){
     Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [CustomerProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('/my-orders', MyOrderController::class);
+    Route::resource('/address', AddressController::class);
+    Route::resource('/dashboard', AccountDashboardController::class);
+    Route::resource('/information', AccountInformationController::class);
+    Route::resource('/billing-details', BillingDetailController::class);
+    Route::resource('/my-product-reviews', MyProductReviewController::class);
+    Route::resource('/wishlist', WishlistController::class);
+
+
+
 });
 });
 
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function(){
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('adminprofile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
@@ -98,6 +119,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
+
  
 });
 });

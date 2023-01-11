@@ -16,6 +16,7 @@ export default function Product(props) {
 
     const { data, setData, post, processing, errors, transform } = useForm(props.product);
     const [confirmDelete, setConfirmDelete] = useState(false);
+  
 
     const handleChange = (event) => {
         const fieldName = event.target.name;
@@ -47,12 +48,13 @@ export default function Product(props) {
     }
 
     const doDeleteHandler = () => {
-        Inertia.delete('/products/' + props.product.prod_id);
+        Inertia.delete('/admin/products/' + props.product.prod_id);
     }
 
     const closeModal = () => {
         setConfirmDelete(false);
     };
+
 
 
 
@@ -113,27 +115,25 @@ export default function Product(props) {
 
                                     <div className="mt-6">
                                         <InputLabel for="product_description" value="Book Description" />
-                                        <textarea id="product_description" name="product_description" className="mt-1 block w-full" onChange={handleChange}>
+                                        <textarea id="product_description" name="prod_description" className="mt-1 block w-full" onChange={handleChange}>
                                             {data.prod_description}
                                         </textarea>
                                     </div>
                                 </div>
 
-                                <div className="grid pt-6">
-                                    {/* <InputLabel for="delivery_address" value="Attachment"/>
+                                <div>
+                                <div className="grid">
+                                    <InputLabel for="attachment" value="Attachment" />
 
-                                    <TextInput id="invoice_date" className="mt-1 block w-full"
-                                            type="file"
-                                            name="attachment"
-                                            handleChange={handleChange}
-                                        /> */}
-                                    
+                                    <TextInput id="attachment" className="mt-1 block w-full"
+                                        type="file"
+                                        name="attachment"
+                                        handleChange={handleChange}
+                                    />
+
                                     <div>{data.attachmentFile}</div>
-
-
-
-
                                 </div>
+                            </div>
                             </div>
 
                             <div className="flex items-center gap-4 py-4">

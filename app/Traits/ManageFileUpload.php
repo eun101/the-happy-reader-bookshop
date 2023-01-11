@@ -22,7 +22,7 @@ trait ManageFileUpload
 
             $attachedFile = $attachmentFiles['attachment'];
             if($asPublic){
-                $storagePath = Storage::put($folderPath, $attachedFile,'public');
+                $storagePath = Storage::put($folderPath, $attachedFile,'s3');
             }else{
                 $storagePath = Storage::put($folderPath, $attachedFile);
             }

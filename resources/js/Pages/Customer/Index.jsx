@@ -1,3 +1,4 @@
+import PrimaryButton from '@/Components/PrimaryButton';
 import MutedButton from '@/Components/MutedButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
@@ -6,6 +7,11 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
+
+
+const onAddHandler = ()=>{
+    Inertia.get(route('customers.create'));
+}
 
 export default function Customers(props) {
 
@@ -35,6 +41,8 @@ export default function Customers(props) {
             header={<h2>Customers</h2>}
         >
             <Head title="Customer" />
+
+
 
             <div className="py-5">
                     <div className="p-6 text-gray-900">

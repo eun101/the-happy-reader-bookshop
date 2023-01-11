@@ -19,6 +19,10 @@ class CustomerController extends Controller
     
     public function __construct(IModelService $modelService){
         $this->modelService = $modelService;
+    // $this->middleware('permission:customer-list|customer-create|customer-edit|customer-delete', ['only' => ['index','store']]);
+    // $this->middleware('permission:customer-create', ['only' => ['create','store']]);
+    // $this->middleware('permission:customer-edit', ['only' => ['edit','update']]);
+    // $this->middleware('permission:customer-delete', ['only' => ['destroy']]);
     }
     /**
      * Display a listing of the resource.
@@ -99,7 +103,11 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        
+
+        return Inertia::render('Customer/Edit', [
+            'customer'=> $customer,
+           
+        ]);
     }
 
     /**
