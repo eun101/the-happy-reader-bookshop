@@ -42,6 +42,12 @@ export default function Customers(props) {
         >
             <Head title="Customer" />
 
+            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >Add New Customer Account</PrimaryButton>
+                <div>{props.status}</div>
+            </div>
+
 
 
             <div className="py-5">

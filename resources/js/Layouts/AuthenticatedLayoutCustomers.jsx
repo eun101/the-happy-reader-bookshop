@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
+import Footer from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
@@ -83,6 +84,8 @@ export default function Authenticated({ auth, header, children }) {
                </div>
  
            </nav>
+
+          
            <div className="min-h-screen bg-emerald-50 flex">
            <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } sticky text-medium  left-0 top-0 bottom-0 h-98  p-2 bg-neutral-200 shadow duration-300`}>
                
@@ -177,6 +180,8 @@ export default function Authenticated({ auth, header, children }) {
                 </main>
             </div>
         </div>
+
+        <Footer/>
         </div>
     );
 }

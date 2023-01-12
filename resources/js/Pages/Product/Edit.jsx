@@ -115,8 +115,8 @@ export default function Product(props) {
 
                                     <div className="mt-6">
                                         <InputLabel for="product_description" value="Book Description" />
-                                        <textarea id="product_description" name="prod_description" className="mt-1 block w-full" onChange={handleChange}>
-                                            {data.prod_description}
+                                        <textarea id="product_description" name="prod_description" className="mt-1 block w-full" onChange={handleChange} value={data.prod_description}>
+                                           
                                         </textarea>
                                     </div>
                                 </div>

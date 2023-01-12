@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Customer;
 use App\Models\User;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
@@ -80,8 +81,10 @@ class OrderController extends Controller
 
         $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
 
-        return redirect('/orders');
+        return redirect('admin/orders');
     }
+
+    
 
     /**
      * Display the specified resource.
@@ -134,7 +137,7 @@ class OrderController extends Controller
 
         $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
 
-        return redirect('/orders');
+        return redirect('admin/orders');
     }
 
     /**

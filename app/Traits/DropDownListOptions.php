@@ -18,6 +18,10 @@ trait DropDownListOptions {
         return Category::orderby('categ_category_name', 'ASC')->get();
         }
 
+    public function getProductList(){
+        return Category::orderby('prod_title', 'ASC')->get();
+        }
+
 
     // public function getGroupOptionList($groupId){
     //     return Option::where('opt_group_id', $groupId)->orderBy('opt_sort_order','asc')->get();

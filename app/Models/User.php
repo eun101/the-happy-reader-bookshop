@@ -42,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getIsSuperAdminAttribute(){
+        return $this->role == 1?true:false;
+    }
+
+    public function getIsCustomerAttribute(){
+        return $this->role == 2?true:false;
+    }
 }

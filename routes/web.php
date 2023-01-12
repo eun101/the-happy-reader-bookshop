@@ -11,6 +11,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\OrderListController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MyOrderController;
 use App\Http\Controllers\WishlistController;
@@ -113,15 +114,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
 
-    Route::resource('customers', CustomerController::class);
     Route::resource('orders', OrderController::class);
     Route::resource('sales', SaleController::class);
     Route::resource('products', ProductController::class);
     Route::resource('inventories',InventoryController::class);
     Route::resource('blogs', SaleController::class);
-
- 
+    Route::resource('place-order', OrderListController::class);
+    Route::resource('customers', CustomerController::class);
 });
+
+
+
 });
 
 

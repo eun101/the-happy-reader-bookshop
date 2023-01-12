@@ -6,12 +6,11 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import SecondaryButton from '@/Components/SecondaryButton';
-import Select from '@/Components/Select';
 
 
-export default function Order(props) {
+export default function Customer(props) {
 
-const { data, setData, post, processing, errors, transform } = useForm(props.order);
+const { data, setData, post, processing, errors, transform } = useForm(props.product);
 
 
 const handleChange = (event) => {
@@ -28,11 +27,11 @@ const handleChange = (event) => {
 
 const onSaveHandler = (event) => {
     event.preventDefault();
-    Inertia.post(route('place-order.store'), data, { forceFormData: true });
+    Inertia.post(route('customers.store'), data, { forceFormData: true });
 }
 
 const onCancelHandler = () => {
-    Inertia.get(route('place-order.index'));
+    Inertia.get(route('customers.index'));
 }
 
 
@@ -43,11 +42,11 @@ const onCancelHandler = () => {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">New Order </h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">New Customer Account </h2>}
         >
 
 
-            <Head title="New Order" />
+            <Head title="Customers" />
             <div className="pt-10 ">
                 <div className="bg-white shadow-sm">
                     <div className="p-14 text-gray-900">
@@ -69,29 +68,12 @@ const onCancelHandler = () => {
                                             required />
 
                                     </div> */}
-
-                                <div className="mt-6">
-                                    <div>
-                                        <InputLabel for="product" value="Product" />
-
-                                        {/* <Select id="category" className="mt-1 block w-full"
-                                            name="prod_categ_id"
-                                            handleChange={handleChange}
-                                            // options={props.categoryList}
-                                            placeholder="-- Select Category --"
-                                            // optionLabel="categ_category_name"
-                                            // optionValue="categ_id"
-                                            required /> */}
-
-                                    </div>
-                                    <div className="text-red-500">{props.errors.prod_category}</div>
-                                </div>
                                     <div>
                                         <div className="mt-6">
-                                            <InputLabel for="order_list_quantity" value="Quantity" />
+                                            <InputLabel for="customer_firstname" value="First Name" />
 
-                                            <TextInput id="order_list_quantity" className="mt-1 block w-full"
-                                                name="ordlist_quantity"
+                                            <TextInput id="customer_firstname" className="mt-1 block w-full"
+                                                name="cust_firstname"
                                                 handleChange={handleChange}
                                                 required
                                             />
@@ -100,10 +82,10 @@ const onCancelHandler = () => {
                                     </div>
                                     <div>
                                         <div className="mt-6">
-                                            <InputLabel for="order_list_price" value="Price" />
+                                            <InputLabel for="customer_lastname" value="Last Name" />
 
-                                            <TextInput id="order_list_price" className="mt-1 block w-full"
-                                                name="ordlist_price"
+                                            <TextInput id="customer_lastname" className="mt-1 block w-full"
+                                                name="cust_lastname"
                                                 handleChange={handleChange}
                                                 required
                                             />
@@ -113,15 +95,43 @@ const onCancelHandler = () => {
                                             <div>
 
                                                 <div className="mt-6">
-                                                    <InputLabel for="order_list_total" value="Total Price" />
-                                                    <TextInput id="order_list_total" className="mt-1 block w-full"
-                                                        name="ordlist_total"
+                                                    <InputLabel for="customer_contact" value="Contact Number" />
+                                                    <TextInput id="customer_contact" className="mt-1 block w-full"
+                                                        name="cust_contact"
                                                         handleChange={handleChange}
                                                     />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div className="mt-6">
+                                        <InputLabel for="customer_email" value="Email Address" />
+                                        <TextInput type="email" id="customer_email" className="mt-1 block w-full"
+                                            name="cust_email"
+                                            handleChange={handleChange}
+                                        />
+                                    </div>
+
+                                    <div className="mt-6">
+                                        <InputLabel for="customer_delivery_address" value="Delivery Address" />
+                                        <TextInput id="customer_delivery_address" className="mt-1 block w-full"
+                                            name="cust_delivery_address"
+                                            handleChange={handleChange}
+                                        />
+                                    </div>
+                                    <div className="mt-6">
+                                        <InputLabel for="customer_password" value="Password" />
+                                        <TextInput id="customer_password" className="mt-1 block w-full"
+                                            name="cust_password"
+                                            handleChange={handleChange}
+                                            value={data.cust_password}
+                                        />
+                                    </div>
+
+
+
+
 
                                     <div className="flex items-center gap-4 py-4">
                                         <SecondaryButton type='button' onClick={onCancelHandler}>Cancel</SecondaryButton>
