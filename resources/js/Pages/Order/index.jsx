@@ -46,12 +46,12 @@ export default function Orders(props) {
                                 <tr className="">
                                     <th className=" pb-4 pt-6 pl-4">DATE</th>
                                     <th className=" pb-4 pt-6 pl-4">CUSTOMER</th>
-                                    <th className=" pb-4 pt-6 pl-4">EMAIL</th>
-                                    <th className=" pb-4 pt-6 pl-4">MOBILE #</th>
+                                    {/* <th className=" pb-4 pt-6 pl-4">EMAIL</th>
+                                    <th className=" pb-4 pt-6 pl-4">MOBILE #</th> */}
                                     <th className=" pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
-                                    <th className=" pb-4 pt-6 pl-4">BOOK ORDERS</th>
-                                    <th className=" pb-4 pt-6 pl-4">ORDER TOTAL</th>
-                                    <th className=" pb-4 pt-6 pl-4">STATUS</th>
+                                    <th className=" pb-4 pt-6 pl-8">BOOK ORDERS</th>
+                                    <th className=" pb-4 pt-6 pl-8">ORDER TOTAL</th>
+                                    <th className=" pb-4 pt-6 pl-8">STATUS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -65,12 +65,12 @@ export default function Orders(props) {
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td>
+                                                {/* <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td> */}
                                                 <td className="pb-4 pt-6">{item.ord_delivery_address}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.ord_amount}</td>
-
+                                                <td className="text-center pb-4 pt-6">{item.orders.ordlist_prod_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.orders.ordlist_total}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td>
                                             </tr>
                                         );
                                     })}

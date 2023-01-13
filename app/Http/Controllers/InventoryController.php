@@ -8,7 +8,7 @@ use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\InventoryService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 

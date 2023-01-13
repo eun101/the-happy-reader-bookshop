@@ -8,7 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\ProductService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -36,6 +36,12 @@ class ProductController extends Controller
             'products'=> $resultList,
             'status'=>$status,
         ]);
+
+        $products = DB::table('products')
+        ->leftjoin('category','category.product_id','=','products.id')
+        ->selectRaw('COUNT(*) as nbr', 'products.*')
+        ->groupBy('products.id')
+        ->get();
 
    
     }

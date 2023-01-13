@@ -8,7 +8,7 @@ use App\Http\Requests\StoreSaleRequest;
 use App\Http\Requests\UpdateSaleRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\SaleService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -36,7 +36,7 @@ class SaleController extends Controller
             'sales'=> $resultList,
             'status'=>$status,
         ]);
-        
+
     }
 
     /**

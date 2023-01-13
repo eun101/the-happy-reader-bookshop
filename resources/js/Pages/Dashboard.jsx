@@ -9,7 +9,6 @@ export default function Dashboard(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-
             header={<h2 className=''>Dashboard Admin</h2>}
 
         >
@@ -20,14 +19,29 @@ export default function Dashboard(props) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-14 text-gray-900">
                             <table className="w-full whitespace-nowrap">
-                                <thead>
-                                    
+                            <thead>
                                 <tr>
-                                    <th className="pb-4 pt-6 px-6">To Be Packed</th>
-                                    <th className="pb-4 pt-6 px-6">To Be Shipped</th>
-                                    <th className="pb-4 pt-6 px-6">Shipped</th>
+                                    <th className="text-center pb-4 pt-6 px-6">To Be Packed</th>
+                                    <th className="text-center pb-4 pt-6 px-6">To Be Shipped</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Shipped</th>
                                 </tr>
-                                </thead>
+                            </thead>
+                            {/* <tbody>
+                                {props.sales.data.map((item)=>{
+                                    return (
+                                        <tr className="text-left border">
+                                            <td className="pb-4 pt-3 px-11 font-mono">
+                                                <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
+                                                    {item.created_at}
+                                                </Link>
+                                            </td>
+                                            <td className="pb-4 pt-6 px-6">{item.cust_firstname}</td>
+                                            <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
+                                            <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
+                                        </tr>
+                                    );
+                                })}
+                                </tbody> */}
                             </table>
                         </div>
                     </div>
@@ -90,8 +104,6 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
-            
-            
         </AuthenticatedLayout>
     );
 }

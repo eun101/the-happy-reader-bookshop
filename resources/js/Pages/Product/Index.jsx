@@ -66,7 +66,7 @@ export default function Product(props) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-7 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
@@ -85,13 +85,13 @@ export default function Product(props) {
                                             <tr className="text-left border px-4 py-2">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
-                                                        {item.created_at}
+                                                        {item.prod_title}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.created_at}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
                                             </tr>
                                         );

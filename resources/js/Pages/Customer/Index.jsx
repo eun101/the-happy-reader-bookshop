@@ -60,7 +60,6 @@ export default function Customers(props) {
                                     <th className="pb-4 pt-6 px-6">NAME</th>
                                     <th className="pb-4 pt-6 px-6">EMAIL</th>
                                     <th className="pb-4 pt-6 px-6">SHIPPING ADDRESS</th>
-                                    <th className="pb-4 pt-6 px-6">JOINED</th>
                                     <th className="pb-4 pt-6 px-6">PURCHASES</th>
                                 </tr>
                                 </thead>
@@ -77,9 +76,6 @@ export default function Customers(props) {
                                                 <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_delivery_address}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                         
-
                                             </tr>
                                         );
                                     })}

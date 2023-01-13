@@ -14,4 +14,8 @@ class Product extends BaseModel
         return $this->belongsTo('App\Models\Category','prod_categ_id')->withDefault();
     }
 
+    public function order(){
+        return $this->belongsTo('App\Models\Order','prod_categ_id')->withDefault();
+    }
+
 }

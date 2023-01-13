@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\Sale;
+use App\Models\Dashboard;
 use App\Traits\DropDownListOptions;
 use DB;
 
-class SaleService extends AbstractModelService implements IModelService{
+class DashboardService extends AbstractModelService implements IModelService{
 
     use DropDownListOptions;
 

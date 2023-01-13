@@ -52,7 +52,7 @@ export default function Inventory(props) {
             <div className="py-12">
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-7 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
@@ -60,7 +60,6 @@ export default function Inventory(props) {
                                     <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
                                     <th className="text-center pb-4 pt-6 px-6">CREATED DATE</th>
                                     <th className="text-center pb-4 pt-6 px-6">CATEGORY</th>
-                                    <th className="text-center pb-4 pt-6 px-6">SALES</th>
                                     <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
                                     <th className="text-center pb-4 pt-6 px-6">STOCKS</th>
                                 </tr>
@@ -75,12 +74,11 @@ export default function Inventory(props) {
                                                         {}
                                                     </Link>
                                                 </td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.product.prod_title}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.created_at}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.created_at}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.orders.ord_cust_id}</td>
+                                            
                                             </tr>
                                         );
                                     })}
@@ -90,12 +88,7 @@ export default function Inventory(props) {
                         </div>
                     </div>
                 </div>
-            </div>
-
-           
-           
-            
-            
+            </div>            
         </AuthenticatedLayout>
     );
 }
