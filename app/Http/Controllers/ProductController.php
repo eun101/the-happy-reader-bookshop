@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Session;
 class ProductController extends Controller
 {
 
+
+
     protected $modelService = null;
     
     public function __construct(IModelService $modelService){
@@ -37,13 +39,6 @@ class ProductController extends Controller
             'status'=>$status,
         ]);
 
-        $products = DB::table('products')
-        ->leftjoin('category','category.product_id','=','products.id')
-        ->selectRaw('COUNT(*) as nbr', 'products.*')
-        ->groupBy('products.id')
-        ->get();
-
-   
     }
 
     /**
@@ -65,6 +60,7 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $validatedData = $request->validated();
+
         $recordData = new Product();
         $recordData->created_by = Auth::user()->id;
         $recordData->prod_id = $validatedData['prod_id'];
@@ -105,7 +101,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
+        return Inertia::render('Product/Edit', [
+            'product'=> $product,
+            'categoryList'=> $product ->getCategoryList(),
+            
+
+        ]);
+
     }
 
     /**
