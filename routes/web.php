@@ -26,8 +26,16 @@ use App\Http\Controllers\OrderController;
 |
 */
 
+Route::get('/products', function () {
+    return Inertia::render('Products', [
+       'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
-Route::get('/', function () {
+Route::get('/aboutus', function () {
     return Inertia::render('AboutUs', [
        'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -35,6 +43,17 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get('/contactus', function () {
+    return Inertia::render('ContactUs', [
+       'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+
 
 
 Route::get('/admin', function () {

@@ -1,10 +1,11 @@
+import Pagination from '@/Components/Pagination';
 import React from 'react';
 
 export default function Products(){
     return (
-  <div className="container mx-auto">
+  <div className="container-fluid mx-auto">
     <div className='grid grid-cols-12 gap-4'>
-    <div className='col-start-1 col-end-2'>
+    <div className='col-start-1 col-end-2 p-4'>
     <p>Lorem Ipsum Dolor Achtung dsdsds</p>
     </div>
     <div className='col-start-3 col-end-13'>
@@ -12,11 +13,43 @@ export default function Products(){
     <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/41bSLDwaWhL._SX394_BO1,204,203,200_.jpg" alt=""/>
+        </div>
+        <div className="p-4 text-center">
+          <h6 className="mt-2 mb-2  font-bold">First Generation</h6>
+          <p>Frankie Gaw</p>
+          <div className="mt-3 flex justify-center">
+            <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
+            
+          </div>
+        </div>
+        <div className="p-4 flex justify-center text-sm text-gray-600"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-gray-400"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg></div>
+      </a> 
+      </div> 
+      <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+        <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+        <div className="relative  overflow-hidden">
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51SXtw+k3OL._SX385_BO1,204,203,200_.jpg" alt=""/>
+        </div>
+        <div className="p-4 text-center">
+          <h6 className="mt-2 mb-2  font-bold">MEZCLA</h6>
+          <p>Ixta Belfrage</p>
+          <div className="mt-3 flex justify-center">
+            <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
+            
+          </div>
+        </div>
+        <div className="p-4 flex justify-center text-sm text-gray-600"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-gray-400"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg></div>
+      </a> 
+      </div> 
+      <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+        <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+        <div className="relative  overflow-hidden">
           <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/511CT1uquTL._SX364_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Cooking with Mushrooms</h2>
-          <p>Andrea Gentl</p>
+          <h6 className="mt-2 mb-2  font-bold">Cooking with Mushroom</h6>
+          <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
             
@@ -31,7 +64,7 @@ export default function Products(){
           <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51wE2mb1dIL._SX334_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Cook As You Are</h2>
+          <h6 className="mt-2 mb-2  font-bold">Cook as you are</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -44,10 +77,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/41I+Ryeq0AL._SX342_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51h0R7G7oXL._SX334_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Via Carota</h2>
+          <h6 className="mt-2 mb-2  font-bold">Mexican Vegetarian</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -60,26 +93,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51GvcIQqZAL._SX431_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
-          <p>Rick Martinez</p>
-          <div className="mt-3 flex justify-center">
-            <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
-            
-          </div>
-        </div>
-        <div className="p-4 flex justify-center text-sm text-gray-600"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-gray-400"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg></div>
-      </a> 
-      </div> 
-      <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-        <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
-        <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
-        </div>
-        <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Smitten kitchen</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -95,23 +112,7 @@ export default function Products(){
           <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
-          <p>Rick Martinez</p>
-          <div className="mt-3 flex justify-center">
-            <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
-            
-          </div>
-        </div>
-        <div className="p-4 flex justify-center text-sm text-gray-600"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-yellow-500"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 fill-current text-gray-400"><path d="M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"></path></svg></div>
-      </a> 
-      </div> 
-      <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-        <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
-        <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
-        </div>
-        <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Mi Cocina</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -124,10 +125,10 @@ export default function Products(){
         <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/41zFM9e7hJS._SX387_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">What's for Dessert</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -140,10 +141,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51Yc51FFB8L._SX425_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Justice of the Pies</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -156,10 +157,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51jbc5KQdxL._SX395_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Savory Baking</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -172,10 +173,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/41zL8eth+uL._SX343_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Is this a Cookbook?</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -188,10 +189,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51iJ4EfS6FL._SX386_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">I am from Here</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -204,10 +205,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/41be+lB1ATL._SX383_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Classic italian Cooking</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -220,10 +221,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51Yks0sxXZL._SX339_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">RAMBUTAN</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -236,10 +237,10 @@ export default function Products(){
       <div className="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
         <a href="" className="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
         <div className="relative  overflow-hidden">
-          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61hQSpi+LeL._SX411_BO1,204,203,200_.jpg" alt=""/>
+          <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/61UYMeINIIL._SX400_BO1,204,203,200_.jpg" alt=""/>
         </div>
         <div className="p-4 text-center">
-          <h2 className="mt-2 mb-2  font-bold">Mi Cocina</h2>
+          <h6 className="mt-2 mb-2  font-bold">Korean American Food</h6>
           <p>Rick Martinez</p>
           <div className="mt-3 flex justify-center">
             <span className="text-xl font-semibold">&#8369;</span>&nbsp;<span className="font-bold text-xl">450.00</span>
@@ -253,7 +254,5 @@ export default function Products(){
   </div>
   </div>
   </div>
-  
-  
 );
 }
