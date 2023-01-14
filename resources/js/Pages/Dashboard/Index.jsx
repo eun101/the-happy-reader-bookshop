@@ -15,7 +15,7 @@ export default function Dashboard(props) {
             <Head title="Dashboard " />
 
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div className="max-w-7x1 mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-14 text-gray-900">
                             <table className="w-full whitespace-nowrap">
@@ -26,31 +26,19 @@ export default function Dashboard(props) {
                                     <th className="text-center pb-4 pt-6 px-6">Shipped</th>
                                 </tr>
                             </thead>
-                            {/* <tbody>
-                                {props.sales.data.map((item)=>{
-                                    return (
-                                        <tr className="text-left border">
-                                            <td className="pb-4 pt-3 px-11 font-mono">
-                                                <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
-                                                    {item.created_at}
-                                                </Link>
-                                            </td>
-                                            <td className="pb-4 pt-6 px-6">{item.cust_firstname}</td>
-                                            <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
-                                            <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
-                                        </tr>
-                                    );
-                                })}
-                                </tbody> */}
+                            <tbody>
+                                    <tr>
+                                    <th className='text-center px-6 font-tita-eunice text-5xl'>{}</th>
+                                    <th className='text-center px-6'>{}</th>
+                                    <th className='text-center px-6'>{}</th>
+                                    </tr>
+                            </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-
     
-            
-            
             <div className="">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -59,11 +47,17 @@ export default function Dashboard(props) {
                                 <thead>
                                 <tr>
                                     <th className="pb-4 pt-6 px-6">Order/s Today</th>
-                                    <th className="pb-4 pt-6 px-6">Total Orders This Week</th>
                                     <th className="pb-4 pt-6 px-6">Total Orders This Month</th>
                                     <th className="pb-4 pt-6 px-6">Total Orders This Year</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.todayOrder}</th>
+                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.monthOrder}</th>
+                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.yearOrder}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -77,11 +71,17 @@ export default function Dashboard(props) {
                                 <thead>
                                 <tr>
                                     <th className="pb-4 pt-6 px-6">Sales Today</th>
-                                    <th className="pb-4 pt-6 px-6">Sales This Week</th>
                                     <th className="pb-4 pt-6 px-6">Sales This Month</th>
                                     <th className="pb-4 pt-6 px-6">Sales This Year</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.todaySale}</th>
+                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.monthSale}</th>
+                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.yearSale}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Dashboard;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Sale;
+Use Carbon\Carbon;
 use App\Http\Requests\StoreDashboardRequest;
 use App\Http\Requests\UpdateDashboardRequest;
 use Inertia\Inertia;
@@ -14,14 +17,52 @@ use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
+
+    protected $modelService = null;
+    
+    public function __construct(IModelService $modelService){
+        $this->modelService = $modelService;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-     
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+
+        $totalOrder = Order::count();
+        $totalSale = Sale::count();
+
+        $todayDate = Carbon::now()->format('d-m-Y');
+        $mothDate = Carbon::now()->format('m');
+        $YearDate = Carbon::now()->format('Y');
+
+
+        $todayOrder = Order::whereDate('created_at', $todayDate)->count();
+        $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
+        $yearOrder = Order::whereYear('created_at', $YearDate)->count();
+
+        $todaySale = Sale::whereDate('created_at', $todayDate)->count();
+        $monthSale = Sale::whereMonth('created_at', $mothDate)->count();
+        $yearSale = Sale::whereYear('created_at', $YearDate)->count();
+        
+        
+        return Inertia::render('Dashboard/Index', [
+            'dashboard'=> $resultList,'status'=>$status,'totalOrder'=>$totalOrder,
+            'totalSale'=>$totalSale,'todayOrder'=>$todayOrder,'monthOrder'=>$monthOrder,
+            'yearOrder'=>$yearOrder,
+            'todaySale'=>$todaySale,
+            'monthSale'=>$monthSale,
+            'yearSale'=>$yearSale,
+
+        ]);
+
+        
+        
 
     }
 

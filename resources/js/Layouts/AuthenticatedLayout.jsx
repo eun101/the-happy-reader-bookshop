@@ -41,7 +41,7 @@ export default function Authenticated({ auth, header, children }) {
                 <div>
                     <div className="pt-2 space-y-2 ">
                         <div>
-                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            <NavLink href={route('dashboard.index')} active={route().current('dashboard.index')}>
                                 <svg
                                     xmlns="http://www.w3.org/200/svg"
                                     className="w-6 h-6"

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\User;
+Use Carbon\Carbon;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Inertia\Inertia;
@@ -31,11 +32,20 @@ class OrderController extends Controller
     $status = $this->getStatusSession($request);
     $resultList = $this->modelService->getList($request->all(), true);
 
-    // \Log::info($resultList);
+    $totalOrder = Order::count();
+
+    $todayDate = Carbon::now()->format('d-m-Y');
+    $mothDate = Carbon::now()->format('m');
+    $YearDate = Carbon::now()->format('Y');
+
+    $todayOrder = Order::whereDate('created_at', $todayDate)->count();
+    $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
+    $yearOrder = Order::whereYear('created_at', $YearDate)->count();
 
     return Inertia::render('Order/Index', [
-        'orders'=> $resultList,
-        'status'=>$status,
+        'orders'=> $resultList,'status'=>$status,'totalOrder'=>$totalOrder,
+        'todayOrder'=>$todayOrder,'monthOrder'=>$monthOrder,
+        'yearOrder'=>$yearOrder,
     ]);
 
     }

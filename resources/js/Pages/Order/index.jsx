@@ -25,13 +25,20 @@ export default function Orders(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
-                                    <th className="pb-4 pt-6 px-6">Total Order Today</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Week</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Month</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Year</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order Today</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order This Month</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order This Year</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.todayOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.yearOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.totalOrder}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

@@ -24,7 +24,7 @@ export default function Welcome(props) {
                         <div className="fixed top-0 right-0 p-4 px-5">
                             {props.auth.user ? (
 
-                                <Navlink href={route('dashboard')} active={route().current('dashboard')}>
+                                <Navlink href={route('dashboard.index')} active={route().current('dashboard.index')}>
                                     Dashboard
                                 </Navlink>
 

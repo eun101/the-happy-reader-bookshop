@@ -19,17 +19,24 @@ export default function Sales(props) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-12 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left">
                                     <th className="text-center pb-4 pt-6 px-6">TOTAL SALES</th>
-                                    <th className="text-center pb-4 pt-6 px-6">SALES THIS WEEK</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS MONTH</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS YEAR</th>
-                                    <th className="text-center pb-4 pt-6 px-6">TATAL SALES</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL SALES</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.todaySale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.yearSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.totalSale}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
