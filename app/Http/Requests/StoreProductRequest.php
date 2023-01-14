@@ -28,7 +28,9 @@ class StoreProductRequest extends FormRequest
                 'prod_title'=> 'required|max:255',
                 'prod_author'=>'required|max:255',
                 'prod_description'=>'required|max:300',
-                // 'prod_status'=>'required|integer',
+                'invent_quantity'=>'nullable|integer',
+                'invent_price'=>'nullable|numeric',
+
             ];
         }
     }

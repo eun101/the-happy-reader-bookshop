@@ -15,5 +15,6 @@ class Customer extends BaseModel
         return $this->belongsTo('App\Models\Order','cust_firstname')->withDefault();
     }
 
+   
     
 }

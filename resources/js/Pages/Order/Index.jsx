@@ -8,6 +8,9 @@ import Pagination from '@/Components/Pagination';
 
 
 
+const onAddHandler = ()=>{
+    Inertia.get(route('orders.create'));
+}
 
 export default function Orders(props) {
     return (
@@ -18,7 +21,13 @@ export default function Orders(props) {
         >
             <Head title="Orders" />
 
-            <div className="py-12">
+            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >New Order</PrimaryButton>
+                <div>{props.status}</div>
+            </div>
+
+            <div className="py-12 ">
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-12 text-gray-900">

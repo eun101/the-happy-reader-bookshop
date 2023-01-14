@@ -12,7 +12,7 @@ class Inventory extends Model
     protected $primaryKey = "invent_id";
 
     public function title(){
-        return $this->belongsTo('App\Models\Category','invent_prod_id')->withDefault();
+        return $this->belongsTo('App\Models\Product','invent_prod_id')->withDefault();
     }
 
 

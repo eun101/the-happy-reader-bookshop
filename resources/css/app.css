@@ -238,13 +238,20 @@ h2 {
 /*------------FAQS-------*/
 #faqs{
     padding: 10px 0;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+#faqs p{
+    color: black;
 }
 
 #faqs h1{
     font-family: 'Trebuchet MS';
     font-weight: 500;
 }
-
+.accordion-header{
+    color: burlywood;
+}
 .accordion-item{
     background: rgb(191, 247, 247);
 }
@@ -259,12 +266,16 @@ h2 {
 #contact-formcontent{
     width: 50%;
 }
+#contact-formcontent p{
+    color: black;
+}
 .form-group input{
     height: 50px;
 }
 .form-group label{
     color: black;
-    font-weight: 600;
+    font-weight: bold;
+    
 }
 #contact-submit{
     background-color: white;

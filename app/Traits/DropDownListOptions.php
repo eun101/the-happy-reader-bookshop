@@ -2,8 +2,9 @@
 
 namespace App\Traits;
 
-use App\Models\Currency;
-use App\Models\Option;
+
+use App\Models\Category;
+
 
 
 trait DropDownListOptions {
@@ -15,6 +16,10 @@ trait DropDownListOptions {
 
     public function getCategoryList(){
         return Category::orderby('categ_category_name', 'ASC')->get();
+        }
+
+    public function getProductList(){
+        return Category::orderby('prod_title', 'ASC')->get();
         }
 
 

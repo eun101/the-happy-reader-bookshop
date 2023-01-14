@@ -12,28 +12,7 @@ export default function ContactUs(){
       <div className="col"></div>
       </div>
       </div>
-    <div id="contact-formcontent" className="container ">
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-         <form>
-         <div className="form-group">
-             <label for="fullname">Name:</label>
-             <input type="text" className="form-control" id="contact-fullname" aria-describedby="fullnameHelp" placeholder=" "/>
-         </div>
-         <div className="form-group">
-             <label for="exampleInputPassword1">Email:</label>
-             <input type="email" className="form-control" id="contact-email" placeholder=" "/>
-             
-         </div>
-         <div className="form-group">
-             <label for="contact-commentbox">What's on your mind?</label>
-             <textarea className="form-control" id="contact-commentbox" rows="3"></textarea>
-         </div>
-        <br/>
-         <button id="contact-submit" type="submit" className="btn btn-primary">SUBMIT</button>
-         </form>
-         </div>
-         <div id="faqs" className='container'>
+      <div id="faqs" className='container'>
         <p>Below are frequently asked questions. In case this doesn't resolve your concern
             feel free  to send us a message via contact from below.
         </p>
@@ -132,6 +111,61 @@ export default function ContactUs(){
       </Accordion.Item>
     </Accordion>
     </div>
+      <div id="contact-form" className="container-fluid">
+    <div id="contact-formcontent" className="container ">
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+         <form>
+         <div className="form-group">
+             <label for="fullname">Name:</label>
+             <input type="text" className="form-control" id="contact-fullname" aria-describedby="fullnameHelp" placeholder=" "/>
+         </div>
+         <div className="form-group">
+             <label for="exampleInputPassword1">Email:</label>
+             <input type="email" className="form-control" id="contact-email" placeholder=" "/>
+             
+         </div>
+         <div className="form-group">
+             <label for="contact-commentbox">What's on your mind?</label>
+             <textarea className="form-control" id="contact-commentbox" rows="3"></textarea>
+         </div>
+        <br/>
+         <button id="contact-submit" type="submit" className="btn btn-primary">SUBMIT</button>
+         </form>
+         </div>
+         </div>
+         <div id="footer" className="container-fluid ">
+                <div className="row">
+                    <div className="col-md-3  ">
+                    <h2>Useful Links</h2>
+                    <p>Privacy Policy</p>
+                    <p>Terms of Use</p>
+                    <p>Return Policy</p>
+                    <p>Discount Coupons</p>
+                    </div>
+                    <div className="col-md-3 ">
+                    <h2>Our Company</h2>
+                    <p>About Us</p>
+                    <p>Partners</p>
+                    <p>Careers</p>
+                    <p>Affiliate Programs</p>
+                    </div>
+                    <div className="col-md-3 ">
+                    <h2>Follow Us On</h2>
+                    <p>Facebook</p>
+                    <p>Instagram</p>
+                    <p>Youtube</p>
+                    <p>LinkedIn</p>
+                    </div>
+                    <div className="col-md-3 footer-image">
+                    <h2>Download App</h2>
+                    <img id="playstore" className="img-fluid" src="./goggleapp.png" alt="playstore"/>
+                    <img id="applestore" className="img-fluid" src="./apolstore.png" alt="applestore"/>
+                    </div>
+                </div>
+                <hr/>
+                <p className="copyright text-center">&#169;theHAPPYReader, All rights reserved 2022</p>
+            </div>
     </section>
     );
 }

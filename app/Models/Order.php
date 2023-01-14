@@ -14,6 +14,9 @@ class Order extends BaseModel
     public function customer(){
         return $this->belongsTo('App\Models\Customer','ord_cust_id')->withDefault();
     }
+
+
+    
     
     // public function status(){
     //     return $this->belongsTo('App\Models\Product','ord_status')->withDefault();
