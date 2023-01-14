@@ -114,13 +114,6 @@ const onCancelHandler = () => {
                                     </div>
 
                                     <div className="mt-6">
-                                        <InputLabel for="customer_delivery_address" value="Delivery Address" />
-                                        <TextInput id="customer_delivery_address" className="mt-1 block w-full"
-                                            name="cust_delivery_address"
-                                            handleChange={handleChange}
-                                        />
-                                    </div>
-                                    <div className="mt-6">
                                         <InputLabel for="customer_password" value="Password" />
                                         <TextInput id="customer_password" className="mt-1 block w-full"
                                             name="cust_password"

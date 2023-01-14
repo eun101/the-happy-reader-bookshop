@@ -23,7 +23,6 @@ export default function MyOrder(props) {
                                 </thead>
                             </table>
 
-
          
 
         </AuthenticatedLayoutCustomers>

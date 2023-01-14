@@ -147,4 +147,14 @@ class CustomerController extends Controller
     {
         
     }
+
+    public function customerInfo(){
+       $customerInfo = $this->modelService->getCustomerByUserID(Auth::user()->id);
+
+    //    \Log::info($customerInfo);
+       
+       return Inertia::render('Account/AccountInformation/Index', [
+        'customerInfo'=> $customerInfo,
+    ]);
+    }
 }

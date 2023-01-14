@@ -86,8 +86,7 @@ Route::get('/about-us', function () {
 //     return Inertia::render('Order.Index');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::prefix('customer/account')->group(function(){
     Route::get('/profile', [CustomerProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
@@ -96,36 +95,34 @@ Route::middleware('auth')->group(function () {
     Route::resource('/my-orders', MyOrderController::class);
     Route::resource('/address', AddressController::class);
     Route::resource('/dashboard', AccountDashboardController::class);
-    Route::resource('/information', AccountInformationController::class);
+    Route::get('/information', [CustomerController::class, 'customerInfo'])->name('information.index');
+    // Route::get('/information', [CustomerController::class, 'update'])->name('information.edit');
     Route::resource('/billing-details', BillingDetailController::class);
     Route::resource('/my-product-reviews', MyProductReviewController::class);
     Route::resource('/wishlist', WishlistController::class);
-
-
-
-});
+    });
 });
 
-
-Route::middleware('auth')->group(function () {
+Route::group(['middleware' => ['role:Admin', 'auth']], function () {
     Route::prefix('admin')->group(function(){
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('adminprofile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
-
-    Route::resource('orders', OrderController::class);
-    Route::resource('sales', SaleController::class);
-    Route::resource('products', ProductController::class);
-    Route::resource('inventories',InventoryController::class);
-    Route::resource('blogs', SaleController::class);
-    Route::resource('place-order', OrderListController::class);
-    Route::resource('customers', CustomerController::class);
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('adminprofile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('adminprofile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
+        
+        // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');)
+        Route::resource('orders', OrderController::class);
+        Route::resource('sales', SaleController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('inventories',InventoryController::class);
+        Route::resource('blogs', SaleController::class);
+        Route::resource('place-order', OrderListController::class);
+        Route::resource('customers', CustomerController::class);
+    });
+    
 });
 
 
-
-});
 
 
 

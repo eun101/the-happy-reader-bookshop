@@ -122,7 +122,7 @@ export default function Authenticated({ auth, header, children }) {
                            </NavLink>
                        </div>
                        <div>
-                           <NavLink href={route('information.index')} active={route().current('information.index')}>
+                           <NavLink href={route('profile.edit')} active={route().current('profile.edit')}>
                                <span className="text-black ">
                                    Account Information
                                </span>
@@ -147,7 +147,7 @@ export default function Authenticated({ auth, header, children }) {
            </nav>
            <div className=" mx-auto sm:px-6 lg:px-12">
                 {header && (
-                    <header className="w-full bg-white shadow py-2 sm:px-12 lg:px-12">
+                    <header className="w-full bg-white shadow py-2 sm:px-12 lg:px-18">
                         <div className="flex items-center">
                             <button
                                 onClick={() => setOpen((previousState) => !previousState)}
@@ -179,6 +179,8 @@ export default function Authenticated({ auth, header, children }) {
                     {children}
                 </main>
             </div>
+
+            
         </div>
 
         <Footer/>

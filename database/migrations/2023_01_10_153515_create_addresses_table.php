@@ -14,9 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+                $table->increments('addr_id');
+                $table->string('addr_street_address')->nullable();
+                $table->string('addr_city')->nullable();
+                $table->string('addr_state_or_province')->nullable();
+                $table->string('addr_postal_code')->nullable();
+                $table->string('addr_country')->nullable();
+                $table->integer('created_by');
+                $table->dateTime('created_at');
+                $table->integer('modified_by')->nullable()->default(0);
+                $table->dateTime('updated_at');
+                $table->dateTime('deleted_at')->nullable();
+            });
     }
 
     /**

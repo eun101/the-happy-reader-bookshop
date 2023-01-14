@@ -32,6 +32,7 @@ class AccountInformationController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
+        
 
         return Inertia::render('Account/AccountInformation/Index', [
             'accountInfo'=> $resultList,

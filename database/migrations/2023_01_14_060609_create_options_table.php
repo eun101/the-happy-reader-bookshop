@@ -13,22 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->increments('cust_id');
-            $table->string('cust_user_id');
-            $table->string('cust_firstname');
-            $table->string('cust_lastname');
-            $table->string('cust_contact')->nullable();
-            $table->string('cust_email') ->unique();
-            $table->string('cust_password');
-            $table->string('cust_billing_address')->nullable();
-            $table->string('cust_shipping_address')->nullable();
-            // $table->string('cust_delivery_address');
+        Schema::create('options', function (Blueprint $table) {
+            $table->increments('opti_id');
+            $table->string('opti_code',30)->nullable();
+            $table->string('opti_name',100);
+            $table->integer('opti_group_id');
+            $table->string('opti_sort_order',5)->nullable();
+            $table->string('opti_description',300)->nullable();
             $table->integer('created_by');
             $table->dateTime('created_at');
             $table->integer('modified_by')->nullable()->default(0);
             $table->dateTime('updated_at');
             $table->dateTime('deleted_at')->nullable();
+
         });
     }
 
@@ -39,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('options');
     }
 };

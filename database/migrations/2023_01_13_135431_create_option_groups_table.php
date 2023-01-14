@@ -13,17 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->increments('cust_id');
-            $table->string('cust_user_id');
-            $table->string('cust_firstname');
-            $table->string('cust_lastname');
-            $table->string('cust_contact')->nullable();
-            $table->string('cust_email') ->unique();
-            $table->string('cust_password');
-            $table->string('cust_billing_address')->nullable();
-            $table->string('cust_shipping_address')->nullable();
-            // $table->string('cust_delivery_address');
+        Schema::create('option_groups', function (Blueprint $table) {
+            $table->increments('opgr_id');
+            $table->string('opgr_code',30)->nullable();            
+            $table->string('opgr_name',100);
+            $table->string('opgr_description',300)->nullable();
             $table->integer('created_by');
             $table->dateTime('created_at');
             $table->integer('modified_by')->nullable()->default(0);
@@ -39,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('option_groups');
     }
 };

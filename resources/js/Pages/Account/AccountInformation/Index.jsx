@@ -12,7 +12,10 @@ export default function AccountInformation(props) {
             <Head title="Account Dashboard" />
 
 
-         
+            <div>
+                Account Name:{props.customerInfo.cust_firstname} {props.customerInfo.cust_lastname}
+                
+            </div>
 
 
 

@@ -38,6 +38,15 @@ class CustomerService extends AbstractModelService implements IModelService{
     public function destroy($recordId){
         
     }
+
+    public function getCustomerByUserID ($id){
+
+        \Log::info($id);
+        
+        $customerInformation = Customer::where('cust_user_id', $id)->first();
+        return $customerInformation;
+    }
+  
   
 
 }

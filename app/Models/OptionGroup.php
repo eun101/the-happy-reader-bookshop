@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class OptionGroup extends BaseModel
 {
-    protected $primaryKey = "addr_id";
+    protected $primaryKey = "opgr_id";
 }
