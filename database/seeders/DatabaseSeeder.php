@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
  
         \App\Models\OptionGroup::factory()->create(['opgr_code' => 'ADDRESS','opgr_name' => 'Address',]);
  
-        \App\Models\Option::factory()->create(['opti_code' => 'SHIPADDR','opti_name' => 'Shipping Address','opti_group_id' => 3,]);
-        \App\Models\Option::factory()->create(['opti_code' => 'BILLADDR','opti_name' => 'Billing Address','opti_group_id' => 3,]);
+        \App\Models\Option::factory()->create(['opti_code' => 'SHIPADDRESS','opti_name' => 'Shipping Address','opti_group_id' => 3,]);
+        \App\Models\Option::factory()->create(['opti_code' => 'BILLADDRESS','opti_name' => 'Billing Address','opti_group_id' => 3,]);
     }
 }

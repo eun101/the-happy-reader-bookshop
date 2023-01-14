@@ -60,9 +60,6 @@ class ProductController extends Controller
         return Inertia::render('Product/Create', [
             'product'=> $product,
             'categoryList'=> $product ->getCategoryList(),
-            
-            
-
         ]);
     }
 
@@ -86,31 +83,26 @@ class ProductController extends Controller
             $recordData->prod_author = $validatedData['prod_author'];
             $recordData->prod_description = $validatedData['prod_description'];
             $recordData->save();
-    
+ 
             $attachment = $this->saveAttachmentFile($request);
             if($attachment){
                 $attachment->att_description = 'Products attachment file';
                 $recordData->attachment()->save($attachment);
             }
-    
+            
             $recordData->inventory->invent_prod_id = $recordData->prod_id;
             $recordData->inventory->invent_quantity = $validatedData['invent_quantity'];
             $recordData->inventory->invent_price = $validatedData['invent_price'];
             $recordData->inventory->created_by = $recordData->created_by;
             $recordData->inventory->save();
-            
-            DB::commit();
-    
+            DB::commit();   
             $this->setStatusSession(''.$recordData->prod_title.'  has been added.');
-    
             return redirect('admin/products');
 
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
         }
-
-       
     }
 
     /**

@@ -15,8 +15,6 @@ class Customer extends BaseModel
         return $this->belongsTo('App\Models\Order','cust_firstname')->withDefault();
     }
 
-    public function user(){
-        return $this->hasOne('App\Models\User', 'cust_user_id')->withDefault();
-    }
+   
     
 }
