@@ -34,8 +34,6 @@ class InventoryController extends Controller
             'inventories'=> $resultList,
             'status'=>$status,
         ]);
-
-   
     }
 
     /**

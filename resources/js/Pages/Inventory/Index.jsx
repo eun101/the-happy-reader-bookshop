@@ -6,6 +6,7 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import Select from '@/Components/Select';
 
 export default function Inventory(props) {
 
@@ -80,7 +81,8 @@ export default function Inventory(props) {
                                                 <td className="pb-4 pt-6 px-6">{}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6"></td>
+                                              
                                             </tr>
                                         );
                                     })}

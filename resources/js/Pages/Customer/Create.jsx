@@ -10,7 +10,7 @@ import SecondaryButton from '@/Components/SecondaryButton';
 
 export default function Customer(props) {
 
-const { data, setData, post, processing, errors, transform } = useForm(props.product);
+const { data, setData, post, processing, errors, transform } = useForm(props.customer);
 
 
 const handleChange = (event) => {

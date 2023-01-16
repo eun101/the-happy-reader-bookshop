@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Services\OrderService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Traits\DropdownListOptions;
 
 
 class OrderController extends Controller
@@ -37,8 +38,8 @@ class OrderController extends Controller
     return Inertia::render('Order/Index', [
         'orders'=> $resultList,
         'status'=>$status,
+        // 'statusList'=> $request -> getDeliveryStatusList(),
     ]);
-
     }
 
     /**
@@ -50,7 +51,7 @@ class OrderController extends Controller
     {
         return Inertia::render('Order/Create', [
             'order'=> $order,
-            'categoryList'=> $order ->getCategoryList(),
+            // 'categoryList'=> $order ->getCategoryList(),
         ]);
     }
 
@@ -155,4 +156,17 @@ class OrderController extends Controller
 
         return redirect('/orders');
     }
+    
+    public function customerOrderInformation(){
+        $customerOrderInformation = $this->modelService->getOrderByUserID(Auth::user()->id);
+ 
+        \Log::info($customerOrderInformation);
+        
+        return Inertia::render('Account/MyOrder/Index', [
+         'customerOrderInformation'=> $customerOrderInformation,
+     ]);
+ 
+     }
+  
+
 }

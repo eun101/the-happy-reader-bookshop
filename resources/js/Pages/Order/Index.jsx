@@ -5,6 +5,7 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import Select from '@/Components/Select';
 
 
 
@@ -82,6 +83,17 @@ export default function Orders(props) {
                                                 <td className="pb-4 pt-6">{item.ord_delivery_address}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.ord_amount}</td>
+                                                {/* <td>
+                                                <InputLabel for="category" value="Category" />
+                                                <Select id="category" className="mt-1 block w-full"
+                                                name="ord_status"
+                                                handleChange={handleChange}
+                                                options={props.statusList}
+                                                placeholder="-- Select Category --"
+                                                optionLabel="opti_name"
+                                                optionValue="opt_id"
+                                                required />
+                                                </td> */}
 
 
                                             </tr>

@@ -19,14 +19,15 @@ class OrderFactory extends Factory
     {
         return [
             'ord_cust_id' => fake()->randomNumber(2),
+            'ord_number' => Str::random(10),
             'ord_delivery_address' => fake () -> address(),
             'ord_payment_method' => fake() -> creditCardType(),
             'ord_amount' => fake()->randomNumber(3, true),
             'ord_status'  => 1,
-            'ord_paid'  => fake()->randomDigit(10),
+            'ord_paid'  => 1,
             'created_by' => 1,
-            'created_at'=>fake()->dateTime(),
-            'updated_at'=>fake()->dateTime(),
+            'created_at'=>fake()->dateTimeThisDecade(),
+            'updated_at'=>fake()->dateTimeThisDecade('+2 years'),
         ];
     }
 }

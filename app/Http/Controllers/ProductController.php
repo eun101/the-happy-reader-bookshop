@@ -37,17 +37,12 @@ class ProductController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
-
-
         \Log::info($resultList);
-
 
         return Inertia::render('Product/Index', [
             'products'=> $resultList,
             'status'=>$status,
         ]);
-
-   
     }
 
     /**
@@ -111,9 +106,18 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Request $request)
     {
-        //
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+
+        \Log::info($resultList);
+
+        return Inertia::render('Product/Show', [
+            'products'=> $resultList,
+            'status'=>$status,
+        ]);
     }
 
     /**
@@ -176,4 +180,14 @@ class ProductController extends Controller
 
         return redirect('/admin/products');
     }
+
+    public function productInfo(){
+        $customerInfo = $this->modelService->getProductList();
+     //    \Log::info($customerInfo);   
+        return Inertia::render('Welcome/Show', [
+         'customerInfo'=> $productInfo,
+     ]);
+     
+     }
+ 
 }

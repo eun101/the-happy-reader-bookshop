@@ -18,18 +18,17 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-        //    'cust_user_id' => fake () -> numberBetween (1,100),
-        //     'cust_firstname' => fake () ->   firstName (),
-        //     'cust_lastname' => fake () ->  lastName (),
-        //     'cust_contact' => fake() -> numerify('#########'),
-        //     'cust_email' => fake () ->  email(),
-        //     'cust_password' => fake () -> password (),
-        //     // 'cust_delivery_address' => fake () ->  address (),
-        //     'cust_billing_address' => fake () ->  address (), 
-        //     'cust_shipping_address' => fake () ->  address (),
-        //     'created_by' => 1,
-        //     'created_at'=>fake()->dateTime(),
-        //     'updated_at'=>fake()->dateTime(),
+           'cust_user_id' => fake () -> numberBetween (1,30),
+            'cust_firstname' => fake () ->   firstName (),
+            'cust_lastname' => fake () ->  lastName (),
+            'cust_contact' => fake() -> numerify('#########'),
+            'cust_email' => fake () ->  email(),
+            // 'cust_password' => fake () -> password (),
+            'cust_billing_address' => fake () -> numberBetween (1,100),
+            'cust_shipping_address' => fake () -> numberBetween (1,100),
+            'created_by' => 1,
+            'created_at'=>fake()->dateTimeThisDecade(),
+            'updated_at'=>fake()->dateTimeThisDecade('+2 years'),
         ];
     }
 }

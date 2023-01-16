@@ -37,6 +37,14 @@ class OrderService extends AbstractModelService implements IModelService{
     public function destroy($recordId){
         
     }
-  
+
+    public function getOrderByUserID ($id){
+ 
+        \Log::info($id);
+       
+        $orderInformation = Order::where('ord_cust_id', $id)->first();
+        return $orderInformation;
+    }
+
 
 }

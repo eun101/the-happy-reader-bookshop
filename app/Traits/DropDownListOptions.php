@@ -4,6 +4,7 @@ namespace App\Traits;
 
 
 use App\Models\Category;
+use App\Models\Option;
 
 
 
@@ -23,16 +24,20 @@ trait DropDownListOptions {
         }
 
 
-    // public function getGroupOptionList($groupId){
-    //     return Option::where('opt_group_id', $groupId)->orderBy('opt_sort_order','asc')->get();
-    // }
+    public function getGroupOptionList($groupId){
+        return Option::where('opti_group_id', $groupId)->orderBy('opti_sort_order','asc')->get();
+    }
 
-    // public function getInvoiceStatusList(){
-    //     return $this->getGroupOptionList(1);
-    // }
+    public function getDeliveryStatusList(){
+        return $this->getGroupOptionList(1);
+    }
 
-    // public function getInvoicePaymentMethodList(){
-    //     return $this->getGroupOptionList(2);
-    // }
+    public function getPaymentMethodList(){
+        return $this->getGroupOptionList(2);
+    }
+
+    public function getAddressList(){
+        return $this->getGroupOptionList(3);
+    }
 
 }

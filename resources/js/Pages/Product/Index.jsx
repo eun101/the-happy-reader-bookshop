@@ -135,11 +135,15 @@ export default function Product(props) {
                                     })}
                                 </tbody>
                             </table>
+                         
+
                             <Pagination resultList={props.products}/>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 
            
            

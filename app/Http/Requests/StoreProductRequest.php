@@ -27,7 +27,7 @@ class StoreProductRequest extends FormRequest
                 'prod_categ_id' => 'required|integer',
                 'prod_title'=> 'required|max:255',
                 'prod_author'=>'required|max:255',
-                'prod_description'=>'required|max:300',
+                'prod_description'=>'required|max:2000',
                 'invent_quantity'=>'nullable|integer',
                 'invent_price'=>'nullable|numeric',
 

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderListController;
@@ -37,14 +38,14 @@ use App\Http\Controllers\MyProductReviewController;
 */
 
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
 
 
 Route::get('/admin', function () {
@@ -67,12 +68,14 @@ Route::get('admin/dashboard', function(){
 
 
 Route::redirect('/admin', 'admin/dashboard');
+Route::redirect('/customer', 'customer/account/dashboard');
 
 
 
-Route::get('customer/account', function () {
-    return Inertia::render('DashboardCustomers');
-})->middleware(['auth', 'verified'])->name('customeraccount');
+
+// Route::get('customer/account', function () {
+//     return Inertia::render('DashboardCustomers');
+// })->middleware(['auth', 'verified'])->name('customeraccount');
 
 
 
@@ -80,6 +83,7 @@ Route::get('customer/account', function () {
 Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 });
+
 
 
 // Route::get('/order', function () {
@@ -92,7 +96,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::patch('/profile', [CustomerProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [CustomerProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('/my-orders', MyOrderController::class);
+    // Route::resource('/my-orders', MyOrderController::class);
     Route::resource('/address', AddressController::class);
     Route::resource('/dashboard', AccountDashboardController::class);
     Route::get('/information', [CustomerController::class, 'customerInfo'])->name('information.index');
@@ -100,6 +104,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/billing-details', BillingDetailController::class);
     Route::resource('/my-product-reviews', MyProductReviewController::class);
     Route::resource('/wishlist', WishlistController::class);
+    Route::get('/dashboard', [CustomerController::class, 'customerDashboard'])->name('dashboard.index');
+    Route::get('/my-orders', [OrderController::class, 'customerOrderInformation'])->name('my-orders.index');
     });
 });
 
@@ -119,10 +125,11 @@ Route::group(['middleware' => ['role:Admin', 'auth']], function () {
         Route::resource('place-order', OrderListController::class);
         Route::resource('customers', CustomerController::class);
     });
-    
 });
 
+Route::get('/product-list', [ProductController::class, 'show'])->name('product.show');
 
+Route::get('/', [WelcomeController::class, 'show'])->name('welcome.show');
 
 
 

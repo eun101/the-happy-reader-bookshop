@@ -1,3 +1,4 @@
+import JoinBanner from '@/Components/JoinBanner';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Button from 'react-bootstrap/Button'
@@ -12,47 +13,50 @@ export default function AccountDashboard(props) {
             header={<h1>Account Dashboard</h1>}
         >
             <Head title="Account Dashboard" />
-            <div>
-            <div>
-            <h4>Account Information</h4>
-            </div>
 
-            <div>
+
+            <div className='pt-3 mx-auto'>
+                <h4>Account Information</h4>
+
                 <h6>Contact Information</h6>
+                <div className=''> {props.customerDashboard.cust_firstname} {props.customerDashboard.cust_lastname}</div>
+
+                <div className=''>{props.customerDashboard.cust_email}</div>
+                <div className=''>{props.customerDashboard.cust_contact}</div>
+
+                <div className='pt-3'>
+                    <h4>Address Book</h4>
+                </div>
+                <div>{props.customerDashboard.cust_billing_address}</div>
+                <div>{props.customerDashboard.cust_shipping_address}</div>
+            </div>
+            <div className="fixed top-0 right-0 px-6  sm:block">
+                {props.auth.user ?
+                    <div className='pt-2 space-x-12 flex '>
+                        <Link href={route('dashboard.index')} className="text-sm text-gray-700 dark:text-gray-500 underline">
+                            My Account
+                        </Link>
+                        <Link href={route('logout')} method="post" as="button" className="text-sm text-gray-700 dark:text-gray-500 underline">
+                            Logout
+                        </Link>
+                    </div> : (
+                        <>
+                            <Link href={route('login')} className="text-md text-gray-700 dark:text-gray-500 no-underline hover:text-indigo-400 hover:underline">
+                                Log in
+                            </Link>
+
+                            <Link
+                                href={route('register')}
+                                className="ml-4 text-md text-gray-700 dark:text-gray-500 no-underline hover:text-indigo-400 hover:underline"
+                            >
+                                Register
+                            </Link>
+                        </>
+                    )}
             </div>
 
-            <div>
-                <p>---Contact Details Here---</p>
-            </div>
+            <JoinBanner/>
 
-            {/* {props.accountdashboard.data.map((item)=>{
-                return (
-
-            <Link className="flex items-center px-6 py-2 focus:text-indigo-500 text-gray-900">
-
-                Edit Address
-                </Link>
-
-
-            );
-        })} */}
-            {/* <Link className="flex items-center px-6 py-2 focus:text-indigo-500 text-gray-900" href={`/customer/account/address/${item.cust_id}/edit`}>
-
-                Edit
-                </Link> */}
-
-            </div>
-
-            <div>
-            <h5>Address Account</h5>
-
-            <div>
-                <p>---Address Details Here---</p>
-            </div>
-
- 
-            </div>
-         
 
 
 

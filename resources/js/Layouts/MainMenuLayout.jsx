@@ -19,7 +19,7 @@ export default function Guest({ children }) {
                             </button>
                     <div className=" flex top-0 text-lg">
                             <div className="px-5 font-bold">
-                            <NavLink href={route('dashboard')} active={route().current('dashboard')} className="text-md">
+                            <NavLink href={route('product.show')} active={route().current('product.show')} className="text-md">
                                 <span className="text-black ">SHOP</span>
                             </NavLink>
                             </div>
@@ -43,6 +43,7 @@ export default function Guest({ children }) {
                     </div>
                   
                 </div>
+                
                 
   
             </nav>

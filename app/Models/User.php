@@ -18,9 +18,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'cust_firstname',
-        'cust_lastname',
+    protected $fillable= [
+        'name',
         'email',
         'password',
     ];
@@ -44,15 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getIsSuperAdminAttribute(){
-        return $this->role == 1?true:false;
-    }
+    // public function getIsSuperAdminAttribute(){
+    //     return $this->role == 1?true:false;
+    // }
 
-    public function getIsCustomerAttribute(){
-        return $this->role == 2?true:false;
-    }
+    // public function getIsCustomerAttribute(){
+    //     return $this->role == 2?true:false;
+    // }
 
-    public function userInfo(){
-        return $this->hasOne('App\Models\User', 'cust_user_id')->withDefault();
-    }
+    // public function userInfo(){
+    //     return $this->hasOne('App\Models\Customer', 'cust_user_id')->withDefault();
+    // }
 }

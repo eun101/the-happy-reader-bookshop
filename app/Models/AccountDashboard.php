@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AccountDashboard extends Model
+class AccountDashboard extends BaseModel
 {
-    use HasFactory;
+
 }
+

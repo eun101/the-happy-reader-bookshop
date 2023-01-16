@@ -70,8 +70,11 @@ class CustomerController extends Controller
     {
         $validatedData = $request->validated();
 
+
+
         $recordData = new Customer();
         $recordData->created_by = Auth::user()->id;
+        $recordData->cust_user_id = Auth::user()->id;
         $recordData->cust_firstname = $validatedData['cust_firstname'];
         $recordData->cust_lastname = $validatedData['cust_lastname'];
         $recordData->cust_contact = $validatedData['cust_contact'];
@@ -79,6 +82,7 @@ class CustomerController extends Controller
         $recordData->cust_password = $validatedData['cust_password'];
         $recordData->cust_delivery_address = $validatedData['cust_delivery_address'];
         $recordData->save();
+
 
         $this->setStatusSession(''.$recordData->cust_firstname.'  has been added.');
 
@@ -151,10 +155,24 @@ class CustomerController extends Controller
     public function customerInfo(){
        $customerInfo = $this->modelService->getCustomerByUserID(Auth::user()->id);
 
-    //    \Log::info($customerInfo);
+       \Log::info($customerInfo);
        
        return Inertia::render('Account/AccountInformation/Index', [
         'customerInfo'=> $customerInfo,
     ]);
+
     }
+
+    public function customerDashboard(){
+        $customerDashboard = $this->modelService->getCustomerByUserID(Auth::user()->id);
+ 
+        \Log::info($customerDashboard);
+        
+        return Inertia::render('Account/AccountDashboard/Index', [
+         'customerDashboard'=> $customerDashboard,
+     ]);
+ 
+     }
+    
+    
 }

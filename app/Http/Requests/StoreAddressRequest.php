@@ -13,7 +13,7 @@ class StoreAddressRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class StoreAddressRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'addr_street_address' => 'required|max:255',
+            'addr_city'=> 'required|max:255',
+            'addr_state_or_province'=>'required|max:255',
+            'addr_postal_code'=>'required|max:255',
+            'addr_country'=>'required|max:255',
+            'cust_billing_address' => 'nullable|integer',
+            'cust_shippin_address' => 'nullable|integer'
         ];
     }
 }

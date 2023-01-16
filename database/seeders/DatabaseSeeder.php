@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-        //     'name' => 'Super Admin',
-            'email' => 'superadmin@thr.com',
-        ]);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Admin',
+        //     'email' => 'superadmin@thr.com',
+        // ]);
 
         
         // \App\Models\Customer::factory()->create([
@@ -34,10 +34,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\OrderList::factory(100)->create();	 
         \App\Models\Order::factory(100)->create();
         \App\Models\Cart::factory(100)->create();
-        // \App\Models\Customer::factory(100)->create();
-        \App\Models\Inventory::factory(100)->create();
-        \App\Models\Product::factory(100)->create();
+        \App\Models\Customer::factory(100)->create();
+        // \App\Models\Inventory::factory(100)->create();
+        // \App\Models\Product::factory(100)->create();
         \App\Models\Sale::factory(100)->create();
+        \App\Models\User::factory(25)->create();
 
 
         \App\Models\Category::factory()->create(['categ_category_name'=> 'Cookbooks',]);

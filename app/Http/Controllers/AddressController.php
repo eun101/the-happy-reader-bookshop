@@ -46,11 +46,11 @@ class AddressController extends Controller
         {
             return Inertia::render('Account/Address/Create', [
                 'address'=> $address,
-                
-                
-    
+                'addressList' => $address->getAddressList(),
             ]);
         }
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -60,7 +60,23 @@ class AddressController extends Controller
      */
     public function store(StoreAddressRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+            $recordData = new Address();
+            $recordData->created_by = Auth::user()->id;
+            $recordData->addr_street_address = $validatedData['addr_street_address'];
+            $recordData->addr_city = $validatedData['addr_city'];
+            $recordData->addr_state_or_province = $validatedData['addr_state_or_province'];
+            $recordData->addr_postal_code = $validatedData['addr_postal_code'];
+            $recordData->addr_country = $validatedData['addr_country'];
+            $recordData->save();
+
+            // $recordData->billingAddress->cust_billing_address = $recordData->addr_id;
+            // $recordData->shippingAddress->cust_shipping_address = $recordData->addr_id;
+
+
+            $this->setStatusSession('Your address has been added.');
+            return redirect('customer/account/address');
     }
 
     /**

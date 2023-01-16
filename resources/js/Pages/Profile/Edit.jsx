@@ -1,3 +1,4 @@
+import JoinBanner from '@/Components/JoinBanner';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
@@ -31,6 +32,9 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                     </div>
                 </div>
             </div>
+            
+            <JoinBanner/>
+            
         </AuthenticatedLayout>
     );
 }
