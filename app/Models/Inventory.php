@@ -19,12 +19,9 @@ class Inventory extends BaseModel
         return $this->belongsTo('App\Models\Order','invent_prod_id')->withDefault();
     }
 
-    public function category(){
+    public function categories(){
         return $this->belongsTo('App\Models\Category','invent_prod_id')->withDefault();
     }
-
-   
-
 
 
 }

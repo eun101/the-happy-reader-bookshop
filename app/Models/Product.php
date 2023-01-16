@@ -10,12 +10,15 @@ class Product extends BaseModel
 
     protected $primaryKey = "prod_id";
 
-    public function categories(){
-        return $this->belongsTo('App\Models\Category','prod_categ_id')->withDefault();
+    public function quantity(){
+        return $this->belongsTo('App\Models\Inventory','prod_categ_id')->withDefault();
     }
 
     public function order(){
         return $this->belongsTo('App\Models\Order','prod_categ_id')->withDefault();
     }
-
+    
+    public function product(){
+        return $this->belongsTo('App\Models\OrderList','prod_categ_id')->withDefault();
+    }
 }

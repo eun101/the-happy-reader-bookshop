@@ -39,11 +39,11 @@ export default function Customers(props) {
             <div className="py-5">
                     <div className="p-6 text-gray-900">
                         <div className='row'>
-                            <div className="col-sm-2">
-                                <input type="text" className="form-control" name="keyword" placeholder="Add Filter" onKeyUp={handleChange}/>
-                            </div>  
                             <div className="col-sm-10">
-                                <MutedButton type='button' onClick={doSearchHandler}>Search for a user by name and email</MutedButton>
+                                <input type="text" className="form-control" name="keyword" placeholder="Search by Name" onKeyUp={handleChange}/>
+                            </div>  
+                            <div className="col-sm-1">
+                                <MutedButton type='button' onClick={doSearchHandler}>Search</MutedButton>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export default function Customers(props) {
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_delivery_address}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
                                             </tr>
                                         );
                                     })}

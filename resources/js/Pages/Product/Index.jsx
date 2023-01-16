@@ -52,11 +52,11 @@ export default function Product(props) {
                 <div className="py-0">
                     <div className="p-6 text-gray-900">
                         <div className='row'>
-                            <div className="col-sm-2">
-                                <input type="text" className="form-control" name="keyword" placeholder="Add Filter" onKeyUp={handleChange}/>
-                            </div>  
                             <div className="col-sm-10">
-                                <MutedButton type='button' onClick={doSearchHandler}>Search for a user by name and email</MutedButton>
+                                <input type="text" className="form-control" name="keyword" placeholder="Search by Title and Author" onKeyUp={handleChange}/>
+                            </div>  
+                            <div className="col-sm-1">
+                                <MutedButton type='button' onClick={doSearchHandler}>Search</MutedButton>
                             </div>
                         </div>
                     </div>
@@ -89,9 +89,9 @@ export default function Product(props) {
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.created_at}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.product.ordlist_prod_id}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.quantity.invent_quantity}</td>
                                             </tr>
                                         );
                                     })}

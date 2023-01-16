@@ -11,7 +11,7 @@ class ProductService extends AbstractModelService implements IModelService{
 
     public function getList($filters, $paginate=false){
 
-        $resultList = Product::with('createdBy')->with('categories')->with('order');
+        $resultList = Product::with('createdBy')->with('order')->with('product')->with('quantity');
 
 
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){

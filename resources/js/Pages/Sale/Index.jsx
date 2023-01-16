@@ -83,7 +83,7 @@ export default function Sales(props) {
                 </div>
             </div>
 
-            <div className="py-12">
+            {/* <div className="py-12">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
@@ -159,7 +159,7 @@ export default function Sales(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
            
             
             

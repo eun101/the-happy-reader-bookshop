@@ -37,10 +37,13 @@ class OrderController extends Controller
     $todayDate = Carbon::now()->format('d-m-Y');
     $mothDate = Carbon::now()->format('m');
     $YearDate = Carbon::now()->format('Y');
+    
 
     $todayOrder = Order::whereDate('created_at', $todayDate)->count();
     $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
     $yearOrder = Order::whereYear('created_at', $YearDate)->count();
+
+
 
     return Inertia::render('Order/Index', [
         'orders'=> $resultList,'status'=>$status,'totalOrder'=>$totalOrder,

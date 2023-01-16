@@ -11,7 +11,7 @@ class InventoryService extends AbstractModelService implements IModelService{
 
     public function getList($filters, $paginate=false){
 
-        $resultList = Inventory::with('createdBy')->with('category')->with('orders')->with('product');
+        $resultList = Inventory::with('createdBy')->with('orders')->with('product')->with('categories');
 
 
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
