@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends BaseModel
 {
-    
+    protected $primaryKey = "opti_id";
 }

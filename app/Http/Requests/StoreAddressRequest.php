@@ -29,8 +29,7 @@ class StoreAddressRequest extends FormRequest
             'addr_state_or_province'=>'required|max:255',
             'addr_postal_code'=>'required|max:255',
             'addr_country'=>'required|max:255',
-            'cust_billing_address' => 'nullable|integer',
-            'cust_shippin_address' => 'nullable|integer'
+            'address_type' => 'nullable|integer'
         ];
     }
 }

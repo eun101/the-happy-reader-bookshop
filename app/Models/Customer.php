@@ -23,11 +23,11 @@ class Customer extends BaseModel
     }
 
     public function billingAddress(){
-        return $this->belongsTo('App\Models\Adddress','cust_billing_address')->withDefault();
+        return $this->belongsTo('App\Models\Address','cust_billing_address')->withDefault();
     }
 
     public function shippingAddress(){
-        return $this->belongsTo('App\Models\Adddress','cust_shipping_address')->withDefault();
+        return $this->belongsTo('App\Models\Address','cust_shipping_address')->withDefault();
     }
 
     public function user(){

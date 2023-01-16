@@ -41,20 +41,15 @@ class CustomerService extends AbstractModelService implements IModelService{
 
     public function getCustomerByUserID ($id){
 
-        \Log::info($id);
         
-        $customerInformation = Customer::where('cust_user_id', $id)->first();
+        
+        $customerInformation = Customer::with('billingAddress')->with('shippingAddress')->where('cust_user_id', $id)->first();
+        
+        \Log::info($customerInformation);
         return $customerInformation;
        
     }
 
 
-    public function getProductList ($product){
 
-        \Log::info($product);
-        
-        $productList = Product::where('prod_id', $product)->first();
-        return $productList;
-       
-    }
 }

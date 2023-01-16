@@ -17,6 +17,9 @@ class OptionFactory extends Factory
     public function definition()
     {
         return [
+            'opti_code'=>$this->faker->word,
+            'opti_name'=>$this->faker->word,
+            'opti_group_id'=>0,
             'created_by'=>1,
             'created_at'=>fake()->dateTimeThisDecade(),
             'updated_at'=>fake()->dateTimeThisDecade('+2 years'),

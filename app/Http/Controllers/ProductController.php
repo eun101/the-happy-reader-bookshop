@@ -148,6 +148,9 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+
+            \Log::info($request->all());
+            
         $validatedData = $request->validated();
         $recordData = $product;
 
@@ -158,6 +161,7 @@ class ProductController extends Controller
         $recordData->prod_author = $validatedData['prod_author'];
         $recordData->prod_description = $validatedData['prod_description'];
         $recordData->save();
+
 
 
         $this->setStatusSession(''.$recordData->prod_title.'  has been updated.');

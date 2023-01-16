@@ -14,9 +14,6 @@ class ProductService extends AbstractModelService implements IModelService{
 
         $resultList = Product::with('createdBy')->with('categories')->with('attachment');
 
-        // Carbon::parse($date_in_db)->format('Y-m-d');
-
-
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
             $resultList->where(function($query) use($filters){
                 $query->where('prod_categ_id','like', '%'.$filters['keyword'].'%');

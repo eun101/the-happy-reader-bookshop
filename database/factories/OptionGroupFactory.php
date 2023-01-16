@@ -17,6 +17,8 @@ class OptionGroupFactory extends Factory
     public function definition()
     {
         return [
+
+            'opgr_name'=>$this->faker->word,
             'created_by'=>1,
             'created_at'=>fake()->dateTimeThisDecade(),
             'updated_at'=>fake()->dateTimeThisDecade('+2 years'),

@@ -51,7 +51,7 @@ class User extends Authenticatable
     //     return $this->role == 2?true:false;
     // }
 
-    // public function userInfo(){
-    //     return $this->hasOne('App\Models\Customer', 'cust_user_id')->withDefault();
-    // }
+    public function customer(){
+        return $this->hasOne('App\Models\Customer', 'cust_user_id')->withDefault();
+    }
 }

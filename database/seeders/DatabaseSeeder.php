@@ -29,16 +29,17 @@ class DatabaseSeeder extends Seeder
         //     'cust_password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         // ]);
 
+        $this->call(CustomerSeeder::class);
 
-
+        // \App\Models\User::factory(50)->create();
+        // \App\Models\Customer::factory(100)->create();
         \App\Models\OrderList::factory(100)->create();	 
         \App\Models\Order::factory(100)->create();
         \App\Models\Cart::factory(100)->create();
-        \App\Models\Customer::factory(100)->create();
         // \App\Models\Inventory::factory(100)->create();
-        // \App\Models\Product::factory(100)->create();
+        \App\Models\Product::factory(100)->create();
         \App\Models\Sale::factory(100)->create();
-        \App\Models\User::factory(25)->create();
+     
 
 
         \App\Models\Category::factory()->create(['categ_category_name'=> 'Cookbooks',]);

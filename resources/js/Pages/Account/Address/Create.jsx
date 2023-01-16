@@ -8,7 +8,7 @@ import TextInput from '@/Components/TextInput';
 import SecondaryButton from '@/Components/SecondaryButton';
 import Select from '@/Components/Select';
 
-export default function Customer(props) {
+export default function Address(props) {
 
 const { data, setData, post, processing, errors, transform } = useForm(props.address);
 
@@ -52,19 +52,27 @@ const onCancelHandler = () => {
                     <div className="p-14 text-gray-900">
                         <form className="mt-6 space-y-6" onSubmit={onSaveHandler}>
                             <div className="mt-6">
-                            <div>
+
+                                {/* <div>
+                                            <TextInput type="hidden" value="{props.address.cust_id}" />
+
+                                        </div> */}
+                                <div>
                                         <InputLabel for="address" value="Address" />
 
                                         <Select id="address" className="mt-1 block w-full"
-                                            name="prod_categ_id"
+                                            name="address_type"
                                             handleChange={handleChange}
                                             options={props.addressList}
                                             placeholder="-- Select Category --"
                                             optionLabel="opti_name"
-                                            optionValue="opt_id"
+                                            optionValue="opti_id"
                                             required />
 
                                     </div>
+
+
+                                
                                     <div>
                                         <div className="mt-6">
                                             <InputLabel for="street_address" value="Street Address" />

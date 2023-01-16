@@ -44,9 +44,12 @@ class AddressController extends Controller
      */
         public function create(Address $address)
         {
+
+            // $address->cust_id = Auth::user()->customer->cust_id;
             return Inertia::render('Account/Address/Create', [
                 'address'=> $address,
                 'addressList' => $address->getAddressList(),
+
             ]);
         }
 
@@ -70,6 +73,16 @@ class AddressController extends Controller
             $recordData->addr_postal_code = $validatedData['addr_postal_code'];
             $recordData->addr_country = $validatedData['addr_country'];
             $recordData->save();
+
+            if ($validatedData['address_type'] == 11) {
+                Auth::user()->customer->cust_shipping_address= $recordData->addr_id;
+            }
+            else{
+                Auth::user()->customer->cust_billing_address= $recordData->addr_id;
+            }
+
+           Auth::user()->customer->save();
+            
 
             // $recordData->billingAddress->cust_billing_address = $recordData->addr_id;
             // $recordData->shippingAddress->cust_shipping_address = $recordData->addr_id;

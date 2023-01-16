@@ -27,8 +27,8 @@ export default function AccountDashboard(props) {
                 <div className='pt-3'>
                     <h4>Address Book</h4>
                 </div>
-                <div>{props.customerDashboard.cust_billing_address}</div>
-                <div>{props.customerDashboard.cust_shipping_address}</div>
+                <div>{props.customerDashboard.billing_address.addr_street_address}</div>
+                <div>{props.customerDashboard.shipping_address.addr_street_address}</div>
             </div>
             <div className="fixed top-0 right-0 px-6  sm:block">
                 {props.auth.user ?
