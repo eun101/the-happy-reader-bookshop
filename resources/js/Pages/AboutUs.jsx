@@ -62,36 +62,36 @@ export default function AboutUs(){
          <br/>
                 <div id="team-members" className="row d-flex g-5">
                     <div className="col">
-                        <div className="card h-100" style={{width: "450px"}}>
+                        <div id="member1" className="card h-100" style={{width: "450px"}}>
                         <img className="card-img-top" src="user1.jpg" alt=""/>
-                        <div className="card-body align-items-center">
+                        <div id="member-role" className="card-body align-items-center">
                             <h6 className="card-title">Eunice Petipit</h6>
                             <h6 className="card-text">FULL STACK DEVELOPER</h6>
                         </div>
                     </div>
                 </div>
                 <div className="col">
-                    <div className="card h-100" style={{width: "450px"}}>
+                    <div id="member2" className="card h-100" style={{width: "450px"}}>
                     <img className="card-img-top" src="user2.jpg" alt=""/>
-                    <div className="card-body">
+                    <div  id="member-role" className="card-body">
                         <h6 className="card-title">Prince Uriel</h6>
                         <h6 className="card-text">BACK-END DEVELOPER</h6>
                     </div>
                     </div>
                 </div>
            <div className="col">
-               <div className="card h-100" style={{width: "450px"}}>
+               <div id="member3" className="card h-100" style={{width: "450px"}}>
                <img className="card-img-top" src="user2.jpg" alt=""/>
-               <div className="card-body">
+               <div id="member-role" className="card-body">
                    <h6 className="card-title">Lemuel Meneses</h6>
                    <h6 className="card-text">FRONT-END DEVELOPER</h6>
                </div>
                </div>
            </div>
            <div className="col">
-               <div className="card h-100" style={{width: "450px"}}>
+               <div id="member4" className="card h-100" style={{width: "450px"}}>
                <img className="card-img-top" src="user2.jpg" alt=""/>
-               <div className="card-body">
+               <div id="member-role" className="card-body">
                    <h6 className="card-title">Mark Estrella</h6>
                    <h6 className="card-text">FRONT-END DEVELOPER</h6>
                </div>

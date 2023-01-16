@@ -17,8 +17,13 @@ h2 {
 .shop-now{
     background-color: white !important;
     color: black !important;
-/*----------AboutUs-------*/
 }
+#welcome-banner img{
+ margin-left: 0px !important;
+}
+
+/*----------AboutUs-------*/
+
 .about-us{
     margin-top: 200px;
     color: white;
@@ -81,15 +86,15 @@ h2 {
     color: black;
     margin-left: 400px;
 }
-.card{
+#member1,#member2,#member3,#member4{
     background-color: rgb(89, 167, 106) !important;
     height: 100% !important;
 }
-.card img{
+#member1 img,#member2 img,#member3 img,#member4 img{
     width: 400px;
     margin-left: 25px;
 }
-.card-body {
+#member-role{
     align-self: center ;
 }
 .card-img-top{
@@ -283,4 +288,54 @@ h2 {
     width: 100px;
     font-weight: 600;
   
+}
+/*-----------Products-------*/
+#cookbook-section p{
+    color:black;
+}
+#product-filter h2{
+ font-weight: bold;
+ margin-left: 10px;
+}
+#cookbooks img{
+    margin-left: 0px;
+}
+#cookbook-title h6,p{
+    color: black;
+}
+#category{
+    font-size: large;
+}
+#product-categories{
+    border: 1px solid ;
+}
+#product-categories h4{
+ color: rgb(101, 101, 235);
+}
+#currency span{
+    color:black;
+}
+a{
+    text-decoration: none !important;
+    color: black;
+}
+
+#add-cart{
+    color:black !important;
+    padding-top: 20px;
+}
+#add-cart{
+    background-color: yellow;
+}
+/*-----------Productdetails----*/
+#add-to-cart {
+    margin-left: 500px;
+    background-color: rgb(255, 115, 0);
+    
+}
+#product-price{
+    color: red;
+}
+#instock{
+    color: blue;
 }

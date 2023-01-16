@@ -17,8 +17,8 @@ export default function Welcome(props) {
                 <div className="">
                           
                            
-                <div className='relative'>
-                   <div className='flex'>
+                <div id='welcome-banner' className='relative'>
+                   <div  className='flex'>
                     <img src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/banner1.png" alt="hero-banner" className='w-auto'/>
                    </div>
                 <div className='absolute text-5xl text-gray-900 top-1/2  left-1/2  -translate-y-1/2'>
