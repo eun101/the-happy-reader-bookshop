@@ -37,7 +37,7 @@ class ProductController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
         // dd($resultList);
-        \Log::info($resultList);
+        // \Log::info($resultList);
 
         return Inertia::render('Product/Index', [
             'products'=> $resultList,
