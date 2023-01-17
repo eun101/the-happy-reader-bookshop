@@ -134,6 +134,7 @@ class AddressController extends Controller
      */
     public function destroy(Address $address)
     {
-        //
+        
     }
+    
 }

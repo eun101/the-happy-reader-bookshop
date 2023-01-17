@@ -15,12 +15,22 @@ export default function Wishlist(props) {
 
                 <div className='py-12 row'>
                     <div className="col-sm-2">
-                        <div className="box-border h-60 w-60 p-4 border-4">
+                        <div className="box-border h-60 w-60 p-4 border-4 border-amber-300">
                             <h5 className="text-center">Book Wishlist Here</h5>  
                         </div>
                     </div>
+                    <div class="col-sm-4">
+                        <div className="box-border h-60 w-60 p-4 border-4 border-amber-300">
+                            <h5 className="text-center">Book Wishlist Here</h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div className="box-border h-60 w-60 p-4 border-4 border-amber-300">
+                            <h5 className="text-center">Book Wishlist Here</h5>
+                        </div>
+                    </div>
                     <div class="col-sm-3">
-                        <div className="box-border h-60 w-60 p-4 border-4">
+                        <div className="box-border h-60 w-60 p-4 border-4 border-amber-300">
                             <h5 className="text-center">Book Wishlist Here</h5>
                         </div>
                     </div>
