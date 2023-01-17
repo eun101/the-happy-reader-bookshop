@@ -2,6 +2,8 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
+import { compareAsc, format } from 'date-fns';
+
 
 export default function Sales(props) {
     return (
@@ -53,7 +55,7 @@ export default function Sales(props) {
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
-                                                        {item.created_at}
+                                                    {format(new Date(item.created_at), 'yyyy-MM-dd')}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>

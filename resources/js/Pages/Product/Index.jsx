@@ -10,6 +10,8 @@ import Pagination from '@/Components/Pagination';
 import Modal from '@/Components/Modal';
 import S3Image from '@/Components/S3Image';
 
+import { compareAsc, format } from 'date-fns';
+
 
 
 const onAddHandler = ()=>{
@@ -121,8 +123,7 @@ export default function Product(props) {
                                             <tr className="text-left border px-4 py-2">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900" href={`/admin/products/${item.prod_id}/edit`}>
-
-                                                        {item.created_at}
+                                                        {format(new Date(item.created_at), 'MMM d, yyyy')}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
