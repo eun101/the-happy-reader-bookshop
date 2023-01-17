@@ -11,9 +11,23 @@ class Inventory extends BaseModel
 
     protected $primaryKey = "invent_id";
 
-    public function title(){
+    public function product(){
         return $this->belongsTo('App\Models\Product','invent_prod_id')->withDefault();
     }
+
+    public function orders(){
+        return $this->belongsTo('App\Models\Order','invent_prod_id')->withDefault();
+    }
+
+    public function categories(){
+        return $this->belongsTo('App\Models\Category','invent_prod_id')->withDefault();
+
+    }
+
+    // public function title(){
+    //     return $this->belongsTo('App\Models\Product','invent_prod_id')->withDefault();
+    // }
+    
 
     public function getAttachmentPathAttribute($value){
         return $this->attachment->att_storage_path;

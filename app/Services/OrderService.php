@@ -11,7 +11,7 @@ class OrderService extends AbstractModelService implements IModelService{
 
     public function getList($filters, $paginate=false){
 
-        $resultList = Order::with('createdBy')->with('customer');
+        $resultList = Order::with('createdBy')->with('customer')->with('orders');
 
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
             $resultList->where(function($query) use($filters){
