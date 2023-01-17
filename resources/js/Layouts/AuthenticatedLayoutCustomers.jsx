@@ -23,10 +23,10 @@ export default function Authenticated({ auth, header, children }) {
                     >
 
                     </button>
-                    <div className=" flex top-0 text-lg">
-                        <div className="px-5 font-bold">
+                    <div className=" flex top-0 text-lg ">
+                        <div className="px-5 font-bold ">
                             <NavLink1 href={route('dashboard.index')} active={route().current('dashboard')} className="text-md">
-                                <span className="text-black ">SHOP</span>
+                                <span className="text-black">SHOP</span>
                             </NavLink1>
                         </div>
                         <div className="px-5 font-bold">
