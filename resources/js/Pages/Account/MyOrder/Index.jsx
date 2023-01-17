@@ -11,27 +11,30 @@ export default function MyOrder(props) {
             header={<h2>My Orders</h2>}
         >
             <Head title="My Orders" />
-
-            <table className="w-full whitespace-nowrap ">
-                                <thead>
-                                <tr className="">
-                                    <th className=" pb-4 pt-6 pl-4 text-center">Order #</th>
-                                    <th className=" pb-4 pt-6 pl-4 text-center">Date</th>
-                                    <th className=" pb-4 pt-6 pl-4 text-center">Ship To</th>
-                                    <th className=" pb-4 pt-6 pl-4 text-center">Order Total</th>
-                                    <th className=" pb-4 pt-6 pl-4 text-center">Status</th>
-                                </tr>
-                                </thead>
-                                <thead>
-                                <tr className="">
-                                    <th className=" pb-4 px-6 pl-4 text-sm">{props.customerOrderInformation.ord_number}</th>
-                                    <th className=" pb-4 px-6 pl-4 text-sm">{props.customerOrderInformation.created_at}</th>
-                                    <th className=" pb-4 px-6 pl-4 text-sm">{props.customerOrderInformation.ord_delivery_address}</th>
-                                    <th className=" pb-4 px-6 pl-4 text-sm">{props.customerOrderInformation.ord_amount}</th>
-                                    <th className=" pb-4 px-6 pl-4 text-sm">Status</th>
-                                </tr>
-                                </thead>
-                            </table>
+        <div className='py-12'>
+            <table className="w-full whitespace-nowrap text-center">
+                <div className='bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg '>
+                    <thead>
+                        <tr className="">
+                            <th className=" pb-7 pt-6 pl-10 text-center">Order #</th>
+                            <th className=" pb-7 pt-6 pl-10 text-center">Date</th>
+                            <th className=" pb-7 pt-6 pl-10 text-center">Ship To</th>
+                            <th className=" pb-7 pt-6 pl-10 text-center">Order Total</th>
+                            <th className=" pb-7 pt-6 pl-10 text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className='border'>
+                            <th className=" pb-4 pt-6 px-6 text-sm col-sm-1">{props.customerOrderInformation.ord_number}</th>
+                            <th className=" pb-4 pt-6 px-6 text-sm col-sm-4">{props.customerOrderInformation.created_at}</th>
+                            <th className=" pb-4 pt-6 px-6 text-sm col-sm-2">{props.customerOrderInformation.ord_delivery_address}</th>
+                            <th className=" pb-4 pt-6 px-6 text-sm col-sm-2">{props.customerOrderInformation.ord_amount}</th>
+                            <th className=" pb-4 pt-6 pl-4 text-sm">Status</th>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+            </div>
 
                             <div className="fixed top-0 right-0 px-6  sm:block">
                     {props.auth.user ?

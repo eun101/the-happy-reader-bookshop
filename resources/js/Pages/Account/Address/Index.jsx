@@ -1,8 +1,9 @@
 import JoinBanner from '@/Components/JoinBanner';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head,Link } from '@inertiajs/inertia-react';
-import PrimaryButton from '@/Components/PrimaryButton';
+import PowerButton from '@/Components/PowerButton';
 import Select from '@/Components/Select';
+import MutedButton from '@/Components/MutedButton';
 
 
 const onAddHandler = ()=>{
@@ -20,22 +21,39 @@ export default function Address(props) {
         >
             <Head title="Address" />
 
-            <div className="py-2 my-3 text-gray-900 font-bold bg-yellow-300">{props.status}</div>
-
+            <div className="py-2 my-3 text-gray-900 font-bold">{props.status}</div>
             
-            <h5>
-                Default Adresses
-            </h5>
-            <div>
-                Default Billing Address
-            </div>
-            <div>
-                Default Shipping Address
-            </div>
+            <div className="">
+                    <div className="bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-3 text-gray-900">
+                            <h5>Default Addresses</h5>
+                            <table className="w-full whitespace-nowrap border">
+                                <thead>
+                                <tr>
+                                    <th className="text-center pb-4 pt-6 ">Default Billing Address</th>
+                                    <th className="text-center pb-4 pt-6 ">Default Shipping Address</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th className="text-center pb-4 pt-6 text-sm">Address</th>
+                                    <th className="text-center pb-4 pt-6 text-sm">Address</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h5 className='py-7'>Additional Address Entries</h5>
+                            <table className='border w-full whitespace-nowrap border text-center'>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                            </table>
+                            <MutedButton href={route('address.create')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
+                                Add New Address
+                            </MutedButton>
+                        </div>
+                    </div>
+                </div>
+            
 
-            <Link href={route('address.create')} className="text-sm text-gray-700 dark:text-gray-500 underline">
-              Add New Address
-            </Link>
+           
 
 
          

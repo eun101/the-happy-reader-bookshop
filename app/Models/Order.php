@@ -15,16 +15,8 @@ class Order extends BaseModel
         return $this->belongsTo('App\Models\Customer','ord_cust_id')->withDefault();
     }
 
-
-    
-    
-    // public function status(){
-    //     return $this->belongsTo('App\Models\Product','ord_status')->withDefault();
-    // }
-
-    // public function amount(){
-    //     return $this->belongsTo('App\Models\OrderList','ord_amount')->withDefault();
-    // }
-
+    public function orders(){
+        return $this->belongsTo('App\Models\OrderList','ord_cust_id')->withDefault();
+    }
 
 }

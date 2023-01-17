@@ -16,9 +16,50 @@ export default function AccountDashboard(props) {
 
 
             <div className='pt-3 mx-auto'>
-                <h4>Account Information</h4>
 
-                <h6>Contact Information</h6>
+                <div className="py-12">
+                    <div className="bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-4 text-gray-900">
+                            <h5>Account Information</h5>
+                            <table className="w-full whitespace-nowrap border">
+                                <thead>
+                                <tr>
+                                    <th className="p-3">Contact Information</th>
+                                    <th className="pl-12 pr-12">Newsletters</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th className="pb-5 pl-12 text-sm">Address</th>
+                                    <th className="pb-5 pr-12 pl-12 text-sm">Address</th>
+                                    
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h5 className='py-4'>Address Book</h5>
+                            <table className="w-full whitespace-nowrap border">
+                                <thead>
+                                <tr>
+                                    <th className="p-3">Default Billing Address</th>
+                                    <th className="p-3">Default Shipping Address</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th className="pb-5 pl-12 text-sm">Address</th>
+                                    <th className="pb-5 pl-12 text-sm">Address</th>
+                                    
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+                {/* <h6>Contact Information</h6>
                 <div className=''> {props.customerDashboard.cust_firstname} {props.customerDashboard.cust_lastname}</div>
 
                 <div className=''>{props.customerDashboard.cust_email}</div>
@@ -28,7 +69,7 @@ export default function AccountDashboard(props) {
                     <h4>Address Book</h4>
                 </div>
                 <div>{props.customerDashboard.billing_address.addr_street_address}</div>
-                <div>{props.customerDashboard.shipping_address.addr_street_address}</div>
+                <div>{props.customerDashboard.shipping_address.addr_street_address}</div> */}
             </div>
             <div className="fixed top-0 right-0 px-6  sm:block">
                 {props.auth.user ?

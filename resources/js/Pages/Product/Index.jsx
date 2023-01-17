@@ -80,11 +80,11 @@ export default function Product(props) {
                     
                     <div className="p-6 text-gray-900">
                         <div className='row'>
-                            <div className="col-sm-2">
-                                <input type="text" className="form-control" name="keyword" placeholder="Add Filter" onKeyUp={handleChange}/>
-                            </div>  
                             <div className="col-sm-10">
-                                <MutedButton type='button' onClick={doSearchHandler}>Search for a user by name and email</MutedButton>
+                                <input type="text" className="form-control" name="keyword" placeholder="Search by Title and Author" onKeyUp={handleChange}/>
+                            </div>  
+                            <div className="col-sm-1">
+                                <MutedButton type='button' onClick={doSearchHandler}>Search</MutedButton>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@ export default function Product(props) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-7 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
@@ -120,16 +120,15 @@ export default function Product(props) {
                                         return (
                                             <tr className="text-left border px-4 py-2">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
-                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900" href={`/admin/products/${item.prod_id}/edit`}>
-
-                                                        {item.created_at}
+                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
+                                                        {item.prod_title}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.created_at}</td>
                                                 <td className="pb-4 pt-6 px-6"><S3Image imagePath={item.attachment.att_storage_path}/></td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.quantity.invent_quantity}</td>
                                             </tr>
                                         );
                                     })}

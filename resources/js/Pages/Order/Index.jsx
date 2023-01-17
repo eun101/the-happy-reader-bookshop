@@ -35,13 +35,20 @@ export default function Orders(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
-                                    <th className="pb-4 pt-6 px-6">Total Order Today</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Week</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Month</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order This Year</th>
-                                    <th className="pb-4 pt-6 px-6">Total Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order Today</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order This Month</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order This Year</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.todayOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.yearOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.totalOrder}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -57,13 +64,12 @@ export default function Orders(props) {
                                 <tr className="">
                                     <th className=" pb-4 pt-6 pl-4">DATE</th>
                                     <th className=" pb-4 pt-6 pl-4">CUSTOMER</th>
-                                    <th className=" pb-4 pt-6 pl-4">EMAIL</th>
-                                    <th className=" pb-4 pt-6 pl-4">MOBILE #</th>
+                                    {/* <th className=" pb-4 pt-6 pl-4">EMAIL</th>
+                                    <th className=" pb-4 pt-6 pl-4">MOBILE #</th> */}
                                     <th className=" pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
-                                    <th className=" pb-4 pt-6 pl-4">BOOK ORDERS</th>
-                                    <th className=" pb-4 pt-6 pl-4">ORDER TOTAL</th>
-                                    <th className=" pb-4 pt-6 pl-4">STATUS</th>
-
+                                    <th className=" pb-4 pt-6 pl-8">BOOK ORDERS</th>
+                                    <th className=" pb-4 pt-6 pl-8">ORDER TOTAL</th>
+                                    <th className=" pb-4 pt-6 pl-8">STATUS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -78,11 +84,12 @@ export default function Orders(props) {
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td>
+                                                {/* <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td> */}
                                                 <td className="pb-4 pt-6">{item.ord_delivery_address}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.ord_amount}</td>
+                                                <td className="text-center pb-4 pt-6">{item.orders.ordlist_prod_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.orders.ordlist_total}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td>
                                                 {/* <td>
                                                 <InputLabel for="category" value="Category" />
                                                 <Select id="category" className="mt-1 block w-full"

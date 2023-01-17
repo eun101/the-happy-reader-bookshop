@@ -41,7 +41,7 @@ export default function Authenticated({ auth, header, children }) {
                 <div>
                     <div className="pt-2 space-y-2 ">
                         <div>
-                            <NavLink href={route('dashboard')} active={route().current('dashboard')}>
+                            <NavLink href={route('dashboard.index')} active={route().current('dashboard.index')}>
                                 <svg
                                     xmlns="http://www.w3.org/200/svg"
                                     className="w-6 h-6"
@@ -147,7 +147,7 @@ export default function Authenticated({ auth, header, children }) {
                             </NavLink>
                         </div>
                         <div>
-                            <NavLink href={route('blogs.index')} active={route().current('blogs.index')}>
+                            {/* <NavLink href={route('blogs.index')} active={route().current('blogs.index')}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="w-6 h-6"
@@ -164,7 +164,7 @@ export default function Authenticated({ auth, header, children }) {
                                 <span className="">
                                     Blog
                                 </span>
-                            </NavLink>
+                            </NavLink> */}
                         </div>
                     </div>
                 </div>
