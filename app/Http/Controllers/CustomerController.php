@@ -125,7 +125,7 @@ class CustomerController extends Controller
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
         $validatedData = $request->validated();
-
+        $recordData = new Customer();
         $customer->modified_by = Auth::user()->id;
         $recordData->cust_id = $validatedData['cust_id'];
         $recordData->cust_firstname = $validatedData['cust_firstname'];
@@ -155,7 +155,7 @@ class CustomerController extends Controller
     public function customerInfo(){
        $customerInfo = $this->modelService->getCustomerByUserID(Auth::user()->id);
 
-       \Log::info($customerInfo);
+    //    \Log::info($customerInfo);
        
        return Inertia::render('Account/AccountInformation/Index', [
         'customerInfo'=> $customerInfo,
@@ -166,7 +166,7 @@ class CustomerController extends Controller
     public function customerDashboard(){
         $customerDashboard = $this->modelService->getCustomerByUserID(Auth::user()->id);
  
-        \Log::info($customerDashboard);
+        // \Log::info($customerDashboard);
         
         return Inertia::render('Account/AccountDashboard/Index', [
          'customerDashboard'=> $customerDashboard,
