@@ -21,8 +21,8 @@ class InventoryFactory extends Factory
             'invent_quantity' => fake () -> numberBetween (10,20),
             'invent_price' =>fake()->randomNumber(3, true),
             'created_by' => 1,
-            'created_at'=>fake()->dateTime(),
-            'updated_at'=>fake()->dateTime(),
+            'created_at'=>fake()->dateTimeThisDecade(),
+            'updated_at'=>fake()->dateTimeThisDecade('+2 years'),
         ];
     }
 }

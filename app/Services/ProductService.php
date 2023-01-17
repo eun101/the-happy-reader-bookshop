@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Traits\DropDownListOptions;
+// use\Carbon\Carbon;
 
 class ProductService extends AbstractModelService implements IModelService{
 
@@ -11,8 +12,7 @@ class ProductService extends AbstractModelService implements IModelService{
 
     public function getList($filters, $paginate=false){
 
-        $resultList = Product::with('createdBy')->with('categories');
-
+        $resultList = Product::with('createdBy')->with('categories')->with('attachment');
 
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
             $resultList->where(function($query) use($filters){
@@ -37,6 +37,15 @@ class ProductService extends AbstractModelService implements IModelService{
 
     public function destroy($recordId){
         
+    }
+
+    public function getProductList ($product){
+
+        \Log::info($product);
+        
+        $productList = Product::where('prod_id', $product)->first();
+        return $productList;
+       
     }
   
 

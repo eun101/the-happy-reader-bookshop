@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Inventory;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\ProductService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Traits\ManageFileUpload;
+use DB;
 
 class ProductController extends Controller
 {
 
+    use ManageFileUpload;
 
 
     protected $modelService = null;
@@ -33,13 +37,12 @@ class ProductController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
+        \Log::info($resultList);
 
         return Inertia::render('Product/Index', [
             'products'=> $resultList,
             'status'=>$status,
         ]);
-
-   
     }
 
     /**
@@ -47,9 +50,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Product $product)
     {
-        return Inertia::render('Product/Create');
+        return Inertia::render('Product/Create', [
+            'product'=> $product,
+            'categoryList'=> $product ->getCategoryList(),
+        ]);
     }
 
     /**
@@ -63,24 +69,35 @@ class ProductController extends Controller
 
         $validatedData = $request->validated();
 
-        $recordData = new Product();
-        $recordData->created_by = Auth::user()->id;
-        $recordData->prod_categ_id = $validatedData['prod_categ_id'];
-        $recordData->prod_title = $validatedData['prod_title'];
-        $recordData->prod_author = $validatedData['prod_author'];
-        $recordData->prod_description = $validatedData['prod_description'];
-        // $recordData->prod_status = $validatedData['prod_status'];
-        $recordData->save();
+        DB::beginTransaction();
+        try {
+            $recordData = new Product();
+            $recordData->created_by = Auth::user()->id;
+            $recordData->prod_categ_id = $validatedData['prod_categ_id'];
+            $recordData->prod_title = $validatedData['prod_title'];
+            $recordData->prod_author = $validatedData['prod_author'];
+            $recordData->prod_description = $validatedData['prod_description'];
+            $recordData->save();
+ 
+            $attachment = $this->saveAttachmentFile($request);
+            if($attachment){
+                $attachment->att_description = 'Products attachment file';
+                $recordData->attachment()->save($attachment);
+            }
+            
+            $recordData->inventory->invent_prod_id = $recordData->prod_id;
+            $recordData->inventory->invent_quantity = $validatedData['invent_quantity'];
+            $recordData->inventory->invent_price = $validatedData['invent_price'];
+            $recordData->inventory->created_by = $recordData->created_by;
+            $recordData->inventory->save();
+            DB::commit();   
+            $this->setStatusSession(''.$recordData->prod_title.'  has been added.');
+            return redirect('admin/products');
 
-        // $attachment = $this->saveAttachmentFile($request);
-        // if($attachment){
-        //     $attachment->att_description = 'Products attachment file';
-        //     $recordData->attachment()->save($attachment);
-        // }
-
-        $this->setStatusSession('Products record '.$recordData->prod_id.' has been added.');
-
-        return redirect('admin/products');
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 
     /**
@@ -89,9 +106,18 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Request $request)
     {
-        //
+        $status = $this->getStatusSession($request);
+
+        $resultList = $this->modelService->getList($request->all(), true);
+
+        \Log::info($resultList);
+
+        return Inertia::render('Product/Show', [
+            'products'=> $resultList,
+            'status'=>$status,
+        ]);
     }
 
     /**
@@ -102,6 +128,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $product->attachmentFile = $product->attachmentFile;
 
         return Inertia::render('Product/Edit', [
             'product'=> $product,
@@ -121,19 +148,23 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+
+            \Log::info($request->all());
+            
         $validatedData = $request->validated();
+        $recordData = $product;
 
-
+      
         $recordData->created_by = Auth::user()->id;
         $recordData->prod_categ_id = $validatedData['prod_categ_id'];
         $recordData->prod_title = $validatedData['prod_title'];
         $recordData->prod_author = $validatedData['prod_author'];
         $recordData->prod_description = $validatedData['prod_description'];
-        // $recordData->prod_status = $validatedData['prod_status'];
         $recordData->save();
 
 
-        $this->setStatusSession('Products record '.$recordData->prod_id.' has been added.');
+
+        $this->setStatusSession(''.$recordData->prod_title.'  has been updated.');
 
         return redirect('admin/products');
     }
@@ -146,6 +177,21 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $prod = $product->prod_title;
+        $product->delete();
+
+        $this->setStatusSession('Invoice record '.$prod.' has been deleted.');
+
+        return redirect('/admin/products');
     }
+
+    public function productInfo(){
+        $customerInfo = $this->modelService->getProductList();
+     //    \Log::info($customerInfo);   
+        return Inertia::render('Welcome/Show', [
+         'customerInfo'=> $productInfo,
+     ]);
+     
+     }
+ 
 }

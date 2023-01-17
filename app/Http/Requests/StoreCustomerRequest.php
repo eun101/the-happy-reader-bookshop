@@ -13,7 +13,7 @@ class StoreCustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class StoreCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            
+            'cust_user_id' => 'required|integer',
+            'cust_firstname' => 'required|max:255',
+            'cust_lastname'=> 'required|max:255',
+            'cust_contact'=>'required|max:255',
+            'cust_email'=>'required|max:255',
+            'cust_password'=>'required|max:255',
+            'cust_delivery_address'=>'required|max:255',
         ];
     }
 }

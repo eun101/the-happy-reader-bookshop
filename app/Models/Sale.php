@@ -20,5 +20,6 @@ class Sale extends BaseModel
     }
 
 
+
     
 }

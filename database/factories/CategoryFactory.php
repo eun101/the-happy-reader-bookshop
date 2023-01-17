@@ -20,9 +20,8 @@ class CategoryFactory extends Factory
             'categ_description' => fake () -> sentence(),
             'categ_status'  => 1,
             'created_by' => 1,
-            'created_at'=>fake()->dateTime(),
-            'updated_at'=>fake()->dateTime(),
-            'updated_at'=>fake()->dateTime(),
+            'created_at'=>fake()->dateTimeThisDecade(),
+            'updated_at'=>fake()->dateTimeThisDecade('+2 years'),
         ];
     }
 }

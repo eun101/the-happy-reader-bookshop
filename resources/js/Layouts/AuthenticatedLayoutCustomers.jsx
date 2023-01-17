@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
+import Footer from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
@@ -10,124 +11,147 @@ export default function Authenticated({ auth, header, children }) {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <nav className="bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
-                        <div className="flex">
-                            <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
-                                </Link>
-                            </div>
-
-                            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink href={route('customeraccount')} active={route().current('customeraccount')}>
-                                    Dashb
-                                </NavLink>
-                                {/* <NavLink href={route('order.index')} active={route().current('order.index')}>
-                                   My Orders
-                                </NavLink>
-                                <NavLink href={route('order.index')} active={route().current('order.index')}>
-                                   Wishlist
-                                </NavLink> */}
-                            </div>
-                        </div>
-
-                        <div className="hidden sm:flex sm:items-center sm:ml-6">
-                            <div className="ml-3 relative">
-                                <Dropdown>
-                                    <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
-                                            <button
-                                                type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                                            >
-                                                {auth.user.name}
-
-                                                <svg
-                                                    className="ml-2 -mr-0.5 h-4 w-4"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20"
-                                                    fill="currentColor"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
-                                            </button>
-                                        </span>
-                                    </Dropdown.Trigger>
-
-                                    <Dropdown.Content>
-                                        <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
-                                        <Dropdown.Link href={route('logout')} method="post" as="button">
-                                            Log Out
-                                        </Dropdown.Link>
-                                    </Dropdown.Content>
-                                </Dropdown>
-                            </div>
-                        </div>
-
-                        <div className="-mr-2 flex items-center sm:hidden">
-                            <button
-                                onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
-                                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+          <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' }  bg-yellow-400 text-gray-900 navbar navbar-expand-lg navbar-light`}>
+                <Link href="/">
+                    <ApplicationLogo className="w-1/2 mx-auto" />
+                </Link>
+                <div className='shrink-0 flex items-right mx-auto sticky'>
+                    
+                    <button
+                                onClick={() => setOpen((previousState) => !previousState)}
+                                className= {` ${(open ? 'hidden' : 'inline-flex') + ' lg:block'} mx-6 inline-flex items-left p-2 rounded-sm text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out`}
                             >
+ 
+                            </button>
+                    <div className=" flex top-0 text-lg">
+                            <div className="px-5 font-bold">
+                            <NavLink href={route('dashboard')} active={route().current('dashboard')} className="text-md">
+                                <span className="text-black ">SHOP</span>
+                            </NavLink>
+                            </div>
+                            <div className="px-5 font-bold">
+                            <NavLink href={route('orders.index')} active={route().current('myorders.index')}>
+                                <span className="text-black ">CONTACT US</span>
+                            </NavLink>
+                            </div>
+                            <div className="px-5 font-bold text-lg">
+                            <NavLink href={route('orders.index')} active={route().current('orders.index')}>
+                                <span className="text-black ">ABOUT US</span>
+                            </NavLink>
+                            </div>
+                            <div className="justify-items-end">
+                            <NavLink href={route('orders.index')} active={route().current('blogs.index')}>
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                             </svg>
+                            </NavLink>
+                            </div>
+                    </div>
+                </div>
+            </nav>
+           <div className="min-h-screen bg-emerald-50 flex">
+           <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } sticky text-medium  left-0 top-0 bottom-0 h-98  p-5 bg-neutral-200 shadow duration-300`}>
+               <div className='shrink-0 flex items-right mx-auto'>
+                   <button
+                               onClick={() => setOpen((previousState) => !previousState)}
+                               className= {` ${(open ? 'hidden' : 'inline-flex') + ' lg:block'} mx-6 inline-flex items-left p-2 rounded-sm text-gray-400 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out`}
+                           >
+                           </button>
+               </div>
+               <div>
+                   <div className="pt-4 space-y-2 ">
+                       <div>
+                           <NavLink href={route('dashboard.index')} active={route().current('dashboard.index')}>
+                               <span className="text-black ">Account Dashboard</span>
+                           </NavLink>
+                       </div>
+                       <div>
+                           <NavLink href={route('my-orders.index')} active={route().current('my-orders.index')}>
+                               <span className="text-black ">My Orders</span>
+                           </NavLink>
+                       </div>
+                       {/* <div>
+                           <NavLink href={route('wishlist.index')} active={route().current('wishlist.index')}>
+                               <span className="text-black ">Wishlist</span>
+                           </NavLink>
+                       </div> */}
+                       <div>
+                           <NavLink href={route('address.index')} active={route().current('address.index')}>
+                               <span className="text-black ">
+                                   Address
+                               </span>
+                           </NavLink>
+                       </div>
+                       <div>
+                           <NavLink href={route('profile.edit')} active={route().current('profile.edit')}>
+                               <span className="text-black ">
+                                   Account Information
+                               </span>
+                           </NavLink>
+                       </div>
+                       <div>
+                           {/* <NavLink href={route('billing-details.index')} active={route().current('billing-details.index')}>
+                               <span className="text-black ">
+                                   Billing Details
+                               </span>
+                           </NavLink> */}
+                       </div>
+                       {/* <div>
+                           <NavLink href={route('my-product-reviews.index')} active={route().current('my-product-reviews.index')}>
+                               <span className="text-black font-bold">
+                                  My Product Reviews
+                               </span>
+                           </NavLink>
+                       </div> */}
+                   </div>
+               </div>
+           </nav>
+           <div className=" mx-auto sm:px-6 lg:px-12">
+                {header && (
+                    <header className="w-full bg-white shadow py-2 sm:px-12 lg:px-18">
+                        <div className="flex items-center">
+                            <button
+                                onClick={() => setOpen((previousState) => !previousState)}
+                                className={` ${(open ? 'inline-flex' : 'hidden') + ' lg:hidden'} mx-6 inline-flex items-left rounded-sm text-gray-400 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out`}
+                            >
+
                                 <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                     <path
-                                        className={!showingNavigationDropdown ? 'inline-flex' : 'hidden'}
+                                        className={` ${(open ? 'inline-flex' : 'hidden') }`}
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth="2"
                                         d="M4 6h16M4 12h16M4 18h16"
                                     />
                                     <path
-                                        className={showingNavigationDropdown ? 'inline-flex' : 'hidden'}
+                                        className={` ${(open ? 'inline-flex' : 'hidden')}`}
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth="2"
-                                        d="M6 18L18 6M6 6l12 12"
+                                        d="M4 6h16M4 12h16M4 18h16"
                                     />
                                 </svg>
                             </button>
+                            {header}
                         </div>
-                    </div>
-                </div>
+                    </header>
+                )}
+                
 
-                <div className={(showingNavigationDropdown ? 'block' : 'hidden') + ' sm:hidden'}>
-                    <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
+                
+                <main className=''>
+                    {children}
+                </main>
+            </div>
 
-                    <div className="pt-4 pb-1 border-t border-gray-200">
-                        <div className="px-4">
-                            <div className="font-medium text-base text-gray-800">
-                                {auth.user.name}
-                            </div>
-                            <div className="font-medium text-sm text-gray-500">{auth.user.email}</div>
-                        </div>
+            
 
-                        <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route('profile.edit')}>Profile</ResponsiveNavLink>
-                            <ResponsiveNavLink method="post" href={route('logout')} as="button">
-                                Log Out
-                            </ResponsiveNavLink>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            
+        </div>
+        
 
-            {header && (
-                <header className="bg-white shadow">
-                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{header}</div>
-                </header>
-            )}
 
-            <main>{children}</main>
+        
         </div>
     );
 }

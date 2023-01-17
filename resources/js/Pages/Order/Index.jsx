@@ -5,9 +5,13 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import Select from '@/Components/Select';
 
 
 
+const onAddHandler = ()=>{
+    Inertia.get(route('orders.create'));
+}
 
 export default function Orders(props) {
     return (
@@ -18,7 +22,13 @@ export default function Orders(props) {
         >
             <Head title="Orders" />
 
-            <div className="py-12">
+            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >New Order</PrimaryButton>
+                <div>{props.status}</div>
+            </div>
+
+            <div className="py-12 ">
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-12 text-gray-900">
@@ -73,6 +83,17 @@ export default function Orders(props) {
                                                 <td className="pb-4 pt-6">{item.ord_delivery_address}</td>
                                                 <td className="pb-4 pt-6 px-6">{}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.ord_amount}</td>
+                                                {/* <td>
+                                                <InputLabel for="category" value="Category" />
+                                                <Select id="category" className="mt-1 block w-full"
+                                                name="ord_status"
+                                                handleChange={handleChange}
+                                                options={props.statusList}
+                                                placeholder="-- Select Category --"
+                                                optionLabel="opti_name"
+                                                optionValue="opt_id"
+                                                required />
+                                                </td> */}
 
 
                                             </tr>
