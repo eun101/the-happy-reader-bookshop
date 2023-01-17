@@ -161,6 +161,15 @@ class CustomerController extends Controller
         'customerInfo'=> $customerInfo,
     ]);
 
+    // public function addressInfo(){
+    //     $addressInfo = $this->modelService->getCustomerByUserID(Auth::user()->id);
+ 
+    //     \Log::info($addressInfo);
+        
+    //     return Inertia::render('Account/Address/Index', [
+    //      'addressInfo'=> $addressInfo,
+    //  ]);
+
     }
 
     public function customerDashboard(){

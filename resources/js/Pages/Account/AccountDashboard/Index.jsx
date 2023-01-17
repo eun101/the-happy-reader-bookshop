@@ -30,9 +30,9 @@ export default function AccountDashboard(props) {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th className="pb-5 pl-12 text-sm">Address</th>
-                                    <th className="pb-5 pr-12 pl-12 text-sm">Address</th>
-                                    
+                                    <div className="pl-10">{props.customerDashboard.cust_firstname}{props.customerDashboard.cust_lastname}</div>
+                                    <div className="pl-10">{props.customerDashboard.cust_email}</div>
+                                    <div className="pb-5 pl-10">{props.customerDashboard.cust_contact}</div>
                                 </tr>
                                 </tbody>
                             </table>
@@ -46,31 +46,19 @@ export default function AccountDashboard(props) {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th className="pb-5 pl-12 text-sm">Address</th>
-                                    <th className="pb-5 pl-12 text-sm">Address</th>
-                                    
+                                    <th className="pb-5 pl-12 font-normal">{props.customerDashboard.billing_address.addr_street_address}</th>
+                                    <th className="pb-5 pl-12 font-normal">{props.customerDashboard.shipping_address.addr_street_address}</th>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-
-                
-
-                {/* <h6>Contact Information</h6>
-                <div className=''> {props.customerDashboard.cust_firstname} {props.customerDashboard.cust_lastname}</div>
-
-                <div className=''>{props.customerDashboard.cust_email}</div>
-                <div className=''>{props.customerDashboard.cust_contact}</div>
-
-                <div className='pt-3'>
-                    <h4>Address Book</h4>
-                </div>
-                <div>{props.customerDashboard.billing_address.addr_street_address}</div>
-                <div>{props.customerDashboard.shipping_address.addr_street_address}</div> */}
             </div>
+
+
+
+
             <div className="fixed top-0 right-0 px-6  sm:block">
                 {props.auth.user ?
                     <div className='pt-2 space-x-12 flex '>
