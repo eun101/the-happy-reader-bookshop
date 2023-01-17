@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Customer;
 use App\Models\User;
 Use Carbon\Carbon;
 use App\Http\Requests\StoreOrderRequest;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Services\OrderService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Traits\DropdownListOptions;
 
 
 class OrderController extends Controller
@@ -49,8 +51,8 @@ class OrderController extends Controller
         'orders'=> $resultList,'status'=>$status,'totalOrder'=>$totalOrder,
         'todayOrder'=>$todayOrder,'monthOrder'=>$monthOrder,
         'yearOrder'=>$yearOrder,
+        // 'statusList'=> $request -> getDeliveryStatusList(),
     ]);
-
     }
 
     /**
@@ -58,9 +60,12 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Order $order)
     {
-        return Inertia::render('Orders/Create');
+        return Inertia::render('Order/Create', [
+            'order'=> $order,
+            // 'categoryList'=> $order ->getCategoryList(),
+        ]);
     }
 
     /**
@@ -90,8 +95,10 @@ class OrderController extends Controller
 
         $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
 
-        return redirect('/orders');
+        return redirect('admin/orders');
     }
+
+    
 
     /**
      * Display the specified resource.
@@ -144,7 +151,7 @@ class OrderController extends Controller
 
         $this->setStatusSession('Order record '.$recordData->ord_cust_id.' has been added.');
 
-        return redirect('/orders');
+        return redirect('admin/orders');
     }
 
     /**
@@ -162,4 +169,17 @@ class OrderController extends Controller
 
         return redirect('/orders');
     }
+    
+    public function customerOrderInformation(){
+        $customerOrderInformation = $this->modelService->getOrderByUserID(Auth::user()->id);
+ 
+        \Log::info($customerOrderInformation);
+        
+        return Inertia::render('Account/MyOrder/Index', [
+         'customerOrderInformation'=> $customerOrderInformation,
+     ]);
+ 
+     }
+  
+
 }

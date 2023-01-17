@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('ord_id');
             $table -> integer ('ord_cust_id');
+            $table->string('ord_number');
             $table->string('ord_delivery_address', 300) -> nullable();
             $table->string('ord_payment_method');
             $table->float('ord_amount');

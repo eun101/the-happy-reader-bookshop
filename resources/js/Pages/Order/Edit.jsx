@@ -60,10 +60,10 @@ export default function Product(props) {
         <AuthenticatedLayout
             auth={props.auth}
             errors={props.errors}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Book Information</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">New Order</h2>}
         >
             <Head title="Products" />
-            <div className="pt-10 ">
+            {/* <div className="pt-10 ">
                 <div className="bg-white shadow-sm">
                     <div className="p-14 text-gray-900">
                         <form className="mt-6 space-y-6" onSubmit={onSaveHandler}>
@@ -159,7 +159,7 @@ export default function Product(props) {
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="pt-12 pb-5">
                 <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">

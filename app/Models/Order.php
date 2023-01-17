@@ -14,7 +14,7 @@ class Order extends BaseModel
     public function customer(){
         return $this->belongsTo('App\Models\Customer','ord_cust_id')->withDefault();
     }
-    
+
     public function orders(){
         return $this->belongsTo('App\Models\OrderList','ord_cust_id')->withDefault();
     }

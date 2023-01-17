@@ -31,14 +31,13 @@ class InventoryController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
+        // \Log::info();
 
         return Inertia::render('Inventory/Index', [
             'inventories'=> $resultList,
             'status'=>$status,
 
         ]);
-
-   
     }
 
     /**

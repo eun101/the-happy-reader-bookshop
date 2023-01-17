@@ -26,7 +26,7 @@ class SaleService extends AbstractModelService implements IModelService{
         }
 
         $resultList->groupBy('sales_order_id','cust_firstname','cust_email','cust_contact');
-        $resultList->orderBy('cust_firstname','desc');
+        $resultList->orderBy('cust_firstname',);
 
         if($paginate){
             return $resultList->paginate(config('constants.PAGINATION_COUNT'));

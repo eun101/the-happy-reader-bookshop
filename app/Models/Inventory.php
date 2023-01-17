@@ -21,7 +21,18 @@ class Inventory extends BaseModel
 
     public function categories(){
         return $this->belongsTo('App\Models\Category','invent_prod_id')->withDefault();
+
     }
+
+    // public function title(){
+    //     return $this->belongsTo('App\Models\Product','invent_prod_id')->withDefault();
+    // }
+    
+
+    public function getAttachmentPathAttribute($value){
+        return $this->attachment->att_storage_path;
+    }
+
 
 
 }

@@ -13,7 +13,7 @@ class StoreInventoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreInventoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'invent_quantity' => 'required|integer',
+            'invent_price'=> 'required|double',
         ];
     }
 }

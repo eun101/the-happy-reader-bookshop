@@ -5,9 +5,13 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import Select from '@/Components/Select';
 
 
 
+const onAddHandler = ()=>{
+    Inertia.get(route('orders.create'));
+}
 
 export default function Orders(props) {
     return (
@@ -18,7 +22,13 @@ export default function Orders(props) {
         >
             <Head title="Orders" />
 
-            <div className="py-12">
+            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >New Order</PrimaryButton>
+                <div>{props.status}</div>
+            </div>
+
+            <div className="py-12 ">
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-12 text-gray-900">
@@ -50,6 +60,7 @@ export default function Orders(props) {
                         <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
+
                                 <tr className="">
                                     <th className=" pb-4 pt-6 pl-4">DATE</th>
                                     <th className=" pb-4 pt-6 pl-4">CUSTOMER</th>
@@ -64,6 +75,7 @@ export default function Orders(props) {
                                 <tbody>
                                     {props.orders.data.map((item)=>{
                                         return (
+
                                             
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-6 font-mono">
@@ -78,6 +90,19 @@ export default function Orders(props) {
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_prod_id}</td>
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_total}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td>
+                                                {/* <td>
+                                                <InputLabel for="category" value="Category" />
+                                                <Select id="category" className="mt-1 block w-full"
+                                                name="ord_status"
+                                                handleChange={handleChange}
+                                                options={props.statusList}
+                                                placeholder="-- Select Category --"
+                                                optionLabel="opti_name"
+                                                optionValue="opt_id"
+                                                required />
+                                                </td> */}
+
+
                                             </tr>
                                         );
                                     })}
@@ -89,8 +114,6 @@ export default function Orders(props) {
                 </div>
             </div>
            
-           
-
         </AuthenticatedLayout>
     );
 }

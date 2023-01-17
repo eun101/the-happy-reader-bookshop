@@ -1,10 +1,6 @@
 import PrimaryButton from '@/Components/PrimaryButton';
-import DangerButton from '@/Components/DangerButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-react';
-import { filter, get } from 'lodash';
-import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
 export default function Sales(props) {

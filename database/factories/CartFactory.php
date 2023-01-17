@@ -21,8 +21,8 @@ class CartFactory extends Factory
             'cart_price' =>fake()->randomNumber(3, true),
             'cart_quantity' => fake () -> numberBetween (10,20),
             'created_by' => 1,
-            'created_at'=>fake()->dateTime(),
-            'updated_at'=>fake()->dateTime(),
+            'created_at'=>fake()->dateTimeThisDecade(),
+            'updated_at'=>fake()->dateTimeThisDecade('+2 years'),
         ];
     }
 }

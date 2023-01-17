@@ -6,7 +6,8 @@ use App\Models\Dashboard;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Sale;
-Use Carbon\Carbon;
+use Carbon\Carbon;
+use DB;
 use App\Http\Requests\StoreDashboardRequest;
 use App\Http\Requests\UpdateDashboardRequest;
 use Inertia\Inertia;
@@ -41,23 +42,35 @@ class DashboardController extends Controller
         $mothDate = Carbon::now()->format('m');
         $YearDate = Carbon::now()->format('Y');
 
+        // $todaySales = DB::table("sales")
+        // ->select(DB::raw("SUM(sales_order_id) as count"))
+        // ->orderBy("created_at")
+        // ->groupBy(DB::raw("year(created_at)"))
+        // ->get();
+
+        
+
 
         $todayOrder = Order::whereDate('created_at', $todayDate)->count();
         $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
         $yearOrder = Order::whereYear('created_at', $YearDate)->count();
 
-        $todaySale = Sale::whereDate('created_at', $todayDate)->count();
-        $monthSale = Sale::whereMonth('created_at', $mothDate)->count();
-        $yearSale = Sale::whereYear('created_at', $YearDate)->count();
+        $todaySale = Sale::whereDate('created_at', $todayDate)->sum('sales_total_amount');
+        $monthSale = Sale::whereMonth('created_at', $mothDate)->sum('sales_total_amount');
+        $yearSale = Sale::whereYear('created_at', $YearDate)->sum('sales_total_amount');
+        
         
         
         return Inertia::render('Dashboard/Index', [
-            'dashboard'=> $resultList,'status'=>$status,'totalOrder'=>$totalOrder,
-            'totalSale'=>$totalSale,'todayOrder'=>$todayOrder,'monthOrder'=>$monthOrder,
+            'dashboard'=> $resultList,
+            'status'=>$status,'totalOrder'=>$totalOrder,
+            'totalSale'=>$totalSale,
+            'todayOrder'=>$todayOrder,
+            'monthOrder'=>$monthOrder,
             'yearOrder'=>$yearOrder,
-            'todaySale'=>$todaySale,
-            'monthSale'=>$monthSale,
-            'yearSale'=>$yearSale,
+            'todaySale'=>number_format($todaySale, 2),
+            'monthSale'=>number_format($monthSale, 2),
+            'yearSale'=>number_format($yearSale, 2),
 
         ]);
 

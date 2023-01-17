@@ -1,3 +1,4 @@
+import PrimaryButton from '@/Components/PrimaryButton';
 import MutedButton from '@/Components/MutedButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Inertia } from '@inertiajs/inertia';
@@ -6,6 +7,11 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 
+
+
+const onAddHandler = ()=>{
+    Inertia.get(route('customers.create'));
+}
 
 export default function Customers(props) {
 
@@ -35,6 +41,14 @@ export default function Customers(props) {
             header={<h2>Customers</h2>}
         >
             <Head title="Customer" />
+
+            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >Add New Customer Account</PrimaryButton>
+                <div>{props.status}</div>
+            </div>
+
+
 
             <div className="py-5">
                     <div className="p-6 text-gray-900">
@@ -74,7 +88,7 @@ export default function Customers(props) {
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.cust_delivery_address}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.cust_shipping_address}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
                                             </tr>
                                         );

@@ -5,6 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\OrderList;
 use App\Http\Requests\StoreOrderListRequest;
 use App\Http\Requests\UpdateOrderListRequest;
+use App\Models\User;
+use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Services\ProductService as IModelService;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use DB;
+
 
 class OrderListController extends Controller
 {
@@ -23,11 +31,13 @@ class OrderListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Orderlist $orderlist)
     {
-        //
-    }
 
+        return Inertia::render('Order/Create',[
+        'orderlist' => $orderlist,
+        ]);
+    }
     /**
      * Store a newly created resource in storage.
      *

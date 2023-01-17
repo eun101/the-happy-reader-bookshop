@@ -53,9 +53,9 @@ export default function Dashboard(props) {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.todayOrder}</th>
-                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.monthOrder}</th>
-                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.yearOrder}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.todayOrder}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthOrder}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.yearOrder}</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -77,9 +77,9 @@ export default function Dashboard(props) {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.todaySale}</th>
-                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.monthSale}</th>
-                                    <th className='text-center text-indigo-400 font-tita-eunice text-4xl'>{props.yearSale}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.todaySale}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.yearSale}</th>
                                     </tr>
                                 </tbody>
                             </table>

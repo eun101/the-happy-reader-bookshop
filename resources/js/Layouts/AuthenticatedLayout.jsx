@@ -10,7 +10,7 @@ export default function Authenticated({ auth, header, children }) {
 
     return (
         <div className="min-h-screen bg-emerald-50 flex">
-            <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } relative text-medium border-neutral-800 left-0 top-0 bottom-0 h-86 fixed flex-col-6 h-screen p-2 bg-neutral-800 shadow duration-300`}>
+            <nav className={` ${(open ? 'hidden' : 'block') + ' lg:block' } sticky text-medium border-neutral-800 left-0 top-0 bottom-0 h-98  flex-col-6 p-2 bg-neutral-800 shadow duration-300`}>
                
                 
                 <div className='shrink-0 flex items-right mx-auto'>
@@ -46,6 +46,7 @@ export default function Authenticated({ auth, header, children }) {
                                     xmlns="http://www.w3.org/200/svg"
                                     className="w-6 h-6"
                                     fill="none"
+                                    
                                     viewBox="2 0 32 24"
                                     stroke="currentColor"
                                     strokeWidth={1}
@@ -146,7 +147,7 @@ export default function Authenticated({ auth, header, children }) {
                             </NavLink>
                         </div>
                         <div>
-                            <NavLink href={route('blogs.index')} active={route().current('blogs.index')}>
+                            {/* <NavLink href={route('blogs.index')} active={route().current('blogs.index')}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="w-6 h-6"
@@ -163,7 +164,7 @@ export default function Authenticated({ auth, header, children }) {
                                 <span className="">
                                     Blog
                                 </span>
-                            </NavLink>
+                            </NavLink> */}
                         </div>
                     </div>
                 </div>
@@ -237,7 +238,7 @@ export default function Authenticated({ auth, header, children }) {
                         </div>
                     </header>
                 )}
-                <main>
+                <main className=''>
                     {children}
                 </main>
             </div>

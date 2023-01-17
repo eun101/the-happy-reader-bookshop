@@ -7,15 +7,20 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import Modal from '@/Components/Modal';
+import S3Image from '@/Components/S3Image';
+
 
 
 const onAddHandler = ()=>{
-    Inertia.get(route('orders.create'));
+    Inertia.get(route('products.create'));
 }
 
 export default function Product(props) {
 
     const [filters, setFilters] = useState();
+    const [show, setShow] = useState(false);
+
 
     const handleChange = (event) => {
         const fieldName = event.target.name;
@@ -34,6 +39,27 @@ export default function Product(props) {
 
     }
 
+    const onCancelHandler = () => {
+        Inertia.get(route('products.index'));
+    }
+
+    // const openModal =() => {
+    //     setIsOpen(true);
+    // }
+
+    // const closeModal = () => {
+    //     setIsOpen(false);
+    // }
+
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => {
+    //     setShow(true);
+    //      Inertia.get(route('products.create'));
+    // };
+
+
+
+
 
     return (
         <AuthenticatedLayout
@@ -42,14 +68,16 @@ export default function Product(props) {
             header={<h2>Product</h2>}
         >
             <Head title="Product" />
-
+        
             <div className="flex flex-row-reverse rounded-full px-3 py-12">
                 <PrimaryButton type='button'
-                onClick={onAddHandler}>Add New Product</PrimaryButton>
-                <div>{}</div>
+                onClick={onAddHandler} >Add New Product</PrimaryButton>
+                <div>{props.status}</div>
             </div>
-
+          
+   
                 <div className="py-0">
+                    
                     <div className="p-6 text-gray-900">
                         <div className='row'>
                             <div className="col-sm-10">
@@ -60,7 +88,16 @@ export default function Product(props) {
                             </div>
                         </div>
                     </div>
+                
+                
                 </div>
+                 {/* <Modal show={show} onClose={handleClose}> 
+                 <div>
+                    Hi
+                 </div>
+                   </Modal> */}
+
+                
       
        
             <div className="py-12">
@@ -89,7 +126,7 @@ export default function Product(props) {
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.created_at}</td>
-                                                <td className="text-center pb-4 pt-6 px-6">{item.product.ordlist_prod_id}</td>
+                                                <td className="pb-4 pt-6 px-6"><S3Image imagePath={item.attachment.att_storage_path}/></td>
                                                 <td className="text-center pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.quantity.invent_quantity}</td>
                                             </tr>
@@ -97,11 +134,15 @@ export default function Product(props) {
                                     })}
                                 </tbody>
                             </table>
+                         
+
                             <Pagination resultList={props.products}/>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 
            
            

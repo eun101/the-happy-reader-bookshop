@@ -13,7 +13,6 @@ class InventoryService extends AbstractModelService implements IModelService{
 
         $resultList = Inventory::with('createdBy')->with('orders')->with('product')->with('categories');
 
-
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
             $resultList->where(function($query) use($filters){
                 $query->where('invent_prod_id','like', '%'.$filters['keyword'].'%');
