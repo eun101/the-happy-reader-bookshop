@@ -82,6 +82,16 @@ Route::get('/productdetails', function () {
     ]);
 });
 
+Route::get('/shoppingcart', function () {
+    return Inertia::render('ShoppingCart', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+
 
 Route::get('/aboutus', function () {
     return Inertia::render('AboutUs', [

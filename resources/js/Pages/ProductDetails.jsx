@@ -4,10 +4,10 @@ export default function ProductDetails(){
     return(
         <div  className="container-fluid mx-auto">
         <div className='grid grid-cols-8 gap-4'>
-            <div className=' col-start-1 col-end-3 p-4'>
+            <div className=' col-start-1 col-end-3 p-4 mr-10'>
             <img className=" h-80 w-full" src="https://m.media-amazon.com/images/I/51xsohhzRML._SX322_BO1,204,203,200_.jpg" alt=""/>
             </div>
-            <div className='col-start-4 col-end-13 p-4'>
+            <div className='col-start-4 col-end-13 p-4 mr-40'>
             <h2>Smarter Faster Better: The Transformative Power of Real Productivity</h2>
             <p>Smarter Faster Better is a story-filled exploration of the science of productivity, one that can help us learn
             to succeed with less stress and struggle—and become smarter, faster, and better at everything we do.
@@ -42,6 +42,8 @@ export default function ProductDetails(){
    <button id="add-to-cart"
     className="px-6 py-2 transition ease-in duration-200 uppercase  hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add
     to cart</button>
+    <button id="wishlist"
+    className="px-6 py-2 transition ease-in duration-200  hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none">Add to wishlist</button>
    </div>
     );
 }
