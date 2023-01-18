@@ -11,7 +11,7 @@ class DashboardService extends AbstractModelService implements IModelService{
 
     public function getList($filters, $paginate=false){
 
-        $resultList = Dashboard::with('createdBy');
+        $resultList = Dashboard::with('createdBy')->with('quantity')->with('product');
 
     }
 

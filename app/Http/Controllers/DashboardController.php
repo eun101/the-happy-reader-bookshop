@@ -6,6 +6,9 @@ use App\Models\Dashboard;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Sale;
+use App\Models\Customer;
+use App\Models\OrderList;
+use App\Models\Product;
 use Carbon\Carbon;
 use DB;
 use App\Http\Requests\StoreDashboardRequest;
@@ -37,23 +40,21 @@ class DashboardController extends Controller
 
         $totalOrder = Order::count();
         $totalSale = Sale::count();
+        $totalCustomer = Customer::count();
+        // $totalBooks = OrderList::count('ordlist_quantity');
+        $totalTitle = Product::count('prod_title');
+
 
         $todayDate = Carbon::now()->format('d-m-Y');
         $mothDate = Carbon::now()->format('m');
         $YearDate = Carbon::now()->format('Y');
 
-        // $todaySales = DB::table("sales")
-        // ->select(DB::raw("SUM(sales_order_id) as count"))
-        // ->orderBy("created_at")
-        // ->groupBy(DB::raw("year(created_at)"))
-        // ->get();
-
-        
-
 
         $todayOrder = Order::whereDate('created_at', $todayDate)->count();
         $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
         $yearOrder = Order::whereYear('created_at', $YearDate)->count();
+        
+        $totalBooks = OrderList::whereMonth('created_at', $mothDate)->sum('ordlist_quantity');
 
         $todaySale = Sale::whereDate('created_at', $todayDate)->sum('sales_total_amount');
         $monthSale = Sale::whereMonth('created_at', $mothDate)->sum('sales_total_amount');
@@ -63,14 +64,19 @@ class DashboardController extends Controller
         
         return Inertia::render('Dashboard/Index', [
             'dashboard'=> $resultList,
-            'status'=>$status,'totalOrder'=>$totalOrder,
+            'status'=>$status,
+            'totalOrder'=>$totalOrder,
+            'totalCustomer'=>$totalCustomer,
+            'totalBooks'=>number_format($totalBooks),
+            'totalTitle'=>$totalTitle,
             'totalSale'=>$totalSale,
             'todayOrder'=>$todayOrder,
             'monthOrder'=>$monthOrder,
             'yearOrder'=>$yearOrder,
             'todaySale'=>number_format($todaySale, 2),
             'monthSale'=>number_format($monthSale, 2),
-            'yearSale'=>number_format($yearSale, 2),
+            'yearSale'=>number_format($yearSale. 2),
+            
 
         ]);
 

@@ -14,4 +14,12 @@ class Dashboard extends BaseModel
         return Sale::select(DB::raw("sum(sales_total_amount) as total_sales_amount"), DB::raw("count(sales_id) as number_of_sales"))->get();
     }
 
+    public function quantity(){
+        return $this->belongsTo('App\Models\OrderList','ordlist_quantity')->withDefault();
+    }
+
+    public function product(){
+        return $this->belongsTo('App\Models\Product','prod_title')->withDefault();
+    }
+
 }

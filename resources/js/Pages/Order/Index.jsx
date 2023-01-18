@@ -45,7 +45,7 @@ export default function Orders(props) {
                                     <tr>
                                     <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.todayOrder}</th>
                                     <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th>
-                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.yearOrder}</th>
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th>
                                     <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.totalOrder}</th>
                                     </tr>
                                 </tbody>
