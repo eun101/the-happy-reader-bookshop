@@ -38,16 +38,18 @@ class SaleController extends Controller
         $mothDate = Carbon::now()->format('m');
         $YearDate = Carbon::now()->format('Y');
 
-        $todaySale = Sale::whereDate('created_at', $todayDate)->count();
-        $monthSale = Sale::whereMonth('created_at', $mothDate)->count();
-        $yearSale = Sale::whereYear('created_at', $YearDate)->count();
+        $todaySale = Sale::whereDate('created_at', $todayDate)->sum('sales_total_amount');
+        $monthSale = Sale::whereMonth('created_at', $mothDate)->sum('sales_total_amount');
+        $yearSale = Sale::whereYear('created_at', $YearDate)->sum('sales_total_amount');
 
  
         return Inertia::render('Sale/Index', [
-            'sales'=> $resultList,'status'=>$status,
+            'sales'=> $resultList,
+            'status'=>$status,
             'totalSale'=>$totalSale,
-            'todaySale'=>$todaySale,'monthSale'=>$monthSale,
-            'yearSale'=>$yearSale,
+            'todaySale'=>number_format($todaySale, 2),
+            'monthSale'=>number_format($monthSale, 2),
+            'yearSale'=>number_format($yearSale, 2),
             
         ]);
 

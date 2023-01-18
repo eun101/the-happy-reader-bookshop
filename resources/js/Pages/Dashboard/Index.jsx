@@ -13,7 +13,7 @@ export default function Dashboard(props) {
 
         >
             <Head title="Dashboard " />
-
+{/* 
             <div className="py-12">
                 <div className="max-w-7x1 mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -37,9 +37,9 @@ export default function Dashboard(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
     
-            <div className="">
+            <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-14 text-gray-900">
@@ -55,7 +55,7 @@ export default function Dashboard(props) {
                                     <tr>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.todayOrder}</th>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.monthOrder}</th>
-                                    <th className='text-center text-indigo-400 text-4xl'>{props.yearOrder}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthOrder}</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -79,7 +79,7 @@ export default function Dashboard(props) {
                                     <tr>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.todaySale}</th>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
-                                    <th className='text-center text-indigo-400 text-4xl'>{props.yearSale}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -94,11 +94,18 @@ export default function Dashboard(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
-                                    <th className="pb-4 pt-6 px-6">Total Available Books</th>
+                                    <th className="pb-4 pt-6 px-6">Total Book Title</th>
                                     <th className="pb-4 pt-6 px-6">Total Books Sold</th>
                                     <th className="pb-4 pt-6 px-6">Total Customers</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.totalTitle}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.totalBooks}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.totalCustomer}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

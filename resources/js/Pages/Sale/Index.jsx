@@ -19,18 +19,16 @@ export default function Sales(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left">
-                                    <th className="text-center pb-4 pt-6 px-6">TOTAL SALES</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TODAY SALES</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS MONTH</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS YEAR</th>
-                                    <th className="text-center pb-4 pt-6 px-6">TOTAL SALES</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                     <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.todaySale}</th>
                                     <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
-                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.yearSale}</th>
-                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.totalSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
                                     </tr>
                                 </tbody>
                             </table>
