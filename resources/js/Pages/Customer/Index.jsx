@@ -73,8 +73,8 @@ export default function Customers(props) {
                                 <tr className="text-left font-bold">
                                     <th className="pb-4 pt-6 px-6">NAME</th>
                                     <th className="pb-4 pt-6 px-6">EMAIL</th>
-                                    <th className="pb-4 pt-6 px-6">SHIPPING ADDRESS</th>
-                                    <th className="pb-4 pt-6 px-6">PURCHASES</th>
+                                    <th className="pb-4 pt-6 px-6">CONTACT NUMBER</th>
+                                    {/* <th className="pb-4 pt-6 px-6">PURCHASES</th> */}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -84,12 +84,12 @@ export default function Customers(props) {
                                             <tr className="text-left border px-4 py-2">
                                                 <td className="pb-4 px-11 font-mono">
                                                     <Link className="flex items-center px-6 py-4 focus:text-indigo-500 no-underline text-gray-900">
-                                                        {item.cust_firstname}
+                                                        {item.cust_firstname} {item.cust_lastname}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
-                                                <td className="text-center pb-4 pt-6 px-6">{item.cust_shipping_address}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">+639{item.cust_contact}</td>
+                                                {/* <td className="pb-4 pt-6 px-6">{item.cust_contact}</td> */}
                                             </tr>
                                         );
                                     })}

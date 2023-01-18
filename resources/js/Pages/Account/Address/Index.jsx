@@ -37,9 +37,9 @@ export default function Address(props) {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th className="font-normal text-center pb-4 pt-6">{props.addressInfo.billing_address.addr_street_address} {props.addressInfo.billing_address.addr_street_address}</th>
+                                    <th className="font-normal text-center pb-4 pt-6">{props.addressInfo.billing_address.addr_street_address} {props.addressInfo.billing_address.addr_city} {props.addressInfo.billing_address.addr_state_or_province} {props.addressInfo.billing_address.addr_postal_code} {props.addressInfo.billing_address.addr_country}</th>
                                     
-                                    <th className="font-normal text-center pb-4 pt-6 ">{props.addressInfo.shipping_address.addr_street_address}</th>
+                                    <th className="font-normal text-center pb-4 pt-6 ">{props.addressInfo.shipping_address.addr_street_address} {props.addressInfo.shipping_address.addr_city} {props.addressInfo.shipping_address.addr_state_or_province} {props.addressInfo.shipping_address.addr_postal_code} {props.addressInfo.shipping_address.addr_country}</th>
                                 </tr>
                                 </tbody>
                             </table>
@@ -47,9 +47,9 @@ export default function Address(props) {
                             <table className='border w-full whitespace-nowrap'>
                                 <div className='pl-10'>You have no other address entries in your address book.</div>
                             </table>
-                            <Link href={route('address.edit')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
+                            {/* <Link href={route('address.edit')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
                                 Add New Address
-                            </Link> 
+                            </Link>  */}
                             <div>{props.status}</div>
 
                             {/* <div className="flex flex-row-reverse rounded-full px-3 py-12">

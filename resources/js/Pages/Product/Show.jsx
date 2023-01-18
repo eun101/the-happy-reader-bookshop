@@ -7,7 +7,6 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 import S3Image from '@/Components/S3Image';
-import Footer from '@/Components/Footer';
 import InputLabel from '@/Components/InputLabel';
 import Select from '@/Components/Select';
 
@@ -72,56 +71,33 @@ export default function Product(props) {
                     </div>
                 </div>
             </div>      
-        
-
-           
 
             <div className='col-start-1 col-end-2 p-4 mx-auto bg-emerald-50'>
-                                <h1 className='col-start-1 col-end-2 p-4 mx-auto'>Shop</h1>
-                            </div>
-            {props.products.data.map((item) => {
-                return (
-                <div className='bg-emerald-50 flex justify-center'>
-                    <div className='py-11 row grid grid-cols-3 gap-4'>
-                        <div className="col-sm-3 ">
-                            <div className="box-border h-82 w-60 p-4 border-4 bg-white">
+            <h1 className='col-start-1 col-end-2 p-4 mx-auto'>Shop</h1>
+            </div>
+
+
+            <div class="p-2 bg-emerald-50 relative ">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8 ">
+                    {props.products.data.map((item) => {
+                        return (
+                            <div class="p-5 bg-white-400 rounded-md items-center box-border bg-white p-4 border-4">
                                 <S3Image imagePath={item.attachment.att_storage_path} />
-                                <div className="text-center mt-2 mb-2 font-bold">{item.prod_title}</div>                            
-                                <div className='text-center'>{item.prod_author}</div>
-                                <PrimaryButton type='button' className='mt-4 mb-2 ml-5'>Add To Cart</PrimaryButton>
-                                <div>{}</div>
-                            </div>
-                        </div>
-                            <div className="col-sm-3">
-                                <div className="box-border h-82 w-60 p-4 border-4 bg-white">
-                                    <S3Image imagePath={item.attachment.att_storage_path} />
-                                    <div className="text-center mt-2 mb-2 font-bold">{item.prod_title}</div>                            
-                                    <div className='text-center'>{item.prod_author}</div>
-                                    <PrimaryButton type='button' className='mt-4 mb-2 ml-5'>Add To Cart</PrimaryButton>
+                                
+                                    <div className="text-center font-bold px-3">{item.prod_title}
+                                    <div className=''>{item.prod_author}
+                                    
+                                    </div>
                                 </div>
                             </div>
-                        <div className="col-sm-3">
-                            <div className="box-border h-82 w-60 p-4 border-4 bg-white">
-                                <S3Image imagePath={item.attachment.att_storage_path} />
-                                <div className="text-center mt-2 mb-2 font-bold">{item.prod_title}</div>                            
-                                <div className='text-center'>{item.prod_author}</div>
-                                <PrimaryButton type='button' className='mt-4 mb-2 ml-5'>Add To Cart</PrimaryButton>
-                            </div>
-                        </div>
-                            <div className="col-sm-2">
-                                <div className="box-border h-82 w-60 p-4 border-4 bg-white">
-                                <S3Image imagePath={item.attachment.att_storage_path} />
-                                <div className="text-center mt-2 mb-2 font-bold">{item.prod_title}</div>                            
-                                <div className='text-center'>{item.prod_author}</div>
-                                <PrimaryButton type='button' className='mt-4 mb-2 ml-5'>Add To Cart</PrimaryButton>
-                            </div>
-                        </div>
-                    </div>
+                            
+                            );
+                        })}
+                        
                 </div>
+            </div>
+   
 
-                
-            );
-        })}
     <Pagination resultList={props.products} />
  </MainMenuLayout>
      );

@@ -36,7 +36,6 @@ class ProductController extends Controller
         $status = $this->getStatusSession($request);
 
         $resultList = $this->modelService->getList($request->all(), true);
-
         // \Log::info($resultList);
 
         return Inertia::render('Product/Index', [

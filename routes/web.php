@@ -85,7 +85,7 @@ Route::get('/about-us', function () {
 });
 
 Route::get('/contact-us', function () {
-    return Inertia::render('ContactUs');
+    return Inertia::render('ContactUs') ;
 });
 
 

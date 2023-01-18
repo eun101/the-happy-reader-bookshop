@@ -26,7 +26,7 @@ export default function AboutUs(){
             </div> */}
                 <div className=''>
 
-                <h1 className="p-5 mx-auto">ABOUT US</h1>
+                <h1 className="p-5 text-center">ABOUT US</h1>
         <img src= 'https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/banner2.jpg' className="h-96 w-full object-cover object-center" />    
     </div>
     <div className='absolute text-5xl text-gray-900 top-1/2  left-1/2  -translate-y-1/2'>
@@ -37,22 +37,20 @@ export default function AboutUs(){
             <div id="legacy">
                 <div id="company-goals" className="container-fluid">
                 <div id="company-objectives" className="row">
-                    <div id="mission-content" className="col-md-6">
+                    <div id="mission-content" className="col-md-6 mx-auto pt-5 pb-5">
                         <h2 className='text-center text-gray-100'>Mission</h2>
                         <img id="mission" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/missionfin.png" className="w-1/3 mx-auto " />
                         <br />
-                        <p className='text-center text-gray-100'>
+                        <p className='text-center text-gray-100 text-xl'>
                     Spreading happiness one book at a time.
                         </p>
                     </div>
                     <br/>
-                    <div id="vision-content" className="col-md-6 mx-auto">
+                    <div id="vision-content" className="col-md-6 mx-auto pt-5 ">
                         <h2 className='text-center text-gray-100'>Vision</h2>
-                        <img id="vision" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/visionfin.png" className="w-1/3 mx-auto "/>
+                        <img id="vision" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/visionfin.png" className="mx-auto w-1/3"/>
                     <br/>
-                        <p className='text-center text-gray-100'>Our vision is to empower students to acquire, demonstrate, articulate and value knowledge and skills that
-                        will support them, as life-long learners, to participate in and contribute to the global world and 
-                        practise the core values of the school: respect, tolerance and inclusion, and excellence.           
+                        <p className='text-center text-gray-100 text-xl'>  To create a community of readers and writers<br/> who share the same passion for books.          
                         </p>
                 </div>
                     <br/>
@@ -148,6 +146,10 @@ export default function AboutUs(){
             </div> 
         </div>
      </div>
+
+     
+
+     
         <JoinBanner/>
             </MainMenuLayout>
     );

@@ -31,7 +31,7 @@ export default function AccountDashboard(props) {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <div className="pl-10">{props.customerDashboard.cust_firstname}{props.customerDashboard.cust_lastname}</div>
+                                    <div className="pl-10">{props.customerDashboard.cust_firstname} {props.customerDashboard.cust_lastname}</div>
                                     <div className="pl-10">{props.customerDashboard.cust_email}</div>
                                     <div className="pb-5 pl-10">{props.customerDashboard.cust_contact}</div>
                                 </tr>
@@ -41,14 +41,17 @@ export default function AccountDashboard(props) {
                             <table className="w-full whitespace-nowrap border">
                                 <thead>
                                 <tr>
-                                    <th className="p-3">Default Billing Address</th>
+                                    <th className="p-3 ">Default Billing Address</th>
                                     <th className="p-3">Default Shipping Address</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th className="pb-5 pl-12 font-normal">{props.customerDashboard.billing_address.addr_street_address}</th>
-                                    <th className="pb-5 pl-12 font-normal">{props.customerDashboard.shipping_address.addr_street_address}</th>
+                                    <th className="pb-5 pl-12 font-normal text-left">{props.customerDashboard.billing_address.addr_street_address} {props.customerDashboard.billing_address.addr_city_address} {props.customerDashboard.billing_address.addr_state_or_province} {props.customerDashboard.billing_address.addr_state_or_province} {props.customerDashboard.billing_address.addr_postal_code}</th> 
+                                    <th className="pb-5 pl-12 font-normal text-left">{props.customerDashboard.shipping_address.addr_street_address} {props.customerDashboard.shipping_address.addr_city_address} {props.customerDashboard.shipping_address.addr_state_or_province} {props.customerDashboard.shipping_address.addr_state_or_province} {props.customerDashboard.shipping_address.addr_postal_code}</th>
+                                </tr>
+
+                                <tr>
                                 </tr>
                                 </tbody>
                             </table>

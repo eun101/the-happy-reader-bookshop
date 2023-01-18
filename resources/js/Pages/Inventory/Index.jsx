@@ -6,6 +6,8 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import { compareAsc, format } from 'date-fns';
+import EllipsisText from 'react-lines-ellipsis'
 
 export default function Inventory(props) {
 
@@ -56,12 +58,12 @@ export default function Inventory(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    <th className="text-center pb-4 pt-6 px-6">BOOK COVER</th>
+                                    {/* <th className="text-center pb-4 pt-6 px-6">BOOK COVER</th> */}
                                     <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
                                     <th className="text-center pb-4 pt-6 px-6">CREATED DATE</th>
                                     {/* <th className="text-center pb-4 pt-6 px-6">CATEGORY</th> */}
                                     <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
-                                    <th className="text-center pb-4 pt-6 px-6">STOCKS</th>
+                                    {/* <th className="text-center pb-4 pt-6 px-6">STOCKS</th> */}
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -69,13 +71,14 @@ export default function Inventory(props) {
                                         return (
 
                                             <tr className="text-left border px-4 py-2">
-                                                <td className="pb-4 pt-6 px-11 font-mono">
+                                                {/* <td className="pb-4 pt-6 px-11 font-mono">
                                                     <Link className="flex items-center px-6 py-3 focus:text-indigo-500 no-underline  text-gray-900">
                                                         {}
                                                     </Link>
-                                                </td>
-                                                <td className="text-center pb-4 pt-6 px-6">{item.product.prod_title}</td>
-                                                <td className="text-center pb-4 pt-6 px-6">{item.created_at}</td>
+                                                </td> */}
+                                                <td className="text-left pb-4 pt-6 px-6"> <EllipsisText text= {item.product.prod_title} style ={{overflowWrap: 'break -word'}}/>
+</td>
+                                                <td className="text-center pb-4 pt-6 px-6"> {format(new Date(item.created_at), 'MMM d, yyyy')}</td>
                                                 {/* <td className="text-center pb-4 pt-6 px-6">{item.categories.categ_category_name}</td> */}
                                                 <td className="text-center pb-4 pt-6 px-6">{item.orders.ord_cust_id}</td>
                                             

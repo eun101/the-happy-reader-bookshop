@@ -25,12 +25,12 @@ export default function Guest({ children }) {
                             </NavLink1>
                             </div>
                             <div className="px-5 font-bold">
-                            <NavLink1 href={route('orders.index')} active={route().current('myorders.index')}>
+                            <NavLink1 href='/contact-us' active={route().current('myorders.index')}>
                                 <span className='text-xl' >CONTACT US</span>
                             </NavLink1>
                             </div>
                             <div className="px-5 font-bold text-lg">
-                            <NavLink1 href={route('orders.index')} active={route().current('orders.index')}>
+                            <NavLink1 href='/about-us' active={route().current('orders.index')}>
                                 <span className='text-xl'>ABOUT US</span>
                             </NavLink1>
                             </div>

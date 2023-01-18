@@ -2,6 +2,8 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Pagination from '@/Components/Pagination';
+import { compareAsc, format } from 'date-fns';
+
 
 export default function Sales(props) {
     return (
@@ -19,14 +21,12 @@ export default function Sales(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left">
-                                    <th className="text-center pb-4 pt-6 px-6">TODAY SALES</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS MONTH</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS YEAR</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.todaySale}</th>
                                     <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
                                     <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
                                     </tr>
@@ -49,7 +49,7 @@ export default function Sales(props) {
                                     <th className="text-center pb-4 pt-6 px-6 ">EMAIL</th>
                                     <th className="text-center pb-4 pt-6 px-6">MOBILE NUMBER</th>
                                     <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
-                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT (php)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +58,7 @@ export default function Sales(props) {
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
-                                                        {item.created_at}
+                                                    {format(new Date(item.created_at), 'yyyy-MM-dd')}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_firstname}</td>

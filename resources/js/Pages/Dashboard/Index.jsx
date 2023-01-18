@@ -70,14 +70,12 @@ export default function Dashboard(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
-                                    <th className="pb-4 pt-6 px-6">Sales Today</th>
-                                    <th className="pb-4 pt-6 px-6">Sales This Month</th>
-                                    <th className="pb-4 pt-6 px-6">Sales This Year</th>
+                                    <th className="pb-4 pt-6 px-6 text-center">Sales This Month</th>
+                                    <th className="pb-4 pt-6 px-6 text-center">Sales This Year</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th className='text-center text-indigo-400 text-4xl'>{props.todaySale}</th>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
                                     </tr>
