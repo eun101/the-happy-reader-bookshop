@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import JoinBanner from '@/Components/JoinBanner';
 
 function Challenge() {
   const [show, setShow] = useState(false);
@@ -13,21 +14,12 @@ function Challenge() {
     <>
      <div className="container-fluid">
         <div>
-        <div>
-        <img src= 'https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/banner2.jpg className' />    
-    </div>
-      <div style={{backgroundImage:"url(./reading_challenge.jpg)",backgroundSize:"cover"}}id="banner" className="row vh-100">
-      <div className="col">
-      <h1 className="promo-title">Join our reading<br/>challenge now</h1>
-      
-      <Button id="learn-more" variant="primary" onClick={handleShow}>
+            </div>
+            </div>
+       <JoinBanner/>
+       <Button id="learn-more" variant="primary" className='mx-auto' onClick={handleShow}>
         Learn More <span id="learn-arrow">&#8674;</span>
       </Button> 
-      </div>
-      <div className="col"></div>
-      </div>
-      </div>
-      </div> 
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

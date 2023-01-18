@@ -84,6 +84,9 @@ Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 });
 
+Route::get('/contact-us', function () {
+    return Inertia::render('ContactUs');
+});
 
 
 // Route::get('/order', function () {

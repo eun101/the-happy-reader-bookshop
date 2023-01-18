@@ -66,7 +66,7 @@ export default function Product(props) {
         >
             <Head title="Products" />
             <div className="pt-10 ">
-                <div className="bg-white shadow-sm">
+                <div className="bg-white shadow-md">
                     <div className="p-14 text-gray-900">
                         <form className="mt-6 space-y-6" onSubmit={onSaveHandler}>
                             <div>
@@ -115,7 +115,7 @@ export default function Product(props) {
 
                                     <div className="mt-6">
                                         <InputLabel for="product_description" value="Book Description" />
-                                        <textarea id="product_description" name="prod_description" className="mt-1 block w-full" onChange={handleChange} value={data.prod_description}>
+                                        <textarea id="product_description" rows="15" col="10" name="prod_description" className="mt-1 block w-full" onChange={handleChange} value={data.prod_description}>
                                            
                                         </textarea>
                                     </div>

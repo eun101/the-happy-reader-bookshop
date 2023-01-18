@@ -113,9 +113,7 @@ export default function Welcome(props) {
                
                 
                 <JoinBanner/>
-                <div className='mt-5'>
-                <Footer/>
-                </div>
+              
             
             </div>
            </div>

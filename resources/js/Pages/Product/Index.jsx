@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 import Modal from '@/Components/Modal';
 import S3Image from '@/Components/S3Image';
-
+import LinesEllipsis from 'react-lines-ellipsis'
 
 
 const onAddHandler = ()=>{
@@ -107,7 +107,8 @@ export default function Product(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
+                                <th className="text-center pb-4 pt-6 px-6"> BOOK COVER</th>
+                                    <th className="text-center pb-4 pt-6 px-6"> BOOK TITLE</th>
                                     <th className="text-center pb-4 pt-6 px-6">AUTHOR</th>
                                     <th className="text-center pb-4 pt-6 px-6">ADDED DATE</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES</th>
@@ -119,14 +120,16 @@ export default function Product(props) {
                                     {props.products.data.map((item)=>{
                                         return (
                                             <tr className="text-left border px-4 py-2">
+                                                    <td className="pb-4 pt-6 px-6 w-2/3"><S3Image imagePath={item.attachment.att_storage_path}/></td>
                                                 <td className="pb-4 pt-3 px-11 font-mono">
-                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
-                                                        {item.prod_title}
+                                                    <Link href={`/admin/products/${item.prod_id}/edit`} className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
+                                                     {item.prod_title} 
                                                     </Link>
                                                 </td>
+                                              
                                                 <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.created_at}</td>
-                                                <td className="pb-4 pt-6 px-6"><S3Image imagePath={item.attachment.att_storage_path}/></td>
+                                              
                                                 <td className="text-center pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.quantity.invent_quantity}</td>
                                             </tr>

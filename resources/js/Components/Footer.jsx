@@ -27,7 +27,7 @@ export default function Footer() {
                 </div>
                 <div className="col-md-3 text-gray-200 ">
                     <h2  >Follow Us On</h2>
-                    <p><Link className='text-gray-400'>Facebook</Link></p>
+                    <p><Link className='text-gray-400'><img href="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/facebook.png"/></Link></p>
                     <p  ><Link className='text-gray-400'>Instagram</Link></p>
                     <p ><Link className='text-gray-400'>Youtube</Link></p>
                     <p ><Link className='text-gray-400'>LinkedIn</Link></p>
