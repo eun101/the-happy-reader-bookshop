@@ -39,6 +39,7 @@ class AccountInformationController extends Controller
             'status'=>$status,
         ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

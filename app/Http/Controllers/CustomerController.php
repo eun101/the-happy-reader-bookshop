@@ -160,15 +160,16 @@ class CustomerController extends Controller
        return Inertia::render('Account/AccountInformation/Index', [
         'customerInfo'=> $customerInfo,
     ]);
+}
 
-    // public function addressInfo(){
-    //     $addressInfo = $this->modelService->getCustomerByUserID(Auth::user()->id);
+    public function addressInfo(){
+        $addressInfo = $this->modelService->getCustomerByUserID(Auth::user()->id);
  
-    //     \Log::info($addressInfo);
+        // \Log::info($addressInfo);
         
-    //     return Inertia::render('Account/Address/Index', [
-    //      'addressInfo'=> $addressInfo,
-    //  ]);
+        return Inertia::render('Account/Address/Index', [
+         'addressInfo'=> $addressInfo,
+     ]);
 
     }
 

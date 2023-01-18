@@ -161,8 +161,8 @@ export default function Product(props) {
                 </div>
             </div>
 
-            <div className="pt-12 pb-5">
-                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            {/* <div className="pt-12 pb-5"> */}
+                {/* <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div className="p-6 text-gray-900">
 
                         <h7> Stats</h7>
@@ -177,7 +177,7 @@ export default function Product(props) {
                                     <th className="pb-4 pt-6 px-6">No. of Orders</th>
                                     <th className="pb-4 pt-6 px-6">Stocks</th>
                                 </tr>
-                            </thead>
+                            </thead> */}
 
                             {/* <tbody>
                                     {props.products.map((item)=>{
@@ -191,12 +191,12 @@ export default function Product(props) {
                                     })}
                                 </tbody> */}
 
-                        </table>
+                        {/* </table>
 
 
                     </div>
                 </div>
-            </div>
+            </div> */}
         </AuthenticatedLayout>
     );
 }

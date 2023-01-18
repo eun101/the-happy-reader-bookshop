@@ -6,7 +6,7 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 import S3Image from '@/Components/S3Image';
-
+import Footer from '@/Components/Footer';
 
 
 const onAddHandler = () => {
@@ -82,6 +82,9 @@ export default function Product(props) {
             })}
                                     <Pagination resultList={props.products} />
 
+                                    <div className='mt-5'>
+                <Footer/>
+                </div>
 
 
 

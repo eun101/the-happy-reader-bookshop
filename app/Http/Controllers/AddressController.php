@@ -16,6 +16,9 @@ use DB;
 
 class AddressController extends Controller
 {    
+
+    protected $modelService = null;
+    
     public function __construct(IModelService $modelService){
     $this->modelService = $modelService;
 }
@@ -111,7 +114,15 @@ class AddressController extends Controller
      */
     public function edit(Address $address)
     {
-        //
+            $address->attachmentFile = $address->attachmentFile;
+    
+            return Inertia::render('Account/Address/Create', [
+                'address'=> $address,
+                'addressList' => $address->getAddressList(),
+
+            ]);
+    
+        
     }
 
     /**
@@ -123,7 +134,27 @@ class AddressController extends Controller
      */
     public function update(UpdateAddressRequest $request, Address $address)
     {
-        //
+        // $validatedData = $request->validated();
+
+        //     $recordData = new Address();
+        //     $recordData->created_by = Auth::user()->id;
+        //     $recordData->addr_street_address = $validatedData['addr_street_address'];
+        //     $recordData->addr_city = $validatedData['addr_city'];
+        //     $recordData->addr_state_or_province = $validatedData['addr_state_or_province'];
+        //     $recordData->addr_postal_code = $validatedData['addr_postal_code'];
+        //     $recordData->addr_country = $validatedData['addr_country'];
+        //     $recordData->save();
+
+        //     if ($validatedData['address_type'] == 11) {
+        //         Auth::user()->customer->cust_shipping_address= $recordData->addr_id;
+        //     }
+        //     else{
+        //         Auth::user()->customer->cust_billing_address= $recordData->addr_id;
+        //     }
+
+        //    Auth::user()->customer->save();
+        //    $this->setStatusSession('Your address has been added.');
+        //    return redirect('customer/account/address');
     }
 
     /**

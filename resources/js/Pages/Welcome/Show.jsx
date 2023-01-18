@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import MainMenuLayout from '@/Layouts/MainMenuLayout';
 import S3Image from '@/Components/S3Image';
 import JoinBanner from '@/Components/JoinBanner';
+import Footer from '@/Components/Footer';
 
 const showProduct = ()=>{
     Inertia.get(route('product.show'));
@@ -88,7 +89,7 @@ export default function Welcome(props) {
                     {props.auth.user ?
                     <div className='pt-2 space-x-12 flex '>
                     
-                        <Link href={route('dashboard.index')} className="text-sm text-gray-700 dark:text-gray-500 underline">
+                        <Link href={route('dashboard-display.index')} className="text-sm text-gray-700 dark:text-gray-500 underline">
                             My Account
                         </Link>
                         <Link href={route('logout')} method="post" as="button" className="text-sm text-gray-700 dark:text-gray-500 underline">
@@ -112,7 +113,9 @@ export default function Welcome(props) {
                
                 
                 <JoinBanner/>
-
+                <div className='mt-5'>
+                <Footer/>
+                </div>
             
             </div>
            </div>
