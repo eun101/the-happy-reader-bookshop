@@ -144,7 +144,7 @@ export default function AboutUs(){
                 </div>
                <div className="col"></div>
             </div> 
-        </div>
+        </div>  
      </div>
 
      

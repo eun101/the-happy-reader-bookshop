@@ -9,6 +9,7 @@ import Pagination from '@/Components/Pagination';
 import S3Image from '@/Components/S3Image';
 import InputLabel from '@/Components/InputLabel';
 import Select from '@/Components/Select';
+import EllipsisText from 'react-lines-ellipsis'
 
 
 
@@ -81,12 +82,13 @@ export default function Product(props) {
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8 ">
                     {props.products.data.map((item) => {
                         return (
-                            <div class="p-5 bg-white-400 rounded-md items-center box-border bg-white p-4 border-4">
+                            <div class=" bg-white-400 rounded-md items-center box-border bg-white p-4 border-4">
+                                <div className='rounded-full  h-96'>
                                 <S3Image imagePath={item.attachment.att_storage_path} />
-                                
-                                    <div className="text-center font-bold px-3">{item.prod_title}
+                                </div>
+                                    <div className="text-center px-3">
                                     <div className=''>{item.prod_author}
-                                    
+                                    <EllipsisText text= {item.prod_title} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/>
                                     </div>
                                 </div>
                             </div>

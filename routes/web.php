@@ -88,6 +88,15 @@ Route::get('/contact-us', function () {
     return Inertia::render('ContactUs') ;
 });
 
+Route::get('/shoppingcart', function () {
+    return Inertia::render('ShoppingCart', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
 
 // Route::get('/order', function () {
 //     return Inertia::render('Order.Index');
