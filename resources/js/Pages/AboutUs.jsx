@@ -1,5 +1,5 @@
 import React from 'react';
-import Challenge from '@/Components/Challenge';
+import JoinBanner from '@/Components/JoinBanner';
 import Footer from '@/Components/Footer';
 import PrimaryButton from '@/Components/PrimaryButton';
 import MainMenuLayout from '@/Layouts/MainMenuLayout';
@@ -25,6 +25,8 @@ export default function AboutUs(){
                 </div>
             </div> */}
                 <div className=''>
+
+                <h1 className="p-5 mx-auto">ABOUT US</h1>
         <img src= 'https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/banner2.jpg' className="h-96 w-full object-cover object-center" />    
     </div>
     <div className='absolute text-5xl text-gray-900 top-1/2  left-1/2  -translate-y-1/2'>
@@ -37,7 +39,7 @@ export default function AboutUs(){
                 <div id="company-objectives" className="row">
                     <div id="mission-content" className="col-md-6">
                         <h2 className='text-center text-gray-100'>Mission</h2>
-                        <img id="mission" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/missionfin.png" className="mx-auto w-1/2" />
+                        <img id="mission" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/missionfin.png" className="w-1/3 mx-auto " />
                         <br />
                         <p className='text-center text-gray-100'>
                     Spreading happiness one book at a time.
@@ -46,7 +48,7 @@ export default function AboutUs(){
                     <br/>
                     <div id="vision-content" className="col-md-6 mx-auto">
                         <h2 className='text-center text-gray-100'>Vision</h2>
-                        <img id="vision" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/visionfin.png" className="mx-auto w-1/2"/>
+                        <img id="vision" src="https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/visionfin.png" className="w-1/3 mx-auto "/>
                     <br/>
                         <p className='text-center text-gray-100'>Our vision is to empower students to acquire, demonstrate, articulate and value knowledge and skills that
                         will support them, as life-long learners, to participate in and contribute to the global world and 
@@ -146,7 +148,7 @@ export default function AboutUs(){
             </div> 
         </div>
      </div>
-        <Challenge/>
+        <JoinBanner/>
             </MainMenuLayout>
     );
 }
