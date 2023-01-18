@@ -15,24 +15,32 @@ export default function Sales(props) {
             <Head title="Sales" />
 
             <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-12 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left">
-                                    <th className="pb-4 pt-6 px-6">TOTAL SALES</th>
-                                    <th className="pb-4 pt-6 px-6">SALES THIS WEEK</th>
-                                    <th className="pb-4 pt-6 px-6">SALES THIS MONTH</th>
-                                    <th className="pb-4 pt-6 px-6">SALES THIS YEAR</th>
-                                    <th className="pb-4 pt-6 px-6">TATAL SALES</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL SALES</th>
+                                    <th className="text-center pb-4 pt-6 px-6">SALES THIS MONTH</th>
+                                    <th className="text-center pb-4 pt-6 px-6">SALES THIS YEAR</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL SALES</th>
                                 </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.todaySale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.yearSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.totalSale}</th>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div className="py-12">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -51,18 +59,17 @@ export default function Sales(props) {
                                 <tbody>
                                     {props.sales.data.map((item)=>{
                                         return (
-
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
                                                     {format(new Date(item.created_at), 'yyyy-MM-dd')}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_firstname}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
+                                                <td className="text-center pb-4 pt-6">{item.number_of_sales}</td>                                               
+                                                <td className="text-center pb-4 pt-6 px-6">{item.total_sales_amount}</td>
                                             </tr>
                                         );
                                     })}
@@ -74,7 +81,7 @@ export default function Sales(props) {
                 </div>
             </div>
 
-            <div className="py-12">
+            {/* <div className="py-12">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
@@ -82,10 +89,10 @@ export default function Sales(props) {
                                 <thead>
                                 <tr className="text-left font-bold">
                                     <th className="pb-4 pt-6 px-6">DATE</th>
-                                    <th className="pb-4 pt-6 px-6"># Order</th>
-                                    <th className="pb-4 pt-6 px-6">Order Total</th>
-                                    <th className="pb-4 pt-6 px-6">BOOK ORDERS</th>
-                                    <th className="pb-4 pt-6 px-6">TOTAL AMOUNT</th>
+                                    <th className="text-center pb-4 pt-6 px-6"># Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Order Total</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -98,10 +105,10 @@ export default function Sales(props) {
                                                         {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.ordlist_ord_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_total}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_prod_id}</td>                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{}</td>
                                             </tr>
                                         );
                                     })}
@@ -121,10 +128,10 @@ export default function Sales(props) {
                                 <thead>
                                 <tr className="text-left">
                                     <th className="pb-4 pt-6 px-6 ">DATE</th>
-                                    <th className="pb-4 pt-6 px-6"># Order</th>
-                                    <th className="pb-4 pt-6 px-6">Order Total</th>
-                                    <th className="pb-4 pt-6 px-6">BOOK ORDERS</th>
-                                    <th className="pb-4 pt-6 px-6">TOTAL AMOUNT</th>
+                                    <th className="text-center pb-4 pt-6 px-6"># Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Order Total</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -137,10 +144,10 @@ export default function Sales(props) {
                                                         {item.created_at}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
-                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.ordlist_ord_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_total}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_prod_id}</td>     
+                                                <td className="text-center pb-4 pt-6 px-6">{item.sales_total_amount}</td>
                                             </tr>
                                         );
                                     })}
@@ -150,7 +157,7 @@ export default function Sales(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
            
             
             

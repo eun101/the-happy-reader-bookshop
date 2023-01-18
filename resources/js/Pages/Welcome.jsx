@@ -33,7 +33,7 @@ export default function Welcome(props) {
                     </h1>
                     <div>
                     <PrimaryButton className='item-center' onClick={showProduct}>
-                    Tickle Your Happy Hormones Now!
+                    Tickle Your Happy Hormones Now! →
                     </PrimaryButton>
                     </div>
                 </div>

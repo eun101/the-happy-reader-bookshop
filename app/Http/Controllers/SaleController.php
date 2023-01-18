@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Sale;
 use App\Models\User;
+Use Carbon\Carbon;
 use App\Http\Requests\StoreSaleRequest;
 use App\Http\Requests\UpdateSaleRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\SaleService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -31,12 +32,25 @@ class SaleController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
+        $totalSale = Sale::count();
+
+        $todayDate = Carbon::now()->format('d-m-Y');
+        $mothDate = Carbon::now()->format('m');
+        $YearDate = Carbon::now()->format('Y');
+
+        $todaySale = Sale::whereDate('created_at', $todayDate)->count();
+        $monthSale = Sale::whereMonth('created_at', $mothDate)->count();
+        $yearSale = Sale::whereYear('created_at', $YearDate)->count();
+
  
         return Inertia::render('Sale/Index', [
-            'sales'=> $resultList,
-            'status'=>$status,
+            'sales'=> $resultList,'status'=>$status,
+            'totalSale'=>$totalSale,
+            'todaySale'=>$todaySale,'monthSale'=>$monthSale,
+            'yearSale'=>$yearSale,
+            
         ]);
-        
+
     }
 
     /**

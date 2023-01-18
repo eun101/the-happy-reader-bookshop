@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\OrderListController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MyOrderController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\AddressController;
@@ -61,15 +62,14 @@ Route::get('/admin', function () {
 //     return Inertia::render ('LoginAdmin');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('admin/dashboard', function(){
-    return Inertia::render ('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('admin/dashboard', function(){
+//     return Inertia::render ('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
 Route::redirect('/admin', 'admin/dashboard');
 Route::redirect('/customer', 'customer/account/dashboard');
-
 
 
 
@@ -84,6 +84,9 @@ Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 });
 
+Route::get('/contact-us', function () {
+    return Inertia::render('ContactUs');
+});
 
 
 // Route::get('/order', function () {
@@ -98,14 +101,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Route::resource('/my-orders', MyOrderController::class);
     Route::resource('/address', AddressController::class);
-    Route::resource('/dashboard', AccountDashboardController::class);
+    // Route::resource('/dashboard', AccountDashboardController::class);
     Route::get('/information', [CustomerController::class, 'customerInfo'])->name('information.index');
     // Route::get('/information', [CustomerController::class, 'update'])->name('information.edit');
     Route::resource('/billing-details', BillingDetailController::class);
     Route::resource('/my-product-reviews', MyProductReviewController::class);
     Route::resource('/wishlist', WishlistController::class);
-    Route::get('/dashboard', [CustomerController::class, 'customerDashboard'])->name('dashboard.index');
+    Route::get('/dashboard-display', [CustomerController::class, 'customerDashboard'])->name('dashboard-display.index');
     Route::get('/my-orders', [OrderController::class, 'customerOrderInformation'])->name('my-orders.index');
+    Route::get('/address', [CustomerController::class, 'addressInfo'])->name('address.index');
     });
 });
 
@@ -117,6 +121,7 @@ Route::group(['middleware' => ['role:Admin', 'auth']], function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('adminprofile.destroy');
         
         // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');)
+        Route::resource('dashboard', DashboardController::class);
         Route::resource('orders', OrderController::class);
         Route::resource('sales', SaleController::class);
         Route::resource('products', ProductController::class);
@@ -126,6 +131,7 @@ Route::group(['middleware' => ['role:Admin', 'auth']], function () {
         Route::resource('customers', CustomerController::class);
     });
 });
+
 
 Route::get('/product-list', [ProductController::class, 'show'])->name('product.show');
 

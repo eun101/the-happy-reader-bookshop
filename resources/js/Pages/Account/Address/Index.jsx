@@ -1,12 +1,14 @@
 import JoinBanner from '@/Components/JoinBanner';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head,Link } from '@inertiajs/inertia-react';
-import PrimaryButton from '@/Components/PrimaryButton';
+import PowerButton from '@/Components/PowerButton';
 import Select from '@/Components/Select';
+import MutedButton from '@/Components/MutedButton';
+import PrimaryButton from '@/Components/PrimaryButton';
 
 
 const onAddHandler = ()=>{
-    Inertia.get(route('address.create'));
+    Inertia.get(route('address.edit'));
 }
 
 export default function Address(props) {
@@ -20,22 +22,47 @@ export default function Address(props) {
         >
             <Head title="Address" />
 
-            <div className="py-2 my-3 text-gray-900 font-bold bg-yellow-300">{props.status}</div>
-
+            <div className="py-2 my-3 text-gray-900 font-bold">{props.status}</div>
             
-            <h5>
-                Default Adresses
-            </h5>
-            <div>
-                Default Billing Address
-            </div>
-            <div>
-                Default Shipping Address
-            </div>
+            <div className="">
+                    <div className="bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-3 text-gray-900">
+                            <h5>Default Addresses</h5>
+                            <table className="w-full whitespace-nowrap border">
+                                <thead>
+                                <tr>
+                                    <th className="text-center pb-4 pt-6 ">Default Billing Address</th>
+                                    <th className="text-center pb-4 pt-6 ">Default Shipping Address</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th className="font-normal text-center pb-4 pt-6">{props.addressInfo.billing_address.addr_street_address} {props.addressInfo.billing_address.addr_street_address}</th>
+                                    
+                                    <th className="font-normal text-center pb-4 pt-6 ">{props.addressInfo.shipping_address.addr_street_address}</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h5 className='py-7'>Additional Address Entries</h5>
+                            <table className='border w-full whitespace-nowrap'>
+                                <div className='pl-10'>You have no other address entries in your address book.</div>
+                            </table>
+                            <Link href={route('address.edit')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
+                                Add New Address
+                            </Link> 
+                            <div>{props.status}</div>
 
-            <Link href={route('address.create')} className="text-sm text-gray-700 dark:text-gray-500 underline">
-              Add New Address
-            </Link>
+                            {/* <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >Add New Product</PrimaryButton>
+                <div>{props.status}</div>
+            </div> */}
+                        </div>
+                    </div>
+                </div>
+            
+
+           
 
 
          

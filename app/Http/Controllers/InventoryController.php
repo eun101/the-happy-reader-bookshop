@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Inventory;
 use App\Models\User;
+use App\Models\Category;
 use App\Http\Requests\StoreInventoryRequest;
 use App\Http\Requests\UpdateInventoryRequest;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Services\OrderService as IModelService;
+use App\Services\InventoryService as IModelService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -30,9 +31,12 @@ class InventoryController extends Controller
 
         $resultList = $this->modelService->getList($request->all(), true);
 
+        // \Log::info();
+
         return Inertia::render('Inventory/Index', [
             'inventories'=> $resultList,
             'status'=>$status,
+
         ]);
     }
 

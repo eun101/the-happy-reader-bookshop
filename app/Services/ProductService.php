@@ -13,8 +13,11 @@ class ProductService extends AbstractModelService implements IModelService{
     public function getList($filters, $paginate=false){
 
         // $resultList = Product::with('createdBy')->with('categories')->with('attachment');
-        $resultList = Product::with('createdBy','categories','attachment');
+        // $resultList = Product::with('createdBy','categories','attachment');
         
+        $resultList = Product::with('createdBy')->with('order')->with('product')->with('quantity')->with('categories')->with('attachment');
+
+
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
             $resultList->where(function($query) use($filters){
                 $query->where('prod_categ_id','like', '%'.$filters['keyword'].'%');

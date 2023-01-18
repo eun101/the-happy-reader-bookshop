@@ -2,6 +2,7 @@ import JoinBanner from '@/Components/JoinBanner';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Button from 'react-bootstrap/Button'
+import Footer from '@/Components/Footer';
 
 
 
@@ -16,20 +17,49 @@ export default function AccountDashboard(props) {
 
 
             <div className='pt-3 mx-auto'>
-                <h4>Account Information</h4>
 
-                <h6>Contact Information</h6>
-                <div className=''> {props.customerDashboard.cust_firstname} {props.customerDashboard.cust_lastname}</div>
-
-                <div className=''>{props.customerDashboard.cust_email}</div>
-                <div className=''>{props.customerDashboard.cust_contact}</div>
-
-                <div className='pt-3'>
-                    <h4>Address Book</h4>
+                <div className="py-12">
+                    <div className="bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-4 text-gray-900">
+                            <h5>Account Information</h5>
+                            <table className="w-full whitespace-nowrap border">
+                                <thead>
+                                <tr>
+                                    <th className="p-3">Contact Information</th>
+                                    <th className="pl-12 pr-12">Newsletters</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <div className="pl-10">{props.customerDashboard.cust_firstname}{props.customerDashboard.cust_lastname}</div>
+                                    <div className="pl-10">{props.customerDashboard.cust_email}</div>
+                                    <div className="pb-5 pl-10">{props.customerDashboard.cust_contact}</div>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <h5 className='py-4'>Address Book</h5>
+                            <table className="w-full whitespace-nowrap border">
+                                <thead>
+                                <tr>
+                                    <th className="p-3">Default Billing Address</th>
+                                    <th className="p-3">Default Shipping Address</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th className="pb-5 pl-12 font-normal">{props.customerDashboard.billing_address.addr_street_address}</th>
+                                    <th className="pb-5 pl-12 font-normal">{props.customerDashboard.shipping_address.addr_street_address}</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div>{props.customerDashboard.billing_address.addr_street_address}</div>
-                <div>{props.customerDashboard.shipping_address.addr_street_address}</div>
             </div>
+
+
+
+
             <div className="fixed top-0 right-0 px-6  sm:block">
                 {props.auth.user ?
                     <div className='pt-2 space-x-12 flex '>
@@ -56,6 +86,9 @@ export default function AccountDashboard(props) {
             </div>
 
             <JoinBanner/>
+            <div className="pt-5">
+            <Footer />
+            </div>
 
 
 
