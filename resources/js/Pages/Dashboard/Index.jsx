@@ -46,7 +46,7 @@ export default function Dashboard(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
-                                    {/* <th className="pb-4 pt-6 px-6">Order/s Today</th> */}
+                                    <th className="pb-4 pt-6 px-6">Order/s Today</th>
                                     <th className="pb-4 pt-6 px-6">Total Orders This Month</th>
                                     <th className="pb-4 pt-6 px-6">Total Orders This Year</th>
                                 </tr>
@@ -55,6 +55,7 @@ export default function Dashboard(props) {
                                     <tr>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.todayOrder}</th>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.monthOrder}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.yearOrder}</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -76,7 +77,7 @@ export default function Dashboard(props) {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th className='text-center text-indigo-400 text-4xl'>{props.todaySale}</th>
+                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
                                     </tr>
                                 </tbody>

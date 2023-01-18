@@ -4,10 +4,11 @@ import { Head,Link } from '@inertiajs/inertia-react';
 import PowerButton from '@/Components/PowerButton';
 import Select from '@/Components/Select';
 import MutedButton from '@/Components/MutedButton';
+import PrimaryButton from '@/Components/PrimaryButton';
 
 
 const onAddHandler = ()=>{
-    Inertia.get(route('address.create'));
+    Inertia.get(route('address.edit'));
 }
 
 export default function Address(props) {
@@ -36,18 +37,26 @@ export default function Address(props) {
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th className="font-normal text-center pb-4 pt-6">Address</th>
-                                    <th className="font-normal text-center pb-4 pt-6 ">Address</th>
+                                    <th className="font-normal text-center pb-4 pt-6">{props.addressInfo.billing_address.addr_street_address} {props.addressInfo.billing_address.addr_city} {props.addressInfo.billing_address.addr_state_or_province} {props.addressInfo.billing_address.addr_postal_code} {props.addressInfo.billing_address.addr_country}</th>
+                                    
+                                    <th className="font-normal text-center pb-4 pt-6 ">{props.addressInfo.shipping_address.addr_street_address} {props.addressInfo.shipping_address.addr_city} {props.addressInfo.shipping_address.addr_state_or_province} {props.addressInfo.shipping_address.addr_postal_code} {props.addressInfo.shipping_address.addr_country}</th>
                                 </tr>
                                 </tbody>
                             </table>
                             <h5 className='py-7'>Additional Address Entries</h5>
-                            <table className='border w-full whitespace-nowrap border'>
+                            <table className='border w-full whitespace-nowrap'>
                                 <div className='pl-10'>You have no other address entries in your address book.</div>
                             </table>
-                            <MutedButton href={route('address.create')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
+                            {/* <Link href={route('address.edit')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
                                 Add New Address
-                            </MutedButton>
+                            </Link>  */}
+                            <div>{props.status}</div>
+
+                            {/* <div className="flex flex-row-reverse rounded-full px-3 py-12">
+                <PrimaryButton type='button'
+                onClick={onAddHandler} >Add New Product</PrimaryButton>
+                <div>{props.status}</div>
+            </div> */}
                         </div>
                     </div>
                 </div>

@@ -86,7 +86,7 @@ export default function Product(props) {
                             <div>
                                 <div className="mt-6">
                                     <InputLabel for="product_description" value="Book Description" />
-                                    <textarea id="prod_description" name="prod_description" className="mt-1 block w-full" onChange={handleChange} />
+                                    <textarea id="prod_description" rows="15" cols="15" name="prod_description" className="mt-1 block w-full" onChange={handleChange} />
                                 </div>
                             </div>
                             <div className='grid grid-cols-2 gap-3'>

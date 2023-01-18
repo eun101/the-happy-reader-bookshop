@@ -143,6 +143,12 @@ export default function Authenticated({ auth, header, children }) {
                         {children}
                     </main>
                 </div>
+
+
+             
+            </div>
+            <div className='mt-5'>
+            <Footer/>
             </div>
         </div>
     );

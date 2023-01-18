@@ -6,6 +6,8 @@ import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 import Select from '@/Components/Select';
+import { compareAsc, format } from 'date-fns';
+import EllipsisText from 'react-lines-ellipsis'
 
 
 
@@ -69,7 +71,6 @@ export default function Orders(props) {
                                     <th className=" pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
                                     <th className=" pb-4 pt-6 pl-8">BOOK ORDERS</th>
                                     <th className=" pb-4 pt-6 pl-8">ORDER TOTAL</th>
-                                    <th className=" pb-4 pt-6 pl-8">STATUS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -80,13 +81,13 @@ export default function Orders(props) {
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-6 font-mono">
                                                     <Link className="flex items-center no-underline  text-gray-900">
-                                                        {item.created_at}
+                                                    {format(new Date(item.created_at), 'MMM d, yyyy')}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname} {item.customer.cust_lastname}</td>
                                                 {/* <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td> */}
-                                                <td className="pb-4 pt-6">{item.ord_delivery_address}</td>
+                                                   <td className="pb-4 pt-6"><EllipsisText text= {item.ord_delivery_address} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/></td>
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_prod_id}</td>
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_total}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td>

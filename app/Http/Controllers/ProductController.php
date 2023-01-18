@@ -36,8 +36,7 @@ class ProductController extends Controller
         $status = $this->getStatusSession($request);
 
         $resultList = $this->modelService->getList($request->all(), true);
-
-        \Log::info($resultList);
+        // \Log::info($resultList);
 
         return Inertia::render('Product/Index', [
             'products'=> $resultList,
@@ -129,6 +128,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $product->attachmentFile = $product->attachmentFile;
+        $product->attachmentFile = $product->attachmentFile;
 
         return Inertia::render('Product/Edit', [
             'product'=> $product,
@@ -180,7 +180,7 @@ class ProductController extends Controller
         $prod = $product->prod_title;
         $product->delete();
 
-        $this->setStatusSession('Invoice record '.$prod.' has been deleted.');
+        $this->setStatusSession(''.$prod.' has been deleted.');
 
         return redirect('/admin/products');
     }

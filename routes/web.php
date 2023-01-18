@@ -84,6 +84,9 @@ Route::get('/about-us', function () {
     return Inertia::render('AboutUs');
 });
 
+Route::get('/contact-us', function () {
+    return Inertia::render('ContactUs') ;
+});
 
 
 // Route::get('/order', function () {
@@ -106,6 +109,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/wishlist', WishlistController::class);
     Route::get('/dashboard-display', [CustomerController::class, 'customerDashboard'])->name('dashboard-display.index');
     Route::get('/my-orders', [OrderController::class, 'customerOrderInformation'])->name('my-orders.index');
+    Route::get('/address', [CustomerController::class, 'addressInfo'])->name('address.index');
     });
 });
 

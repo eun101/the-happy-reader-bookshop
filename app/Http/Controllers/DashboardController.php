@@ -44,11 +44,9 @@ class DashboardController extends Controller
         // $totalBooks = OrderList::count('ordlist_quantity');
         $totalTitle = Product::count('prod_title');
 
-
         $todayDate = Carbon::now()->format('d-m-Y');
         $mothDate = Carbon::now()->format('m');
         $YearDate = Carbon::now()->format('Y');
-
 
         $todayOrder = Order::whereDate('created_at', $todayDate)->count();
         $monthOrder = Order::whereMonth('created_at', $mothDate)->count();

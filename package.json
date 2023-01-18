@@ -23,8 +23,10 @@
     },
     "dependencies": {
         "bootstrap": "^5.2.3",
+        "date-fns": "^2.29.3",
         "html-react-parser": "^3.0.7",
         "react-bootstrap": "^2.7.0",
+        "react-lines-ellipsis": "^0.15.3",
         "react-router-dom": "^6.5.0"
     }
 }

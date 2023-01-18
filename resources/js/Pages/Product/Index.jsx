@@ -10,6 +10,8 @@ import Pagination from '@/Components/Pagination';
 import Modal from '@/Components/Modal';
 import S3Image from '@/Components/S3Image';
 
+import { compareAsc, format } from 'date-fns';
+import EllipsisText from 'react-lines-ellipsis'
 
 
 const onAddHandler = ()=>{
@@ -58,9 +60,6 @@ export default function Product(props) {
     // };
 
 
-
-
-
     return (
         <AuthenticatedLayout
             auth={props.auth}
@@ -100,35 +99,42 @@ export default function Product(props) {
                 
       
        
-            <div className="py-12">
+            <div className="py-10">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-7 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
+                                <th className="text-center pb-4 pt-6 px-6"> BOOK COVER</th>
+                                    <th className="text-center pb-4 pt-6 px-6"> BOOK TITLE</th>
                                     <th className="text-center pb-4 pt-6 px-6">AUTHOR</th>
                                     <th className="text-center pb-4 pt-6 px-6">ADDED DATE</th>
-                                    <th className="text-center pb-4 pt-6 px-6">SALES</th>
-                                    <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
-                                    <th className="text-center pb-4 pt-6 px-6">STOCKS</th>
+                                    {/* <th className="text-center pb-4 pt-6 px-6">SALES</th> */}
+                                    {/* <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">PRICE (Php)</th> */}
                                 </tr>
                                 </thead>
                                 <tbody>
                                     {props.products.data.map((item)=>{
                                         return (
                                             <tr className="text-left border px-4 py-2">
+                                                    <td className="pb-4 pt-6 px-6 w-1/5 "><S3Image imagePath={item.attachment.att_storage_path}/></td>
                                                 <td className="pb-4 pt-3 px-11 font-mono">
-                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900">
-                                                        {item.prod_title}
+                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900" href={`/admin/products/${item.prod_id}/edit`}>
+                                                    <EllipsisText text= {item.prod_title} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/>
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.prod_author}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.created_at}</td>
-                                                <td className="pb-4 pt-6 px-6"><S3Image imagePath={item.attachment.att_storage_path}/></td>
-                                                <td className="text-center pb-4 pt-6 px-6">{item.order.ord_cust_id}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.quantity.invent_quantity}</td>
+                                              
+                                                <td className="pb-4 pt-6 px-6">
+                                                <EllipsisText text= {item.prod_author} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/>
+                                                    
+                                                   </td>
+                                                <td className="pb-4 pt-6 px-6">  {format(new Date(item.created_at), 'MMM d, yyyy')}</td>
+                                              
+                                                {/* <td className="text-center pb-4 pt-6 px-6">{item.order.ord_cust_id}</td> */}
+                                                {/* <td className="pb-4 pt-6 px-6">{item.quantity.invent_quantity}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.quantity.invent_price}</td> */}
                                             </tr>
                                         );
                                     })}
