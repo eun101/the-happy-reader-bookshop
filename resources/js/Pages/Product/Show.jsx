@@ -9,6 +9,7 @@ import Pagination from '@/Components/Pagination';
 import S3Image from '@/Components/S3Image';
 import InputLabel from '@/Components/InputLabel';
 import Select from '@/Components/Select';
+import EllipsisText from 'react-lines-ellipsis'
 
 
 
@@ -75,11 +76,11 @@ export default function Product(props) {
             <h1 className='col-start-1 col-end-2 p-4 mx-auto'>Shop</h1>
             </div>
             <div class="p-2 bg-emerald-50 relative ">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8 ">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8  ">
                     {props.products.data.map((item) => {
                         return (
-                            <div class="p-5 bg-white-400 rounded-md items-center box-border bg-white border-4">
-                                <S3Image imagePath={item.attachment.att_storage_path} />
+                            <div class="p-5 bg-white-400 rounded-md items-center box-border bg-white border-4 ">
+                                <S3Image imagePath={item.attachment.att_storage_path} className="h-96 object-center relative rounded-lg shadow-xl dark:shadow-gray-800"/>
                                     <div className="text-center font-bold px-3">{item.prod_title}
                                     <div className=''>{item.prod_author}
                                     </div>

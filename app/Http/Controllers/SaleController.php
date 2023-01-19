@@ -42,7 +42,8 @@ class SaleController extends Controller
         $monthSale = Sale::whereMonth('created_at', $mothDate)->sum('sales_total_amount');
         $yearSale = Sale::whereYear('created_at', $YearDate)->sum('sales_total_amount');
 
- 
+        \Log::info($resultList);
+
         return Inertia::render('Sale/Index', [
             'sales'=> $resultList,
             'status'=>$status,

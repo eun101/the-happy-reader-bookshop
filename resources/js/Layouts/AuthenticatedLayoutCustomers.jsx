@@ -70,11 +70,11 @@ export default function Authenticated({ auth, header, children }) {
                                     <span className='text-xl'>My Orders</span>
                                 </NavLink1>
                             </div>
-                            <div>
+                            {/* <div>
                                 <NavLink1 href={route('wishlist.index')} active={route().current('wishlist.index')}>
                                     <span className='text-xl'>Wishlist</span>
                                 </NavLink1>
-                            </div>
+                            </div> */}
                             <div>
                                 <NavLink1 href={route('address.index')} active={route().current('address.index')}>
                                     <span className='text-xl'>

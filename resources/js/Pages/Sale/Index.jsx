@@ -39,59 +39,145 @@ export default function Inventory(props) {
             <Head title="Inventory" />
 
             <div className="py-12">
-                <div className="p-6 text-gray-900">
-                    <div className='row'>
-                        <div className="col-sm-10">
-                            <input type="text" className="form-control" name="keyword" placeholder="Search by Title" onKeyUp={handleChange}/>
-                        </div>  
-                        <div className="col-sm-2">
-                            <MutedButton type='button' onClick={doSearchHandler}>Search</MutedButton>
+                <div className="max-w-7xl mx-auto">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-12 text-gray-900">
+                            <table className="w-full whitespace-nowrap">
+                                <thead>
+                                <tr className="text-left">
+                                    <th className="text-center pb-4 pt-6 px-6">SALES THIS MONTH</th>
+                                    <th className="text-center pb-4 pt-6 px-6">SALES THIS YEAR</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-       
+
             <div className="py-12">
-                <div className="">
+                <div className="max-w-7xl mx-auto">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-7 text-gray-900">
+                        <div className="p-6 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
-                                    {/* <th className="text-center pb-4 pt-6 px-6">BOOK COVER</th> */}
-                                    <th className="text-center pb-4 pt-6 px-6">BOOK TITLE</th>
-                                    <th className="text-center pb-4 pt-6 px-6">CREATED DATE</th>
-                                    {/* <th className="text-center pb-4 pt-6 px-6">CATEGORY</th> */}
-                                    <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
-                                    {/* <th className="text-center pb-4 pt-6 px-6">STOCKS</th> */}
+                                    <th className="pb-4 pt-6 px-6">DATE</th>
+                                    <th className="text-center pb-4 pt-6 px-6">CUSTOMER</th>
+                                    <th className="text-center pb-4 pt-6 px-6 ">EMAIL</th>
+                                    <th className="text-center pb-4 pt-6 px-6">MOBILE NUMBER</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT (php)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    {props.inventories.data.map((item)=>{
+                                    {props.sales.data.map((item)=>{
                                         return (
-
-                                            <tr className="text-left border px-4 py-2">
-                                                {/* <td className="pb-4 pt-6 px-11 font-mono">
-                                                    <Link className="flex items-center px-6 py-3 focus:text-indigo-500 no-underline  text-gray-900">
-                                                        {}
+                                            <tr className="text-left border">
+                                                <td className="pb-4 pt-3 px-11 font-mono">
+                                                    <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
+                                                    {format(new Date(item.created_at), 'yyyy-MM-dd')}
                                                     </Link>
-                                                </td> */}
-                                                <td className="text-left pb-4 pt-6 px-6"> <EllipsisText text= {item.product.prod_title} style ={{overflowWrap: 'break -word'}}/>
-</td>
-                                                <td className="text-center pb-4 pt-6 px-6"> {format(new Date(item.created_at), 'MMM d, yyyy')}</td>
-                                                {/* <td className="text-center pb-4 pt-6 px-6">{item.categories.categ_category_name}</td> */}
-                                                <td className="text-center pb-4 pt-6 px-6">{item.orders.ord_cust_id}</td>
-                                            
+                                                </td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_firstname}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
+                                                <td className="text-center pb-4 pt-6">{item.number_of_sales}</td>                                               
+                                                <td className="text-center pb-4 pt-6 px-6">{item.total_sales_amount}</td>
                                             </tr>
                                         );
                                     })}
                                 </tbody>
                             </table>
-                            <Pagination resultList={props.inventories}/>
+                            <Pagination resultList={props.sales}/>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
+
+            {/* <div className="py-12">
+                <div className="max-w-7xl mx-auto">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900">
+                            <table className="w-full whitespace-nowrap">
+                                <thead>
+                                <tr className="text-left font-bold">
+                                    <th className="pb-4 pt-6 px-6">DATE</th>
+                                    <th className="text-center pb-4 pt-6 px-6"># Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Order Total</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {props.sales.data.map((item)=>{
+                                        return (
+                                            <tr className="text-left border">
+                                                <td className="pb-4 pt-2  font-mono">
+                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500 no-underline text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
+                                                        {item.created_at}
+                                                    </Link>
+                                                </td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.ordlist_ord_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_total}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_prod_id}</td>                                                <td className="pb-4 pt-6 px-6">{}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                            <Pagination resultList={props.sales}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="py-12">
+                <div className="max-w-7xl mx-auto">
+                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div className="p-6 text-gray-900">
+                            <table className="w-full whitespace-nowrap">
+                                <thead>
+                                <tr className="text-left">
+                                    <th className="pb-4 pt-6 px-6 ">DATE</th>
+                                    <th className="text-center pb-4 pt-6 px-6"># Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Order Total</th>
+                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {props.sales.data.map((item)=>{
+                                        return (
+                                            <tr className="text-left border">
+                                                <td className="pb-4 pt-6 font-mono">
+                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500 no-underline text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
+                                                        {item.created_at}
+                                                    </Link>
+                                                </td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.ordlist_ord_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_total}</td>
+                                                <td className="text-center pb-4 pt-6">{item.ordlist_prod_id}</td>     
+                                                <td className="text-center pb-4 pt-6 px-6">{item.sales_total_amount}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                            <Pagination resultList={props.sales}/>
+                        </div>
+                    </div>
+                </div>
+            </div> */}
+           
+            
+            
         </AuthenticatedLayout>
     );
 }

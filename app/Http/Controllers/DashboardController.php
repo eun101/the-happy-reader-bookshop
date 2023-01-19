@@ -42,23 +42,29 @@ class DashboardController extends Controller
         $totalSale = Sale::count();
         $totalCustomer = Customer::count();
         // $totalBooks = OrderList::count('ordlist_quantity');
-        $totalTitle = Product::count('prod_title');
+        $totalTitle = Product::count('prod_id');
 
-        $todayDate = Carbon::now()->format('d-m-Y');
-        $mothDate = Carbon::now()->format('m');
+
+        $todayDate = Carbon::now()->format('Y-m-d');
+        // $now = Carbon::now();
+        // $monthDate = $now->month;
+        $now = Carbon::now(); 
+        $monthDate = $now->format('m');
         $YearDate = Carbon::now()->format('Y');
 
-        $todayOrder = Order::whereDate('created_at', $todayDate)->count();
-        $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
-        $yearOrder = Order::whereYear('created_at', $YearDate)->count();
+
+        $todayOrder = Order::whereDate('created_at', $todayDate)->count('ord_id');
+        $monthOrder = Order::whereMonth('created_at', $monthDate)->count('ord_id');
+        $yearOrder = Order::whereYear('created_at', $YearDate)->count('ord_id');
         
-        $totalBooks = OrderList::whereMonth('created_at', $mothDate)->sum('ordlist_quantity');
+        $totalBooks = OrderList::whereMonth('created_at', $monthDate)->sum('ordlist_quantity');
 
         $todaySale = Sale::whereDate('created_at', $todayDate)->sum('sales_total_amount');
-        $monthSale = Sale::whereMonth('created_at', $mothDate)->sum('sales_total_amount');
+        $monthSale = Sale::whereMonth('created_at', $monthDate)->sum('sales_total_amount');
         $yearSale = Sale::whereYear('created_at', $YearDate)->sum('sales_total_amount');
         
-        
+        // \Log::info($todaySale);
+        // dd($monthSale);
         
         return Inertia::render('Dashboard/Index', [
             'dashboard'=> $resultList,
@@ -73,7 +79,7 @@ class DashboardController extends Controller
             'yearOrder'=>$yearOrder,
             'todaySale'=>number_format($todaySale, 2),
             'monthSale'=>number_format($monthSale, 2),
-            'yearSale'=>number_format($yearSale. 2),
+            'yearSale'=>number_format($yearSale, 2),
             
 
         ]);
