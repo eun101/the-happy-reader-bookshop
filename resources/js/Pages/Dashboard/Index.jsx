@@ -39,22 +39,22 @@ export default function Dashboard(props) {
                 </div>
             </div> */}
     
-            <div className="py-12">
+            <div className="pt-3">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-14 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr>
-                                    <th className="pb-4 pt-6 px-6">Order/s Today</th>
-                                    <th className="pb-4 pt-6 px-6">Total Orders This Month</th>
-                                    <th className="pb-4 pt-6 px-6">Total Orders This Year</th>
+                                    <th className="pb-4 pt-6 px-6 text-center" >Order/s Today</th>
+                                    {/* <th className="pb-4 pt-6 px-6">Total Orders This Month</th> */}
+                                    <th className="pb-4 pt-6 px-6 text-center">Total Orders This Year</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.todayOrder}</th>
-                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthOrder}</th>
+                                    {/* <th className='text-center text-indigo-400 text-4xl'>{props.monthOrder}</th> */}
                                     <th className='text-center text-indigo-400 text-4xl'>{props.yearOrder}</th>
                                     </tr>
                                 </tbody>
@@ -63,7 +63,7 @@ export default function Dashboard(props) {
                     </div>
                 </div>
             </div>
-            <div className="py-5">
+            <div className="py-3">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-14 text-gray-900">
@@ -71,14 +71,14 @@ export default function Dashboard(props) {
                                 <thead>
                                 <tr>
                                     <th className="pb-4 pt-6 px-6 text-center">Sales This Day</th>
-                                    <th className="pb-4 pt-6 px-6 text-center">Sales This Month</th>
+                                    {/* <th className="pb-4 pt-6 px-6 text-center">Sales This Month</th> */}
                                     <th className="pb-4 pt-6 px-6 text-center">Sales This Year</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                     <th className='text-center text-indigo-400 text-4xl'>{props.todaySale}</th>
-                                    <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th>
+                                    {/* <th className='text-center text-indigo-400 text-4xl'>{props.monthSale}</th> */}
                                     <th className='text-center text-indigo-400 text-4xl'>{props.yearSale}</th>
                                     </tr>
                                 </tbody>

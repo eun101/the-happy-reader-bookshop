@@ -21,14 +21,14 @@ export default function Sales(props) {
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left">
-                                    <th className="text-center pb-4 pt-6 px-6">SALES THIS MONTH</th>
+                                    <th className="text-center pb-4 pt-6 px-6">SALES TODAY</th>
                                     <th className="text-center pb-4 pt-6 px-6">SALES THIS YEAR</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
-                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.monthSale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.todaySale}</th>
+                                    <th className='text-center italic font-tita-eunice text-4xl text-indigo-400'>{props.yearSale}</th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -61,11 +61,11 @@ export default function Sales(props) {
                                                     {format(new Date(item.created_at), 'yyyy-MM-dd')}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.cust_firstname}</td>
+                                                <td className="pb-4 pt-6 px-6">{item.cust_firstname} {item.cust_lastname} </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
                                                 <td className="text-center pb-4 pt-6">{item.number_of_sales}</td>                                               
-                                                <td className="text-center pb-4 pt-6 px-6">{item.total_sales_amount}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.total_sales_amount}.00</td>
                                             </tr>
                                         );
                                     })}

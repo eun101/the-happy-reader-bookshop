@@ -24,13 +24,13 @@ export default function Orders(props) {
         >
             <Head title="Orders" />
 
-            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+            {/* <div className="flex flex-row-reverse rounded-full px-3 py-12">
                 <PrimaryButton type='button'
                 onClick={onAddHandler} >New Order</PrimaryButton>
                 <div>{props.status}</div>
-            </div>
+            </div> */}
 
-            <div className="py-12 ">
+            <div className="py-16 ">
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-12 text-gray-900">
@@ -38,16 +38,16 @@ export default function Orders(props) {
                                 <thead>
                                 <tr>
                                     <th className="text-center pb-4 pt-6 px-6">Total Order Today</th>
-                                    <th className="text-center pb-4 pt-6 px-6">Total Order This Month</th>
+                                    {/* <th className="text-center pb-4 pt-6 px-6">Total Order This Month</th> */}
                                     <th className="text-center pb-4 pt-6 px-6">Total Order This Year</th>
-                                    <th className="text-center pb-4 pt-6 px-6">Total Order</th>
+                                    <th className="text-center pb-4 pt-6 px-6">Total Order Since Operation</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                     <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.todayOrder}</th>
-                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th>
-                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th>
+                                    {/* <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.monthOrder}</th> */}
+                                    <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.yearOrder}</th>
                                     <th className='text-center font-tita-eunice text-4xl text-indigo-400'>{props.totalOrder}</th>
                                     </tr>
                                 </tbody>
@@ -56,18 +56,17 @@ export default function Orders(props) {
                     </div>
                 </div>
             </div>
-            <div className="py-12">
+            <div className="py-3">
                 <div className="">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-11 px-16 text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
 
-                                <tr className="">
-                                    <th className=" pb-4 pt-6 pl-4">DATE</th>
-                                    <th className=" pb-4 pt-6 pl-4">CUSTOMER</th>
-                                    {/* <th className=" pb-4 pt-6 pl-4">EMAIL</th>
-                                    <th className=" pb-4 pt-6 pl-4">MOBILE #</th> */}
+                                <tr>
+                                    <th className=" pb-4 pt-6 pl-4 ">DATE ORDERED</th>
+                                    <th className=" pb-4 pt-6 pl-4 ">ORDER #</th>
+                                    <th className=" pb-4 pt-6 pl-4 ">CUSTOMER</th>
                                     <th className=" pb-4 pt-6 pl-4">SHIPPING ADDRESS</th>
                                     <th className=" pb-4 pt-6 pl-8">BOOK ORDERS</th>
                                     <th className=" pb-4 pt-6 pl-8">ORDER TOTAL</th>
@@ -78,31 +77,22 @@ export default function Orders(props) {
                                         return (
 
                                             
-                                            <tr className="text-left border">
-                                                <td className="pb-4 pt-6 font-mono">
-                                                    <Link className="flex items-center no-underline  text-gray-900">
-                                                    {format(new Date(item.created_at), 'MMM d, yyyy')}
+                                            <tr className="text-left border px-6">
+                                                <td className="pb-4 pt-6 px-6">  {format(new Date(item.created_at), 'MMM d, yyyy')}</td>
+                                                <td className="pb-4 pt-6 underline">
+                                                    <Link className="flex items-center text-gray-900">
+                                                    {item.ord_number}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.customer.cust_firstname} {item.customer.cust_lastname}</td>
+                                                <td>{item.customer.cust_firstname} {item.customer.cust_lastname}</td>
                                                 {/* <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td> */}
                                                    <td className="pb-4 pt-6"><EllipsisText text= {item.ord_delivery_address} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/></td>
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_prod_id}</td>
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_total}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td>
-                                                {/* <td>
-                                                <InputLabel for="category" value="Category" />
-                                                <Select id="category" className="mt-1 block w-full"
-                                                name="ord_status"
-                                                handleChange={handleChange}
-                                                options={props.statusList}
-                                                placeholder="-- Select Category --"
-                                                optionLabel="opti_name"
-                                                optionValue="opt_id"
-                                                required />
-                                                </td> */}
-
+                                        
+ 
 
                                             </tr>
                                         );

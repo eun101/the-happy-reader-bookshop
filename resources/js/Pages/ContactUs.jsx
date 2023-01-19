@@ -7,14 +7,13 @@ export default function ContactUs() {
     <MainMenuLayout>
       <div className="container-fluid">
         <div className="col">
-          <h1 className="text-center p-5">HOW CAN WE HELP?</h1>
-          <img src='https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/contact-banner.jpg' className="h-96 w-full object-cover object-top" />
-
+          <img src='https://the-happy-reader-bookshop.s3.ap-southeast-1.amazonaws.com/capstone+assets/contact-us.png' />
         </div>
+        <h1 className="text-center pt-5">HOW CAN WE HELP?</h1>
         <div className="col"></div>
       </div>
       <div id="faqs" className='container'>
-        <p className="p-5 text-center">Below are frequently asked questions. In case this doesn't resolve your concern
+        <p className="p-2 text-center">Below are frequently asked questions. In case this doesn't resolve your concern
           feel free  to send us a message via contact from below.
         </p>
         <h1 className="text-center pb-5">Frequently Asked Questions</h1>
@@ -112,7 +111,7 @@ export default function ContactUs() {
           </Accordion.Item>
         </Accordion>
       </div>
-      <div id="contact-form" className="container-fluid pt-2 ">
+      <div id="contact-form" className="container-fluid ">
         <div id="contact-formcontent" className="container ">
           <h2 className="text-center pb-5">Contact Us</h2>
           <form>

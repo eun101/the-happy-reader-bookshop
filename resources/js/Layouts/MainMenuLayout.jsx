@@ -56,7 +56,7 @@ export default function Guest({ children }) {
             <div className="">
                 {children}
             </div>
-            <div className='mt-5'>
+            <div className=''>
             <Footer/>
             </div>
         </div>

@@ -22,7 +22,8 @@ class ProductService extends AbstractModelService implements IModelService{
             $resultList->where(function($query) use($filters){
                 $query->where('prod_categ_id','like', '%'.$filters['keyword'].'%');
                 $query->orWhere('prod_title','like', '%'.$filters['keyword'].'%');
-                $query->orWhere('prod_title','like', '%'.$filters['keyword'].'%');
+                $query->orWhere('prod_author','like', '%'.$filters['keyword'].'%');
+                $query->orWhere('prod_description','like', '%'.$filters['keyword'].'%');
             });
         }
 

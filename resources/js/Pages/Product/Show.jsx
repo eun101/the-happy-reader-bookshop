@@ -63,10 +63,10 @@ export default function Product(props) {
             <div className="py-0 bg-emerald-50">
                 <div className="p-6 text-gray-900">
                     <div className='row flex justify-end'>
-                        <div className="col-sm-2">
+                        <div className="col-sm-2 pt-12">
                             <input type="text" className="form-control" name="keyword" placeholder="" onKeyUp={handleChange}/>
                         </div>  
-                        <div className="col-sm-1">
+                        <div className="col-sm-2 pl-12 pt-12">
                             <MutedButton type='button' onClick={doSearchHandler}>Search</MutedButton>
                         </div>
                     </div>
@@ -74,16 +74,18 @@ export default function Product(props) {
             </div>      
 
             <div className='col-start-1 col-end-2 p-4 mx-auto bg-emerald-50'>
+            <Link href={'/product-list'}>
             <h1 className='col-start-1 col-end-2 p-4 mx-auto'>Shop</h1>
+            </Link>
             </div>
 
 
-            <div class="p-2 bg-emerald-50 relative ">
+            <div class="p-5 bg-emerald-50 ">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8 ">
                     {props.products.data.map((item) => {
                         return (
-                            <div class=" bg-white-400 rounded-md items-center box-border bg-white p-4 border-4">
-                                <div className='rounded-full  h-96'>
+                            <div class=" bg-white-400 rounded-md mx-auto box-border bg-white p-4 border-4">
+                                <div className='rounded-full pb-3'>
                                 <S3Image imagePath={item.attachment.att_storage_path} />
                                 </div>
                                     <div className="text-center px-3">

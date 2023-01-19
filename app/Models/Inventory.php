@@ -24,6 +24,10 @@ class Inventory extends BaseModel
 
     }
 
+    public function attachment(){
+        return $this->morphOne('App\Models\Attachment','att_reference')->withDefault();
+    }
+
     // public function title(){
     //     return $this->belongsTo('App\Models\Product','invent_prod_id')->withDefault();
     // }

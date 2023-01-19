@@ -46,8 +46,6 @@ class DashboardController extends Controller
 
 
         $todayDate = Carbon::now()->format('Y-m-d');
-        // $now = Carbon::now();
-        // $monthDate = $now->month;
         $now = Carbon::now(); 
         $monthDate = $now->format('m');
         $YearDate = Carbon::now()->format('Y');

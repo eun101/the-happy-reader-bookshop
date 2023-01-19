@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
 
-        <div id="" className="container-fluid bg-gray-800">
+        <div id="" className=" bg-gray-800">
             <div className="row mx-auto pl-28 pt-4">
                 <div className="col-md-3 text-gray-200 pl-x-5">
                     <h2>Useful Links</h2>

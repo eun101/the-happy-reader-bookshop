@@ -36,13 +36,18 @@ class OrderController extends Controller
 
     $totalOrder = Order::count();
 
-    $todayDate = Carbon::now()->format('d-m-Y');
-    $mothDate = Carbon::now()->format('m');
+    // $todayDate = Carbon::now()->format('d-m-Y');
+    // $mothDate = Carbon::now()->format('m');
+    // $YearDate = Carbon::now()->format('Y');
+
+    $todayDate = Carbon::now()->format('Y-m-d');
+    $now = Carbon::now(); 
+    $monthDate = $now->format('m');
     $YearDate = Carbon::now()->format('Y');
     
 
     $todayOrder = Order::whereDate('created_at', $todayDate)->count();
-    $monthOrder = Order::whereMonth('created_at', $mothDate)->count();
+    $monthOrder = Order::whereMonth('created_at', $monthDate)->count();
     $yearOrder = Order::whereYear('created_at', $YearDate)->count();
 
 

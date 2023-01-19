@@ -109,14 +109,14 @@ export default function Customer(props) {
                                     value={data.cust_email}
                                     />
                                     </div>
-                                    <div className="mt-6">
+                                    {/* <div className="mt-6">
                                         <InputLabel for="customer_password" value="Password" />
                                         <TextInput id="customer_password" className="mt-1 block w-full" 
                                     name="cust_password" 
                                     handleChange={handleChange}
                                     value={data.cust_password}
                                     />
-                                    </div>
+                                    </div> */}
 
                             <div className="flex items-center gap-4 py-4">
                                 <DangerButton type='button' onClick={doConfirmDelete}>Delete</DangerButton>

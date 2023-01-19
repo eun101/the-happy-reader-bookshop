@@ -6,6 +6,8 @@ import { Head, Link } from '@inertiajs/inertia-react';
 import { filter, get } from 'lodash';
 import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
+import { compareAsc, format } from 'date-fns';
+import EllipsisText from 'react-lines-ellipsis'
 
 
 
@@ -42,16 +44,14 @@ export default function Customers(props) {
         >
             <Head title="Customer" />
 
-            <div className="flex flex-row-reverse rounded-full px-3 py-12">
+            {/* <div className="flex flex-row-reverse rounded-full px-3 py-12">
                 <PrimaryButton type='button'
                 onClick={onAddHandler} >Add New Customer Account</PrimaryButton>
                 <div>{props.status}</div>
-            </div>
+            </div> */}
 
-
-
-            <div className="py-5">
-                    <div className="p-6 text-gray-900">
+            <div className="">
+                    <div className="p-8 pt-16 pb-18 text-gray-900">
                         <div className='row'>
                             <div className="col-sm-10">
                                 <input type="text" className="form-control" name="keyword" placeholder="Search by Name" onKeyUp={handleChange}/>
@@ -64,16 +64,17 @@ export default function Customers(props) {
                 </div>
 
        
-            <div className="py-1">
+            <div className="py-5">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">
+                        <div className="p-6  text-gray-900">
                             <table className="w-full whitespace-nowrap">
                                 <thead>
                                 <tr className="text-left font-bold">
                                     <th className="pb-4 pt-6 px-6">NAME</th>
                                     <th className="pb-4 pt-6 px-6">EMAIL</th>
                                     <th className="pb-4 pt-6 px-6">CONTACT NUMBER</th>
+                                    <th className="pb-4 pt-6 px-6">DATE JOINED</th>
                                     {/* <th className="pb-4 pt-6 px-6">PURCHASES</th> */}
                                 </tr>
                                 </thead>
@@ -81,14 +82,16 @@ export default function Customers(props) {
                                     {props.customers.data.map((item)=>{
                                         return (
 
-                                            <tr className="text-left border px-4 py-2">
-                                                <td className="pb-4 px-11 font-mono">
-                                                    <Link className="flex items-center px-6 py-4 focus:text-indigo-500 no-underline text-gray-900">
+                                            <tr className="text-left border px-11 py-2">
+                                                <td className="pb-4 px-11 underline text-left">
+                                                    <Link className="flex items-center py-4 focus:text-indigo-500 text-gray-900" href={`/admin/customers/${item.cust_id}/edit`}>
                                                         {item.cust_firstname} {item.cust_lastname}
                                                     </Link>
                                                 </td>
-                                                <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
-                                                <td className="text-center pb-4 pt-6 px-6">+639{item.cust_contact}</td>
+                                                <td className="pb-4 pt-6 px-11">{item.cust_email}</td>
+                                                <td className="text-center pb-4 pt-6 px-11">+639{item.cust_contact}</td>
+                                                <td className="text-center pb-4 pt-6 px-11"> {format(new Date(item.created_at), 'MMM d, yyyy')}</td>
+
                                                 {/* <td className="pb-4 pt-6 px-6">{item.cust_contact}</td> */}
                                             </tr>
                                         );

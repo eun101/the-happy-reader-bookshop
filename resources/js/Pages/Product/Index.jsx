@@ -80,7 +80,7 @@ export default function Product(props) {
                     <div className="p-6 text-gray-900">
                         <div className='row'>
                             <div className="col-sm-10">
-                                <input type="text" className="form-control" name="keyword" placeholder="Search by Title and Author" onKeyUp={handleChange}/>
+                                <input type="text" className="form-control" name="keyword" placeholder="Search by Title" onKeyUp={handleChange}/>
                             </div>  
                             <div className="col-sm-1">
                                 <MutedButton type='button' onClick={doSearchHandler}>Search</MutedButton>
@@ -120,14 +120,14 @@ export default function Product(props) {
                                         return (
                                             <tr className="text-left border px-4 py-2">
                                                     <td className="pb-4 pt-6 px-6 w-1/5 "><S3Image imagePath={item.attachment.att_storage_path}/></td>
-                                                <td className="pb-4 pt-3 px-11 font-mono">
-                                                    <Link className="flex items-center px-6 py-2 focus:text-indigo-500 no-underline text-gray-900" href={`/admin/products/${item.prod_id}/edit`}>
-                                                    <EllipsisText text= {item.prod_title} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/>
+                                                <td className="pb-4 pt-3 px-11">
+                                                    <Link className="flex px-6 py-2 focus:text-indigo-500 no-underline text-gray-900" href={`/admin/products/${item.prod_id}/edit`}>
+                                                    <EllipsisText text= {item.prod_title} className="underline" rows="10" style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}} />
                                                     </Link>
                                                 </td>
                                               
                                                 <td className="pb-4 pt-6 px-6">
-                                                <EllipsisText text= {item.prod_author} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/>
+                                                <EllipsisText text= {item.prod_author}/>
                                                     
                                                    </td>
                                                 <td className="pb-4 pt-6 px-6">  {format(new Date(item.created_at), 'MMM d, yyyy')}</td>

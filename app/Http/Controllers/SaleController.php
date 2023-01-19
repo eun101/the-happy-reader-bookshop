@@ -34,12 +34,17 @@ class SaleController extends Controller
 
         $totalSale = Sale::count();
 
-        $todayDate = Carbon::now()->format('d-m-Y');
-        $mothDate = Carbon::now()->format('m');
+        // $todayDate = Carbon::now()->format('d-m-Y');
+        // $mothDate = Carbon::now()->format('m');
+        // $YearDate = Carbon::now()->format('Y');
+
+        $todayDate = Carbon::now()->format('Y-m-d');
+        $now = Carbon::now(); 
+        $monthDate = $now->format('m');
         $YearDate = Carbon::now()->format('Y');
 
         $todaySale = Sale::whereDate('created_at', $todayDate)->sum('sales_total_amount');
-        $monthSale = Sale::whereMonth('created_at', $mothDate)->sum('sales_total_amount');
+        $monthSale = Sale::whereMonth('created_at', $monthDate)->sum('sales_total_amount');
         $yearSale = Sale::whereYear('created_at', $YearDate)->sum('sales_total_amount');
 
  

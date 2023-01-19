@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import Pagination from '@/Components/Pagination';
 import { compareAsc, format } from 'date-fns';
 import EllipsisText from 'react-lines-ellipsis'
+import S3Image from '@/Components/S3Image';
+
 
 export default function Inventory(props) {
 
@@ -63,7 +65,8 @@ export default function Inventory(props) {
                                     <th className="text-center pb-4 pt-6 px-6">CREATED DATE</th>
                                     {/* <th className="text-center pb-4 pt-6 px-6">CATEGORY</th> */}
                                     <th className="text-center pb-4 pt-6 px-6"># OF ORDERS</th>
-                                    {/* <th className="text-center pb-4 pt-6 px-6">STOCKS</th> */}
+                                    <th className="text-center pb-4 pt-6 px-6">STOCKS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">PRICE</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -76,12 +79,15 @@ export default function Inventory(props) {
                                                         {}
                                                     </Link>
                                                 </td> */}
-                                                <td className="text-left pb-4 pt-6 px-6"> <EllipsisText text= {item.product.prod_title} style ={{overflowWrap: 'break -word'}}/>
-</td>
+                                                <td className="text-left pb-4 pt-6 px-6"> <EllipsisText text= {item.product.prod_title} style ={{overflowWrap: 'break -word'}}/></td>
+                                             
+                                                {/* <td className="pb-4 pt-6 px-6 w-1/5 "><S3Image imagePath={item.attachment.att_storage_path}/></td> */}
                                                 <td className="text-center pb-4 pt-6 px-6"> {format(new Date(item.created_at), 'MMM d, yyyy')}</td>
                                                 {/* <td className="text-center pb-4 pt-6 px-6">{item.categories.categ_category_name}</td> */}
                                                 <td className="text-center pb-4 pt-6 px-6">{item.orders.ord_cust_id}</td>
-                                            
+                                                <td className="text-center pb-4 pt-6 px-6">{item.invent_quantity}</td>
+                                                <td className="text-center pb-4 pt-6 px-6">{item.invent_price}.00</td>
+
                                             </tr>
                                         );
                                     })}
