@@ -1,4 +1,5 @@
 import JoinBanner from '@/Components/JoinBanner';
+import Footer from '@/Components/Footer';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head,Link } from '@inertiajs/inertia-react';
 import PowerButton from '@/Components/PowerButton';
@@ -43,13 +44,14 @@ export default function Address(props) {
                                 </tr>
                                 </tbody>
                             </table>
+                            <Link href={route('address.create')} className="text-sm text-yellow-600 dark:text-gray-500 underline">
+                                Add New Address
+                            </Link> 
                             <h5 className='py-7'>Additional Address Entries</h5>
                             <table className='border w-full whitespace-nowrap'>
                                 <div className='pl-10'>You have no other address entries in your address book.</div>
                             </table>
-                            {/* <Link href={route('address.edit')} className="text-sm text-gray-700 dark:text-gray-500 no-underline">
-                                Add New Address
-                            </Link>  */}
+                            
                             <div>{props.status}</div>
 
                             {/* <div className="flex flex-row-reverse rounded-full px-3 py-12">
@@ -94,6 +96,9 @@ export default function Address(props) {
                 </div>
          
                 <JoinBanner/>
+                <div className="pt-5">
+            <Footer />
+            </div>
 
 
 

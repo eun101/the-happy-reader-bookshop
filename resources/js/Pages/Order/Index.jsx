@@ -88,9 +88,9 @@ export default function Orders(props) {
                                                 {/* <td className="pb-4 pt-6 px-6">{item.customer.cust_email}</td>
                                                 <td className="pb-4 pt-6 px-6">{item.customer.cust_contact}</td> */}
                                                    <td className="pb-4 pt-6"><EllipsisText text= {item.ord_delivery_address} style ={{whiteSpace: 'pre-wrap', overflowWrap: 'break -word'}}/></td>
-                                                <td className="text-center pb-4 pt-6">{item.orders.ordlist_prod_id}</td>
+                                                <td className="text-center pb-4 pt-6">{item.orders.ordlist_quantity}</td>
                                                 <td className="text-center pb-4 pt-6">{item.orders.ordlist_total}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td>
+                                                {/* <td className="pb-4 pt-6 px-6">{item.ordlist_prod_id}</td> */}
                                         
  
 

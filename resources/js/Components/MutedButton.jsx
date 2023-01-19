@@ -4,7 +4,7 @@ export default function MutedButton({ type = 'submit', className = '', processin
             type={type}
             onClick={onClick}
             className={
-                `bg-yellow hover:bg-gray-100 text-black-800 font-semibold py-2 w-22 border border-yellow-400 rounded text-sm px-5 py-2.5 mb-2 bg-yellow-400 ${
+                `bg-yellow hover:bg-gray-100  font-semibold py-2 w-22 border border-yellow-400 rounded text-sm px-5 mb-2 bg-yellow-400 ${
                     processing && 'opacity-25'
                 } ` + className
             }

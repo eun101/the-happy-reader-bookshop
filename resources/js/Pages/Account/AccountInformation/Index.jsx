@@ -1,4 +1,5 @@
 import JoinBanner from '@/Components/JoinBanner';
+import Footer from '@/Components/Footer';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head } from '@inertiajs/inertia-react';
 import Button from 'react-bootstrap/Button'
@@ -74,6 +75,9 @@ export default function AccountInformation(props) {
                 </div> */}
 
 
+            <div className="pt-5">
+            <Footer />
+            </div>
 
 
         </AuthenticatedLayoutCustomers>

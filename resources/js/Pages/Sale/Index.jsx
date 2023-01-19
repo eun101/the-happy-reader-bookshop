@@ -48,8 +48,8 @@ export default function Sales(props) {
                                     <th className="text-center pb-4 pt-6 px-6">CUSTOMER</th>
                                     <th className="text-center pb-4 pt-6 px-6 ">EMAIL</th>
                                     <th className="text-center pb-4 pt-6 px-6">MOBILE NUMBER</th>
-                                    <th className="text-center pb-4 pt-6 px-6">BOOK ORDERS</th>
-                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT (php)</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL BOOK ORDERS</th>
+                                    <th className="text-center pb-4 pt-6 px-6">TOTAL AMOUNT (Php)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -58,12 +58,12 @@ export default function Sales(props) {
                                             <tr className="text-left border">
                                                 <td className="pb-4 pt-3 px-11 font-mono">
                                                     <Link className="flex items-center no-underline  text-gray-900" href={`/sales/${item.sales_order_id}/edit`}>
-                                                    {format(new Date(item.created_at), 'yyyy-MM-dd')}
+                                                    {format(new Date(item.created_at), 'MMM dd, yyyy')}
                                                     </Link>
                                                 </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_firstname} {item.cust_lastname} </td>
                                                 <td className="pb-4 pt-6 px-6">{item.cust_email}</td>
-                                                <td className="pb-4 pt-6 px-6">{item.cust_contact}</td>
+                                                <td className="pb-4 pt-6 px-6">+639{item.cust_contact}</td>
                                                 <td className="text-center pb-4 pt-6">{item.number_of_sales}</td>                                               
                                                 <td className="text-center pb-4 pt-6 px-6">{item.total_sales_amount}.00</td>
                                             </tr>

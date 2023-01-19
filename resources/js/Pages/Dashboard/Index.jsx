@@ -95,7 +95,7 @@ export default function Dashboard(props) {
                                 <thead>
                                 <tr>
                                     <th className="pb-4 pt-6 px-6">Total Book Title</th>
-                                    <th className="pb-4 pt-6 px-6">Total Books Sold This Month</th>
+                                    <th className="pb-4 pt-6 px-6">Total Books Sold</th>
                                     <th className="pb-4 pt-6 px-6">Total Customers</th>
                                 </tr>
                                 </thead>

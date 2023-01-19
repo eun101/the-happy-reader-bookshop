@@ -15,7 +15,7 @@ class ProductService extends AbstractModelService implements IModelService{
         // $resultList = Product::with('createdBy')->with('categories')->with('attachment');
         // $resultList = Product::with('createdBy','categories','attachment');
         
-        $resultList = Product::with('createdBy')->with('order')->with('product')->with('quantity')->with('categories')->with('attachment');
+        $resultList = Product::with('createdBy')->with('order')->with('product')->with('quantity')->with('categories')->with('attachment')->with('inventory');
 
 
         if(array_key_exists('keyword', $filters) && $filters['keyword'] != ''){
@@ -26,6 +26,9 @@ class ProductService extends AbstractModelService implements IModelService{
                 $query->orWhere('prod_description','like', '%'.$filters['keyword'].'%');
             });
         }
+
+
+       
 
      
         if($paginate){

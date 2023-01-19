@@ -9,6 +9,7 @@ import MainMenuLayout from '@/Layouts/MainMenuLayout';
 import S3Image from '@/Components/S3Image';
 import JoinBanner from '@/Components/JoinBanner';
 import Footer from '@/Components/Footer';
+import ScrollBtn from '@/Components/ScrollBtn';
 
 const showProduct = () => {
     Inertia.get(route('product.show'));
@@ -147,6 +148,8 @@ export default function Welcome(props) {
                     <JoinBanner />
                 </div>
             </div>
+
+            <ScrollBtn/>
         </MainMenuLayout>
     );
 }

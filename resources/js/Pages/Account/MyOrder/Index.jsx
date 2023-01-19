@@ -1,7 +1,9 @@
 import JoinBanner from '@/Components/JoinBanner';
+import Footer from '@/Components/Footer';
 import AuthenticatedLayoutCustomers from '@/Layouts/AuthenticatedLayoutCustomers';
 import { Head, Link } from '@inertiajs/inertia-react';
 import Button from 'react-bootstrap/Button'
+import { compareAsc, format } from 'date-fns';
 
 export default function MyOrder(props) {
     return (
@@ -26,7 +28,9 @@ export default function MyOrder(props) {
                     <tbody>
                         <tr className='border'>
                             <th className="font-normal pb-9 pt-12 px-6 text-sm col-sm-1">{props.customerOrderInformation.ord_number}</th>
-                            <th className="font-normal pb-9 pt-12 px-6 text-sm col-sm-4">{props.customerOrderInformation.created_at}</th>
+                            <th className="font-normal pb-9 pt-12 px-6 text-sm col-sm-4">  {format(new Date(props.customerOrderInformation.created_at), 'MMM d, yyyy')}
+                            </th>
+                           
                             <th className="font-normal pb-9 pt-12 px-6 text-sm col-sm-2">{props.customerOrderInformation.ord_delivery_address}</th>
                             <th className="font-normal pb-9 pt-12 px-6 text-sm col-sm-2 text-red-600">₱{props.customerOrderInformation.ord_amount}</th>
                             <th className="font-normal pb-9 pt-12 pl-4 text-sm">Processing</th>
@@ -63,6 +67,9 @@ export default function MyOrder(props) {
                 </div>
 
                 <JoinBanner/>
+                <div className="pt-5">
+            <Footer />
+            </div>
          
 
         </AuthenticatedLayoutCustomers>
